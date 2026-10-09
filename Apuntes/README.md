@@ -12,6 +12,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-24 · Lab 1: paseo por Kali](Ciber/2026-09-24_lab1-paseo-por-kali.md)
 - [2026-09-29 · Clase 3: dónde falla un sistema (CVE/CVSS/NVD)](Ciber/2026-09-29_clase3-donde-falla-un-sistema.md)
 - [2026-09-29 · Práctica Clase 3: CVE en NVD y CVE Details](Ciber/2026-09-29_practica-clase3-cve.md)
+- [2026-10-09 · Lab 2: del CVE al ataque (Metasploitable)](Ciber/2026-10-09_lab2-metasploitable.md)
 
 ## SAD
 - [2026-10-01 · Clase 3: la CID (openssl, hashes, MTTR)](SAD/2026-10-01_clase3-cid.md)
