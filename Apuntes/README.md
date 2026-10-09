@@ -7,6 +7,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-05 · Repaso procesos, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
 
 ## Ciberseguridad
+- [2026-09-15 · Clase 1: presentación del módulo](Ciber/2026-09-15_clase1-presentacion.md)
 - [2026-09-22 · Clase 2: los cuatro pilares](Ciber/2026-09-22_clase2-pilares.md)
 - [2026-09-22 · Práctica 1: tres demostraciones](Ciber/2026-09-22_practica1-tres-demostraciones.md)
 - [2026-09-24 · Lab 1: paseo por Kali](Ciber/2026-09-24_lab1-paseo-por-kali.md)
