@@ -18,6 +18,12 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-06 · Clase 4: seguridad física, CPDs y el SAI](Ciber/2026-10-06_clase4-seguridad-fisica-sai.md)
 - [2026-10-09 · Lab 2: del CVE al ataque (Metasploitable)](Ciber/2026-10-09_lab2-metasploitable.md)
 
+## IAW
+- [2026-09-14 · Clase 1: presentación del módulo](IAW/2026-09-14_clase1-presentacion.md)
+- [2026-09-21 · Clase 2: arquitecturas web y cliente-servidor](IAW/2026-09-21_clase2-arquitecturas-cliente-servidor.md)
+- [2026-09-28 · Clase 3: modelo vista-controlador y Actividad 1](IAW/2026-09-28_clase3-mvc-actividad1.md)
+- [2026-10-05 · Clase 4: instalación de XAMPP y PHP básico](IAW/2026-10-05_clase4-xampp-php-basico.md)
+
 ## SAD
 - [2026-10-01 · Clase 3: la CID (openssl, hashes, MTTR)](SAD/2026-10-01_clase3-cid.md)
 - [2026-10-05 · Lab 2: security group](SAD/2026-10-05_lab2-security-group.md)
@@ -33,10 +39,12 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
 
 ## Sin apuntes aún
-[IAW](IAW/README.md) · [Digitalización](Digitalizacion/README.md) · [Sostenibilidad](Sostenibilidad/README.md)
+[Digitalización](Digitalizacion/README.md) · [Sostenibilidad](Sostenibilidad/README.md)
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
 - Entrega SAD Actividad 1: lunes 19/10.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
+- ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
+- IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
