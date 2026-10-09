@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SGBD · Tema 1 (21/09) · Repaso relacional, ANSI/SPARC y el rol del administrador
 
-> Anterior: [Clase 1: presentación del módulo](2026-09-14_clase1-presentacion.md) · Siguiente: [Tema 2: repaso DDL/DML/DCL](2026-10-05_tema2-repaso-ddl-dml-dcl.md)
+> Anterior: [Clase 1: presentación del módulo](2026-09-14_clase1-presentacion.md) · Siguiente: [Tutoría: instalación de SQL Express, MariaDB y Oracle (25/09)](2026-09-25_tutoria-instalacion-sgbd.md)
 
 Primera clase con contenido real de la asignatura (la del 14/09 fue solo presentación). El propio profesor señaló al final de la clase cuáles son, literalmente, **las 3 cosas del Tema 1 más susceptibles de entrar en el examen de mayo**: los lenguajes (DDL/DML/DCL), los roles (DBA vs. desarrollador) y la arquitectura ANSI/SPARC — con ANSI/SPARC marcada explícitamente como la más importante de las tres.
 
