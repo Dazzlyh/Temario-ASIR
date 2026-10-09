@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SGBD · Clase 1 (14/09) · Presentación del módulo
 
-> Siguiente: [Tema 2: repaso DDL/DML/DCL](2026-10-05_tema2-repaso-ddl-dml-dcl.md)
+> Siguiente: [Tema 1: relacional, ANSI/SPARC y el rol del DBA](2026-09-21_tema1-conceptos-relacional-ansi-sparc.md)
 
 Clase introductoria (contaba oficialmente como "semana 1"; la primera clase con contenido fue el lunes 21/09), sin contenido técnico de examen. Organización del curso.
 

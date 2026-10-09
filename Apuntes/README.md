@@ -25,6 +25,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 
 ## SGBD
 - [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
+- [2026-09-21 · Tema 1: relacional, ANSI/SPARC y el rol del DBA](SGBD/2026-09-21_tema1-conceptos-relacional-ansi-sparc.md)
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
 
 ## Sin apuntes aún

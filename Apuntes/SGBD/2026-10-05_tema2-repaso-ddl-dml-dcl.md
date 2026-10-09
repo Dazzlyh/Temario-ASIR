@@ -6,6 +6,8 @@ fuente: apuntes de clase de Dani (lista de sentencias)
 ---
 # SGBD · Tema 2 (05/10) · Repaso de SQL de 1º
 
+> Anterior: [Tema 1: relacional, ANSI/SPARC y el rol del DBA](2026-09-21_tema1-conceptos-relacional-ansi-sparc.md)
+
 Lo anotado en clase (**solo lista; falta desarrollar con ejemplos**):
 - **DDL**: `CREATE TABLE`, `CREATE DATABASE`, `USE`, `IF NOT EXISTS`, `ALTER TABLE` (`ADD COLUMN`, `DROP COLUMN`), `TRUNCATE`, `CREATE VIEW`, `ALTER VIEW`, `DROP VIEW`.
 - **DML**: `SELECT`, `INSERT` (`INSERT INTO tabla VALUES ...`), `UPDATE` (`UPDATE tabla SET valor ...`), `DELETE` — sintaxis completa.
