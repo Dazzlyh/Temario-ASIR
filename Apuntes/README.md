@@ -3,6 +3,8 @@
 Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como vault de Obsidian (enlaces Markdown estándar). Los directorios de temario (`ASO/`, `SAD/`, …) en la raíz del repo **no se tocan**.
 
 ## ASO
+- [2026-09-14 · Clase 1: presentación del módulo](ASO/2026-09-14_clase1-presentacion.md)
+- [2026-09-21 · Clase 2: primera clase de contenido (Linux básico)](ASO/2026-09-21_primera-clase-linux-basico.md)
 - [2026-09-28 · UD1 Linux básico](ASO/2026-09-28_ud1-linux-basico.md)
 - [2026-10-05 · Repaso procesos, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
 
