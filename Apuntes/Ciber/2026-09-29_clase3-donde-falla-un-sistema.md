@@ -6,7 +6,7 @@ fuente: CIBER_Clase03_diapositivas.pdf (recibido dos veces, idéntico) + transcr
 ---
 # Ciber · Clase 3 (29/09) · Dónde falla un sistema
 
-> Anterior: [Lab 1](2026-09-24_lab1-paseo-por-kali.md) · Práctica: [CVE en el NVD](2026-09-29_practica-clase3-cve.md) · Siguiente (Clase 4): seguridad física y el SAI
+> Anterior: [Lab 1](2026-09-24_lab1-paseo-por-kali.md) · Práctica: [CVE en el NVD](2026-09-29_practica-clase3-cve.md) · Siguiente: [Clase 4 · Seguridad física y el SAI](2026-10-06_clase4-seguridad-fisica-sai.md)
 
 > «Lo que nmap ve como una versión, el atacante lo ve como una lista de fallos con nombre.»
 
