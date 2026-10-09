@@ -6,7 +6,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-14 · Clase 1: presentación del módulo](ASO/2026-09-14_clase1-presentacion.md)
 - [2026-09-21 · Clase 2: primera clase de contenido (Linux básico)](ASO/2026-09-21_primera-clase-linux-basico.md)
 - [2026-09-28 · UD1 Linux básico](ASO/2026-09-28_ud1-linux-basico.md)
-- [2026-10-05 · Repaso procesos, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
+- [2026-10-05 · Tema 2: repaso procesos, planificación, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
 
 ## Ciberseguridad
 - [2026-09-15 · Clase 1: presentación del módulo](Ciber/2026-09-15_clase1-presentacion.md)
@@ -38,4 +38,5 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
 - Entrega SAD Actividad 1: lunes 19/10.
-- SGBD y ASO (repaso 05/10) son solo listas de lo anotado en clase; pendientes de ampliar.
+- SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
+- ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
