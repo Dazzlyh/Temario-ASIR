@@ -24,6 +24,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
 
 ## SGBD
+- [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
 
 ## Sin apuntes aún
