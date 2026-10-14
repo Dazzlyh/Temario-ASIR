@@ -25,8 +25,13 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-05 · Clase 4: instalación de XAMPP y PHP básico](IAW/2026-10-05_clase4-xampp-php-basico.md)
 
 ## SAD
+- [2026-09-16 · Clase 1: presentación del módulo](SAD/2026-09-16_clase1-presentacion.md)
+- [2026-09-21 · Laboratorio 0: día 0 del servidor](SAD/2026-09-21_lab0-dia0-servidor.md)
+- [2026-09-23 · Clase 2: principios de seguridad](SAD/2026-09-23_clase2-principios-seguridad.md)
+- [2026-09-30 · MITRE y defensa del servidor](SAD/2026-09-30_mitre-defensa-servidor.md)
 - [2026-10-01 · Clase 3: la CID (openssl, hashes, MTTR)](SAD/2026-10-01_clase3-cid.md)
 - [2026-10-05 · Lab 2: security group](SAD/2026-10-05_lab2-security-group.md)
+- [2026-10-07 · Actividad 1: MITRE y análisis forense](SAD/2026-10-07_actividad1-mitre-forense.md)
 
 ## SER
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
@@ -43,7 +48,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
-- Entrega SAD Actividad 1: lunes 19/10.
+- SAD Actividad 1: entrega lunes 19/10 — rúbrica de 6 apartados, la cadena de ataque con MITRE ATT&CK vale el 30%.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.

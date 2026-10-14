@@ -6,7 +6,7 @@ fuente: SAD_Lab02_Practica.pdf + SAD_Lab02_Comandos.pdf + apuntes de clase de Da
 ---
 # SAD · Laboratorio 2 (05/10) · ¿Se llega al servidor?
 
-> Anterior: [Clase 3](2026-10-01_clase3-cid.md) · Profesor: Damián Sualdea (UNIR FP, sala 16070-2)
+> Anterior: [Clase 3](2026-10-01_clase3-cid.md) · Siguiente: [Clase 4 — Actividad 1](2026-10-07_actividad1-mitre-forense.md) · Profesor: Damián Sualdea (UNIR FP, sala 16070-2)
 
 **Idea que hay que llevarse**: para usar un servicio hacen falta **DOS cosas a la vez**: que algo **escuche por dentro** y que una **regla lo deje pasar por fuera**. Si falta una, no se llega.
 
@@ -66,5 +66,15 @@ Telnet (23) manda usuario y contraseña **en claro**; SSH (22) cifrado. La image
 Quitar reglas de prueba (8080 y 80); dejar solo el 22 (y ICMP si se quiere). Comprobar SSH. **Stop, nunca Terminate.**
 Los comandos (ssh, nmap, ss) se repiten a propósito durante el curso. Al enseñar pantalla, tapar el último número de la IP.
 
+## Notas en directo (matices del profesor, no están en la práctica escrita)
+- **AWS Snapshot**: se puede hacer una copia completa (snapshot) de sad1 antes de "meter la pata" en el laboratorio. Consume algo de crédito del Learner Lab; para el nivel del curso no hace falta, pero la opción existe.
+- **El sistema operativo no ve el Security Group**: el SG es un firewall *externo* a la máquina. Dentro de sad1, `ss -tlnp` (o `ss -tlns`) muestra lo que escucha de verdad, sin tener en cuenta el SG — por eso puede aparecer un puerto "abierto" en el sistema que fuera sigue bloqueado, y viceversa.
+- Analogía de un compañero sobre el Security Group: es como una regleta con muchos enchufes — que el enchufe (la regla) exista no significa que haya algo enchufado detrás (el servicio).
+- **Cambiar el puerto de Apache**: editar el fichero de configuración (`Listen 80` → `Listen 8080` en el fichero de puertos de Apache) y `sudo systemctl restart apache2`; luego el SG tiene que abrir ese mismo puerto nuevo, no el 80.
+- **¿Por qué el 22 y no Telnet?** No es por antigüedad: Telnet (puerto 23) **no cifra nada**, ni siquiera usuario/contraseña; SSH sí. Es un tema de cifrado, no de "una versión más moderna de lo mismo".
+- Duda que surgió con nmap y el puerto 53: a veces aparece como abierto aunque nadie lo haya configurado — un alumno apuntó que puede deberse a que la IP tiene un nombre de dominio DNS asociado en AWS y nmap lo detecta por eso, no porque haya un servicio DNS real escuchando. ⚠️ Explicación de un alumno, no confirmada del todo en clase.
+- Se mencionó de pasada (como contenido futuro) el **proxy inverso** (p. ej. con Nginx) para repartir varios servicios detrás de un mismo servidor según la petición — no se trabajó aún.
+- La parte de DNS prevista para este laboratorio **se quedó pendiente** para el siguiente (no dio tiempo); igual que el tema de **bastionado** (hardening) del servidor.
+
 ## Pendiente
-**Actividad 1: entrega lunes 19 de octubre** (si no se ha elegido incidente, ponerlo en el foro). El profesor la explica el miércoles 7/10.
+**Actividad 1: entrega lunes 19 de octubre** (si no se ha elegido incidente, ponerlo en el foro). El profesor la explicó en detalle en la [clase del 07/10](2026-10-07_actividad1-mitre-forense.md).
