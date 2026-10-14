@@ -39,6 +39,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-23 · Laboratorio: SRV1 desde cero](SER/2026-09-23_laboratorio-srv1-linux-basico.md)
 - [2026-09-29 · Modelo TCP/IP en directo](SER/2026-09-29_modelo-tcpip-en-directo.md)
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
+- [2026-10-07 · Laboratorio 2: DHCP con cable virtual](SER/2026-10-07_laboratorio2-dhcp-veth.md)
 
 ## SGBD
 - [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
