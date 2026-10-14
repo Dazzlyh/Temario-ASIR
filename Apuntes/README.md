@@ -34,6 +34,10 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-07 · Actividad 1: MITRE y análisis forense](SAD/2026-10-07_actividad1-mitre-forense.md)
 
 ## SER
+- [2026-09-15 · Presentación del módulo](SER/2026-09-15_presentacion-modulo.md)
+- [2026-09-22 · Conceptos básicos de red: puertos, datagramas, NAT, protocolos](SER/2026-09-22_conceptos-red-puertos-nat.md)
+- [2026-09-23 · Laboratorio: SRV1 desde cero](SER/2026-09-23_laboratorio-srv1-linux-basico.md)
+- [2026-09-29 · Modelo TCP/IP en directo](SER/2026-09-29_modelo-tcpip-en-directo.md)
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
 
 ## SGBD
@@ -53,3 +57,4 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
+- SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
