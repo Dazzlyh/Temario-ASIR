@@ -40,6 +40,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-29 · Modelo TCP/IP en directo](SER/2026-09-29_modelo-tcpip-en-directo.md)
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
 - [2026-10-07 · Laboratorio 2: DHCP con cable virtual](SER/2026-10-07_laboratorio2-dhcp-veth.md)
+- [2026-10-13 · Tema 3: arranque de DNS (jerarquía, TLDs, zonas, resolución)](SER/2026-10-13_tema3-dns-jerarquia-zonas.md)
 
 ## SGBD
 - [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
@@ -59,3 +60,4 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
+- SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 20/10: preparar servidor AWS con Elastic IP; 21/10: laboratorio BIND9 (abrir puerto 53 UDP).

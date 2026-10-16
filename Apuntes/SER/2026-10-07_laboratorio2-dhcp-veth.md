@@ -6,7 +6,7 @@ fuente: SER_Lab02_Guia.pdf (8 páginas) + transcripción de la clase en directo
 ---
 # SER · Laboratorio 2 (07/10) · Tu propio servidor DHCP
 
-> Anterior: [Clase 4: DHCP](2026-10-06_clase4-dhcp.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 4: DHCP](2026-10-06_clase4-dhcp.md) · Siguiente: [Tema 3: arranque de DNS (13/10)](2026-10-13_tema3-dns-jerarquia-zonas.md) · Profesor: Damián Sualdea Soy
 
 **Esta actividad no se entrega ni se puntúa** — es solo para verlo funcionar. El giro respecto a la Clase 4: allí `srv1` era el que **pedía** (cliente del DHCP de Amazon); hoy `srv1` pasa a ser el que **reparte**, con su propio rango, tiempos y fichero de concesiones, frente a un cliente simulado.
 
