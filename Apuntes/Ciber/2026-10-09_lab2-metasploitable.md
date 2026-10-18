@@ -6,7 +6,7 @@ fuente: CIBER_Lab02_Practica.pdf + Montaje_Metasploitable_VMware.pdf + transcrip
 ---
 # Ciber · Laboratorio 2 (09/10) · Del CVE al ataque
 
-> Anterior: [Clase 3 / Práctica CVE](2026-09-29_clase3-donde-falla-un-sistema.md) · Cierra el hilo Clase 3 → Lab 1 → hoy
+> Anterior: [Clase 3 / Práctica CVE](2026-09-29_clase3-donde-falla-un-sistema.md) · Siguiente: [Clase 5: Criptografía (13/10)](2026-10-13_clase5-criptografia.md) · Cierra el hilo Clase 3 → Lab 1 → hoy
 
 **No se entrega ni puntúa; las capturas valen para la Actividad 2.**
 

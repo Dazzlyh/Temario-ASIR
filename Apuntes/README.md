@@ -17,6 +17,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-29 · Práctica Clase 3: CVE en NVD y CVE Details](Ciber/2026-09-29_practica-clase3-cve.md)
 - [2026-10-06 · Clase 4: seguridad física, CPDs y el SAI](Ciber/2026-10-06_clase4-seguridad-fisica-sai.md)
 - [2026-10-09 · Lab 2: del CVE al ataque (Metasploitable)](Ciber/2026-10-09_lab2-metasploitable.md)
+- [2026-10-13 · Clase 5: Criptografía (historia, Kerckhoff, Shannon, simétrica vs asimétrica)](Ciber/2026-10-13_clase5-criptografia.md)
 
 ## IAW
 - [2026-09-14 · Clase 1: presentación del módulo](IAW/2026-09-14_clase1-presentacion.md)
@@ -61,3 +62,5 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
 - SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 20/10: preparar servidor AWS con Elastic IP; 21/10: laboratorio BIND9 (abrir puerto 53 UDP).
+- ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
+- Ciber: laboratorio de romper contraseñas (Kali) la semana siguiente a la clase de criptografía (13/10).
