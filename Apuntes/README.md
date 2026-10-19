@@ -55,7 +55,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
-- SAD Actividad 1: entrega lunes 19/10 — rúbrica de 6 apartados, la cadena de ataque con MITRE ATT&CK vale el 30%.
+- ⚠️ SAD Actividad 1: entrega **HOY lunes 19/10 a las 23:59** — rúbrica oficial de 5 apartados (no 6): contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, **medidas de protección 30% (el que más puntúa)**, puntos de vista 15%.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
