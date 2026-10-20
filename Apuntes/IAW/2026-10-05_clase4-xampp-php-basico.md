@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # IAW · Clase 4 (05/10) · Instalación de XAMPP y PHP básico
 
-> Anterior: [Clase 3 (28/09): modelo vista-controlador y Actividad 1](2026-09-28_clase3-mvc-actividad1.md)
+> Anterior: [Clase 3 (28/09): modelo vista-controlador y Actividad 1](2026-09-28_clase3-mvc-actividad1.md) · Siguiente: [Clase 5 (19/10): CMS y WordPress](2026-10-19_clase5-cms-wordpress-instalacion.md)
 
 Clase práctica de instalación del entorno de desarrollo (XAMPP) y primer contacto con PHP incrustado en HTML.
 

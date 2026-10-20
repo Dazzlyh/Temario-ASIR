@@ -24,6 +24,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-21 · Clase 2: arquitecturas web y cliente-servidor](IAW/2026-09-21_clase2-arquitecturas-cliente-servidor.md)
 - [2026-09-28 · Clase 3: modelo vista-controlador y Actividad 1](IAW/2026-09-28_clase3-mvc-actividad1.md)
 - [2026-10-05 · Clase 4: instalación de XAMPP y PHP básico](IAW/2026-10-05_clase4-xampp-php-basico.md)
+- [2026-10-19 · Clase 5: gestores de contenidos (CMS), licencias e instalación de WordPress](IAW/2026-10-19_clase5-cms-wordpress-instalacion.md)
 
 ## SAD
 - [2026-09-16 · Clase 1: presentación del módulo](SAD/2026-09-16_clase1-presentacion.md)
@@ -60,6 +61,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
+- IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
 - SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 20/10: preparar servidor AWS con Elastic IP; 21/10: laboratorio BIND9 (abrir puerto 53 UDP).
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
