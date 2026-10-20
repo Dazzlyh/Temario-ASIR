@@ -6,7 +6,7 @@ fuente: apuntes de clase de Dani + transcripción de la clase en directo
 ---
 # ASO · Tema 2: repaso procesos, hardware y arranque (05/10)
 
-> Anterior: [UD1](2026-09-28_ud1-linux-basico.md) · Siguiente: —
+> Anterior: [UD1](2026-09-28_ud1-linux-basico.md) · Siguiente: [Primera clase de scripting en Bash (19/10)](2026-10-19_scripting-bash-basico.md)
 
 Clase de **Jairo Bahillo Calvo**, repaso explícito de contenidos ya vistos en primero (gestión de memoria, procesos, arranque) con algo más de profundidad. El profesor avisa varias veces de qué partes son "de repaso para el test" y cuáles entran en la práctica del examen.
 

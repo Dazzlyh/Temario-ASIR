@@ -7,6 +7,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-21 · Clase 2: primera clase de contenido (Linux básico)](ASO/2026-09-21_primera-clase-linux-basico.md)
 - [2026-09-28 · UD1 Linux básico](ASO/2026-09-28_ud1-linux-basico.md)
 - [2026-10-05 · Tema 2: repaso procesos, planificación, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
+- [2026-10-19 · Primera clase de scripting en Bash (scripts, variables, read, aritmética)](ASO/2026-10-19_scripting-bash-basico.md)
 
 ## Ciberseguridad
 - [2026-09-15 · Clase 1: presentación del módulo](Ciber/2026-09-15_clase1-presentacion.md)
@@ -60,7 +61,8 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ⚠️ SAD Actividad 1: entrega **HOY lunes 19/10 a las 23:59** — rúbrica oficial de 5 apartados (no 6): contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, **medidas de protección 30% (el que más puntúa)**, puntos de vista 15%.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
-- ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
+- ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original), en PDF y por secciones.
+- ⚠️ Examen ASO: habrá un ejercicio de "encontrar los fallos" en un script Bash ya escrito (como el año pasado, con varios fallos en un mismo bloque); memorizar sin falta `#!/bin/bash`, `chmod +x`/`755`, las variables de sistema `$USER`/`$HOME`/`$PWD`, comillas simples vs dobles y la aritmética con `$(( ))` (variables sin `$` dentro).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
