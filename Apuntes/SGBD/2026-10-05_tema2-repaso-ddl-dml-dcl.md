@@ -6,7 +6,7 @@ fuente: apuntes de clase de Dani (lista de sentencias) + transcripción de la cl
 ---
 # SGBD · Tema 2 (05/10) · Repaso de SQL de 1º
 
-> Anterior: [Cierre Tema 1 + inicio Tema 2 (28/09)](2026-09-28_cierre-tema1-cajon-inicio-tema2.md)
+> Anterior: [Cierre Tema 1 + inicio Tema 2 (28/09)](2026-09-28_cierre-tema1-cajon-inicio-tema2.md) · Siguiente: [Tema 3: scripts, eventos y triggers (19/10)](2026-10-19_tema3-scripts-eventos-triggers.md)
 
 Lo anotado en clase (**solo lista; falta desarrollar con ejemplos**):
 - **DDL**: `CREATE TABLE`, `CREATE DATABASE`, `USE`, `IF NOT EXISTS`, `ALTER TABLE` (`ADD COLUMN`, `DROP COLUMN`), `TRUNCATE`, `CREATE VIEW`, `ALTER VIEW`, `DROP VIEW`.

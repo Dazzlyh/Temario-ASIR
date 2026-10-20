@@ -50,6 +50,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-25 · Tutoría: instalación de SQL Express, MariaDB y Oracle](SGBD/2026-09-25_tutoria-instalacion-sgbd.md)
 - [2026-09-28 · Cierre Tema 1 (cajón) + inicio Tema 2](SGBD/2026-09-28_cierre-tema1-cajon-inicio-tema2.md)
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
+- [2026-10-19 · Tema 3: scripts, eventos y triggers (disparadores)](SGBD/2026-10-19_tema3-scripts-eventos-triggers.md)
 
 ## Sin apuntes aún
 [Digitalización](Digitalizacion/README.md) · [Sostenibilidad](Sostenibilidad/README.md)
@@ -58,6 +59,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
 - ⚠️ SAD Actividad 1: entrega **HOY lunes 19/10 a las 23:59** — rúbrica oficial de 5 apartados (no 6): contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, **medidas de protección 30% (el que más puntúa)**, puntos de vista 15%.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
+- SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original).
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
