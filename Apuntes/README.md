@@ -35,6 +35,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-01 · Clase 3: la CID (openssl, hashes, MTTR)](SAD/2026-10-01_clase3-cid.md)
 - [2026-10-05 · Lab 2: security group](SAD/2026-10-05_lab2-security-group.md)
 - [2026-10-07 · Actividad 1: MITRE y análisis forense](SAD/2026-10-07_actividad1-mitre-forense.md)
+- [2026-10-19 · Laboratorio: la primera foto del servidor (triaje, logs, usuarios, procesos)](SAD/2026-10-19_laboratorio-primera-foto-servidor.md)
 
 ## SER
 - [2026-09-15 · Presentación del módulo](SER/2026-09-15_presentacion-modulo.md)
@@ -58,7 +59,8 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
-- ⚠️ SAD Actividad 1: entrega **HOY lunes 19/10 a las 23:59** — rúbrica oficial de 5 apartados (no 6): contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, **medidas de protección 30% (el que más puntúa)**, puntos de vista 15%.
+- SAD Actividad 1: entregada el 19/10 a las 23:59 (rúbrica oficial de 5 apartados: contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, medidas de protección 30%, puntos de vista 15%); el profesor la corrige durante la semana. Si no hay CVE para una técnica, basta con justificarlo explícitamente en el informe, no hace falta forzarlo.
+- SAD: objetivo de la próxima sesión práctica — dejar el servidor `sad1` con 0 servicios expuestos en red salvo el puerto 22.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original), en PDF y por secciones.

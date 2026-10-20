@@ -6,7 +6,7 @@ fuente: SAD_Clase04_Presentacion.pdf (24 páginas) + SAD_Clase04_Actividad1_Guia
 ---
 # SAD · Clase 4 (07/10) · Actividad 1: análisis forense con MITRE ATT&CK
 
-> Anterior: [Laboratorio 2](2026-10-05_lab2-security-group.md) · Profesor: Damián Sualdea
+> Anterior: [Laboratorio 2](2026-10-05_lab2-security-group.md) · Siguiente: [Laboratorio: primera foto del servidor (19/10)](2026-10-19_laboratorio-primera-foto-servidor.md) · Profesor: Damián Sualdea
 
 > ⚠️ **Corrección importante (19/10):** la estructura de la Actividad 1 descrita más abajo se ha corregido con la guía oficial del profesor (`SAD_Clase04_Actividad1_Guia.pdf`), que **no coincide del todo** con lo que se entendía de la transcripción: son **5 apartados, no 6** (no hay un apartado 6 de "reflexión personal" independiente — el punto 5 oficial es "puntos de vista": organización / usuario / atacante), y los **pesos son distintos**: Cadena de ataque = 25 % (no 30 %) y Medidas de protección = 30 % (es el apartado que más puntúa, no la cadena de ataque). **Hoy es el día de entrega (lunes 19, 23:59)** — revisa tu informe contra la tabla de abajo si ya lo tenías montado con la estructura antigua.
 
