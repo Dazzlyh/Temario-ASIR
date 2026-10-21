@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SER · Tema 3: arranque de DNS — jerarquía, TLDs, zonas y resolución de nombres (13/10)
 
-> Anterior: [07/10 · Laboratorio 2: DHCP con cable virtual](2026-10-07_laboratorio2-dhcp-veth.md) · Profesor: Damián Sualdea Soy
+> Anterior: [07/10 · Laboratorio 2: DHCP con cable virtual](2026-10-07_laboratorio2-dhcp-veth.md) · Siguiente: [DNS: archivo de zona, SOA y preparación de AWS para BIND9 (20/10)](2026-10-20_dns-zonas-soa-preparacion-bind9.md) · Profesor: Damián Sualdea Soy
 
 Primera clase de Tema 3 (DNS). El profesor enlaza con DHCP (clase anterior): DHCP resuelve "quién tiene qué IP"; DNS resuelve el problema humano de no tener que recordar esas IPs, traduciéndolas a nombres de dominio. Ha compartido aparte un **vídeo propio sobre instalación de BIND9** (adelantado ~2 semanas, como hace siempre) que no se trabaja hoy en directo — hoy es la teoría de DNS; BIND9 y el montaje real del servidor se hacen la semana siguiente (20-21/10).
 

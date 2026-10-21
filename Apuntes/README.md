@@ -46,6 +46,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-06 · Clase 4: DHCP](SER/2026-10-06_clase4-dhcp.md)
 - [2026-10-07 · Laboratorio 2: DHCP con cable virtual](SER/2026-10-07_laboratorio2-dhcp-veth.md)
 - [2026-10-13 · Tema 3: arranque de DNS (jerarquía, TLDs, zonas, resolución)](SER/2026-10-13_tema3-dns-jerarquia-zonas.md)
+- [2026-10-20 · DNS: archivo de zona, SOA y preparación de AWS para BIND9](SER/2026-10-20_dns-zonas-soa-preparacion-bind9.md)
 
 ## SGBD
 - [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
@@ -70,7 +71,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
-- SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 20/10: preparar servidor AWS con Elastic IP; 21/10: laboratorio BIND9 (abrir puerto 53 UDP).
+- SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 21/10: laboratorio BIND9, de 20:30 a 21:30 — ver antes el vídeo de instalación de BIND9 (Foros → Material complementario, ~22 min) y dejar lista la instancia `SRV-DNS` (Ubuntu 24) con IP elástica y Security Group con el puerto 53 abierto en UDP **y TCP**.
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
 - Ciber: laboratorio de romper contraseñas (Kali) la semana siguiente a la clase de criptografía (13/10).
 - Ciber Actividad 1 (Tema 3): laboratorio del jueves (romper contraseñas con John, cifrar con gpg, programar copia con rsync/cron) — entrega el 9 de noviembre. Clase 7 empieza Tema 4 (análisis forense).
