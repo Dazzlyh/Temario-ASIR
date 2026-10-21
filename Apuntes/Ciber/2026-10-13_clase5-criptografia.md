@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # Ciber · Clase 5 (13/10) · Criptografía: de Esparta al candado del navegador
 
-> Anterior: [Lab 2 · Metasploitable (09/10)](2026-10-09_lab2-metasploitable.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Lab 2 · Metasploitable (09/10)](2026-10-09_lab2-metasploitable.md) · Siguiente: [Clase 6: Contraseñas y copias (20/10)](2026-10-20_clase6-contrasenas-copias.md) · Profesor: Damián Sualdea Soy
 
 Clase teórica (sin "hazlo tú": se deja para el laboratorio de la semana siguiente, junto con la actividad de romper contraseñas). El profesor avisa de entrada que este tema se retomará en **Seguridad y Alta Disponibilidad (SAD)**, pero con "otro enfoque" — aquí lo da con "enfoque pirata", centrado en entender si algo cifrado se puede romper o no, de cara al trabajo de pentest/criptoanálisis.
 
