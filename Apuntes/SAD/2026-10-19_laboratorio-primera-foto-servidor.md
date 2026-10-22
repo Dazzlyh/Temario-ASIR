@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SAD · Laboratorio: la primera foto del servidor (19/10)
 
-> Anterior: [Actividad 1: MITRE y análisis forense (07/10)](2026-10-07_actividad1-mitre-forense.md) · Profesor: Damián Sualdea
+> Anterior: [Tres puntos de vista de un incidente y análisis forense (14/10)](2026-10-14_tema1-puntos-vista-forense.md) · Profesor: Damián Sualdea
 
 **Hoy es el día de entrega de la Actividad 1 (23:59).** La clase empezó como tutoría de dudas de última hora sobre esa actividad y continuó con un laboratorio en directo sobre el servidor `sad1`: un recorrido práctico por los comandos y herramientas básicas para "hacerse una foto" del estado de un servidor Ubuntu recién abierto — quién ha entrado, qué procesos corren, qué puertos están abiertos, qué usuarios existen y qué herramientas facilitan ese trabajo del día a día. No hay contenido nuevo de teoría de amenazas; es continuación práctica de lo visto el 07/10.
 
