@@ -68,6 +68,8 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 ## Digitalización
 Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 temas).
 - [2026-09-17 · Presentación del módulo: evaluación (5 tests + examen presencial ≥ 5), calendario y comunicación](Digitalizacion/2026-09-17_presentacion-modulo-evaluacion.md)
+- [2026-10-01 · Tema 1: qué es digitalizar, IT vs OT y convergencia IT/OT (+ caso práctico y teoría de refuerzo del temario)](Digitalizacion/2026-10-01_tema1-que-es-digitalizar-it-ot-convergencia.md)
+- [2026-10-15 · Tema 2: tecnologías habilitadoras digitales (IoT, big data, IA, blockchain, RA) y ejercicio problema → tecnología](Digitalizacion/2026-10-15_clase3-digitalizacion.md)
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
@@ -83,6 +85,7 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
 - ⚠️ Sostenibilidad: nota final = 50 % evaluación continua (un test por tema, 5 en total, 3 intentos, 3 puntos cada uno → 15 sobre 10) + 50 % examen presencial, que debe sacarse ≥ 5 para hacer media; extraordinaria = 100 % examen. Sin tareas ni entregas aparte. El material evaluable es solo el temario oficial (el foro de "material complementario" no lo es). Contrastar con la guía del estudiante del aula. Verificar con el temario si los ODS son 17 (el profesor dijo "15") y los porcentajes de GEI de las diapositivas. La Unidad 2 quedó sin terminar el 21/10 (faltan biodiversidad y movilidad limpia).
+- ⚠️ Digitalización: 5 tests (uno por tema, 3 pts cada uno, tope 10) = evaluación continua + examen presencial (≥ 5 para hacer media), convocatoria ordinaria del 13 al 23 de mayo; el examen sería "a lo mejor solo tipo test" (sin confirmar: dijo que no depende de él). Entra solo el temario oficial (`Digitalización/dig_tema01…05`). Consultar en el aula la fecha tope de los tests. Tema 2 (15/10): solo se vieron IoT, big data, IA, blockchain y RA; 5G, fog, cobótica, gemelos digitales y ciberseguridad IT/OT siguen siendo temario evaluable.
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
 - SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 21/10: laboratorio BIND9, de 20:30 a 21:30 — ver antes el vídeo de instalación de BIND9 (Foros → Material complementario, ~22 min) y dejar lista la instancia `SRV-DNS` (Ubuntu 24) con IP elástica y Security Group con el puerto 53 abierto en UDP **y TCP**.
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.

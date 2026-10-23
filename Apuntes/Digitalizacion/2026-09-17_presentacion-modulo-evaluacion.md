@@ -6,7 +6,7 @@ fuente: "Transcripción de la clase en directo (≈34 min)"
 ---
 # Digitalización · Presentación del módulo y evaluación (17/09)
 
-> Siguiente: [Clase del 01/10](2026-10-01_tema1-digitalizacion.md) · Profesor: David Cantos
+> Siguiente: [Tema 1: qué es digitalizar, IT vs OT y convergencia (01/10)](2026-10-01_tema1-que-es-digitalizar-it-ot-convergencia.md) · Profesor: David Cantos
 
 > [!note] Fecha
 > El mensaje de Dani decía "17-10-2026", pero el fichero de la grabación se llama `17-09-2026` y el propio profesor dice en la clase que "esta semana hemos empezado" (semana del 14 de septiembre). Esta nota se archiva como **17/09/2026**.
