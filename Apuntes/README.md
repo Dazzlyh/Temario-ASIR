@@ -59,8 +59,13 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
 - [2026-10-19 · Tema 3: scripts, eventos y triggers (disparadores)](SGBD/2026-10-19_tema3-scripts-eventos-triggers.md)
 
+## Sostenibilidad
+Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 unidades).
+- [2026-10-07 · Unidad 1: aproximación a la sostenibilidad (Brundtland, hitos, límites planetarios, huella ecológica, peak oil, desigualdad) + práctica de la calculadora de huella](Sostenibilidad/2026-10-07_clase1-unidad1-aproximacion-sostenibilidad.md)
+- [2026-10-21 · Unidad 2: cambio climático, GEI, descarbonización y economía circular](Sostenibilidad/2026-10-21_clase2-sostenibilidad.md)
+
 ## Sin apuntes aún
-[Digitalización](Digitalizacion/README.md) · [Sostenibilidad](Sostenibilidad/README.md)
+[Digitalización](Digitalizacion/README.md)
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
@@ -75,6 +80,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
+- Sostenibilidad: el material evaluable es solo el temario oficial (lo del foro de "material complementario" no lo es). Test de la Unidad 1 sugerido antes del 21/10, sin fecha límite ni peso confirmados; la información de evaluación (porcentajes, examen, entregas) se habló en la sesión de presentación, que no está documentada — pendiente de consultar en el aula. Verificar con el temario si los ODS son 17 (el profesor dijo "15") y los porcentajes de GEI de las diapositivas. La Unidad 2 quedó sin terminar el 21/10 (faltan biodiversidad y movilidad limpia).
 - SER: entregas de las 3 actividades — 16/11, 15/02 y 8/04.
 - SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 21/10: laboratorio BIND9, de 20:30 a 21:30 — ver antes el vídeo de instalación de BIND9 (Foros → Material complementario, ~22 min) y dejar lista la instancia `SRV-DNS` (Ubuntu 24) con IP elástica y Security Group con el puerto 53 abierto en UDP **y TCP**.
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
