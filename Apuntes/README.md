@@ -65,8 +65,9 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - [2026-10-07 · Unidad 1: aproximación a la sostenibilidad (Brundtland, hitos, límites planetarios, huella ecológica, peak oil, desigualdad) + práctica de la calculadora de huella](Sostenibilidad/2026-10-07_clase1-unidad1-aproximacion-sostenibilidad.md)
 - [2026-10-21 · Unidad 2: cambio climático, GEI, descarbonización y economía circular](Sostenibilidad/2026-10-21_clase2-sostenibilidad.md)
 
-## Sin apuntes aún
-[Digitalización](Digitalizacion/README.md)
+## Digitalización
+Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 temas).
+- [2026-09-17 · Presentación del módulo: evaluación (5 tests + examen presencial ≥ 5), calendario y comunicación](Digitalizacion/2026-09-17_presentacion-modulo-evaluacion.md)
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
