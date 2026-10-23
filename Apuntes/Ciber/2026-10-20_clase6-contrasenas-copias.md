@@ -6,7 +6,7 @@ fuente: CIBER_Clase06_diapositivas.pdf (23 páginas) + transcripción de la clas
 ---
 # Ciber · Clase 6 (20/10) · Contraseñas y copias
 
-> Anterior: [Clase 5: Criptografía (13/10)](2026-10-13_clase5-criptografia.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 5: Criptografía (13/10)](2026-10-13_clase5-criptografia.md) · Siguiente: [Laboratorio 3: contraseñas (22/10)](2026-10-22_lab3-contrasenas-generar-identificar-romper.md) · Profesor: Damián Sualdea Soy
 
 Clase teórica con demo en vivo (romper una contraseña con John the Ripper); el montaje fino — cifrar con gpg, programar copias con rsync/cron — se deja para el **laboratorio del jueves** (que también es la Actividad 1 de este tema). El profesor se basa, según dice, "mucho" en el libro **Hash Crack: Password Cracking Manual** (tiene la versión 1, de 2016).
 

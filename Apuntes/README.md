@@ -20,6 +20,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-09 · Lab 2: del CVE al ataque (Metasploitable)](Ciber/2026-10-09_lab2-metasploitable.md)
 - [2026-10-13 · Clase 5: Criptografía (historia, Kerckhoff, Shannon, simétrica vs asimétrica)](Ciber/2026-10-13_clase5-criptografia.md)
 - [2026-10-20 · Clase 6: Contraseñas y copias (sal, cómo se roban y rompen, dorking, regla 3-2-1)](Ciber/2026-10-20_clase6-contrasenas-copias.md)
+- [2026-10-22 · Laboratorio 3: contraseñas — generar (crunch), identificar (hashid/nth/hashcat) y romper (John the Ripper) + GPG y rsync/cron para casa](Ciber/2026-10-22_lab3-contrasenas-generar-identificar-romper.md)
 
 ## IAW
 - [2026-09-14 · Clase 1: presentación del módulo](IAW/2026-09-14_clase1-presentacion.md)
@@ -76,4 +77,4 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - SER Actividad 1 (DNS + BIND9): opcional, 15%. SER 21/10: laboratorio BIND9, de 20:30 a 21:30 — ver antes el vídeo de instalación de BIND9 (Foros → Material complementario, ~22 min) y dejar lista la instancia `SRV-DNS` (Ubuntu 24) con IP elástica y Security Group con el puerto 53 abierto en UDP **y TCP**.
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
 - Ciber: laboratorio de romper contraseñas (Kali) la semana siguiente a la clase de criptografía (13/10).
-- Ciber Actividad 1 (Tema 3): laboratorio del jueves (romper contraseñas con John, cifrar con gpg, programar copia con rsync/cron) — entrega el 9 de noviembre. Clase 7 empieza Tema 4 (análisis forense).
+- Ciber Actividad 1 (Tema 3): Laboratorio 3 (22/10) — en clase se hizo completo el bloque de contraseñas (crunch, hashid/name-that-hash/hashcat, John the Ripper, incluido romper un ZIP); el cifrado con gpg y las copias con rsync/cron **no dio tiempo en clase y quedan para hacer en casa** siguiendo la guía. Entrega: 9 de noviembre. Clase 7 empieza Tema 4 (análisis forense).
