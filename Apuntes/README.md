@@ -39,6 +39,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-07 · Actividad 1: MITRE y análisis forense](SAD/2026-10-07_actividad1-mitre-forense.md)
 - [2026-10-14 · Tres puntos de vista de un incidente y análisis forense (Colonial Pipeline, SEPE, MTTR)](SAD/2026-10-14_tema1-puntos-vista-forense.md)
 - [2026-10-19 · Laboratorio: la primera foto del servidor (triaje, logs, usuarios, procesos)](SAD/2026-10-19_laboratorio-primera-foto-servidor.md)
+- [2026-10-21 · Corrección de la Actividad 1 + inicio del Tema 2: seguridad pasiva, física y ambiental](SAD/2026-10-21_tema2-seguridad-pasiva.md)
 
 ## SER
 - [2026-09-15 · Presentación del módulo](SER/2026-09-15_presentacion-modulo.md)
@@ -63,8 +64,9 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
-- SAD Actividad 1: entrega lunes 19/10 a las 23:59 en Canvas, nunca por correo (rúbrica oficial de 5 apartados: contextualización 15%, cadena de ataque con MITRE ATT&CK 25%, principios rotos 15%, medidas de protección 30%, puntos de vista —organización/usuario/atacante— 15%); sesión de dudas de última hora el lunes 19 de 18:00 a 19:00. El miércoles 21 se corrige en clase y arranca el Tema 2 (seguridad pasiva, física y ambiental); el Tema 1 queda cerrado. Si no hay CVE para una técnica, basta con justificarlo explícitamente en el informe, no hace falta forzarlo.
-- SAD: objetivo de la próxima sesión práctica — dejar el servidor `sad1` con 0 servicios expuestos en red salvo el puerto 22.
+- SAD Actividad 1: entregada el 19/10. El profesor corrige el criterio en clase el 21/10 — evalúa el proceso, no si el incidente elegido es "bueno o malo"; penaliza texto generado por IA sin supervisión y los emojis/iconos; exige código de técnica MITRE ATT&CK + fase (o justificar por qué no hay CVE) y medidas clasificadas como preventiva/detectora/correctora. Empieza a corregir el fin de semana del 24-25/10, feedback cuanto antes.
+- SAD: Tema 2 (seguridad pasiva, física y ambiental) arrancó el 21/10. Actividad 2 (seguridad lógica): entrega **18 de enero**. Actividad 3 (más técnica: antimalware, VPN, firewall, DMZ, Squid, pfSense, ClamAV): al final de curso. Cursos AWS Academy: altas previstas hacia el 15 de diciembre (3 meses de acceso).
+- SAD: próxima sesión — pruebas reales de caída/fallo del servidor en el laboratorio AWS; tenerlo levantado antes de clase.
 - SAD: próximamente vendrá un compañero del profesor de Deloitte a dar una charla sobre el SOC.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
