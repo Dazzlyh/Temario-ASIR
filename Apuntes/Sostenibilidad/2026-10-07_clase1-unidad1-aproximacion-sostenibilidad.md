@@ -6,7 +6,7 @@ fuente: "Transcripción de la clase en directo"
 ---
 # Sostenibilidad · Unidad 1: aproximación a la sostenibilidad (07/10)
 
-> Siguiente: [Clase 2 (21/10)](2026-10-21_clase2-sostenibilidad.md) · Profesor: Alfredo Cordero Marcos
+> Anterior: [Presentación del módulo y evaluación (16/09)](2026-09-16_presentacion-modulo-evaluacion.md) · Siguiente: [Clase 2 (21/10)](2026-10-21_clase2-sostenibilidad.md) · Profesor: Alfredo Cordero Marcos
 
 > [!info] Naturaleza de la sesión
 > El propio profesor dijo que el objetivo de la clase es **"una aproximación y conocer la problemática"**, no memorizar métricas. Es la **primera clase efectiva** del módulo (hubo antes una sesión de presentación, hace unas 3 semanas). Las clases son **cada 15 días**.
@@ -16,7 +16,7 @@ fuente: "Transcripción de la clase en directo"
 **Lo que se dijo explícitamente sobre evaluación (poco, esta clase no fue de presentación del módulo):**
 
 - **Material evaluable = el temario oficial** (el que aparece en el aula/temario de la unidad). Lo que el profesor sube al **foro de "material complementario"** (diapositivas de la sesión, enlaces, vídeos, noticias, artículos) es **complementario, NO evaluable**. Cita: *"el material que tenéis como referencia y que es evaluable es el que aparece aquí en el temario"*.
-- Hay un **test de la Unidad 1**. El profesor sugirió hacerlo **durante los 15 días hasta la próxima clase** (21/10) para ir "avanzando a la par". Dijo "si queréis": no quedó fijada fecha límite ni peso en la nota en esta clase (**sin información** sobre porcentajes, rúbricas, examen final ni fechas de entrega; eso se trató en la sesión de presentación, que no está en este transcript).
+- Hay un **test de la Unidad 1**. El profesor sugirió hacerlo **durante los 15 días hasta la próxima clase** (21/10) para ir "avanzando a la par". Dijo "si queréis": no quedó fijada fecha límite ni peso en la nota en esta clase (**sin información** sobre porcentajes, rúbricas, examen final ni fechas de entrega; eso se trató en la sesión de presentación: ver [la nota del 16/09](2026-09-16_presentacion-modulo-evaluacion.md)).
 - La práctica de la huella ecológica (ver más abajo) fue **voluntaria y en directo**, sin entrega.
 - Próxima clase: **21/10/2026** (15 días después). Tratará la siguiente unidad (no se dijo cuál).
 
