@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SER · DNS: archivo de zona, SOA y preparación de AWS para BIND9 (20/10)
 
-> Anterior: [Tema 3: arranque de DNS (13/10)](2026-10-13_tema3-dns-jerarquia-zonas.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Tema 3: arranque de DNS (13/10)](2026-10-13_tema3-dns-jerarquia-zonas.md) · Siguiente: [Laboratorio 3: DNS con BIND9 (21/10)](2026-10-21_laboratorio3-dns-bind9.md) · Profesor: Damián Sualdea Soy
 
 Clase puente entre la teoría de DNS (13/10) y el laboratorio de BIND9 del día siguiente (21/10). El profesor lo dice explícitamente: **hoy no se toca BIND9 todavía** — es la clase para entender de antemano el archivo de zona, los comandos (`host`, `dig`), el registro SOA con detalle, y dejar preparado el servidor de AWS (Elastic IP + Security Group) para que el laboratorio de mañana no se pierda tiempo con eso. También resuelve dudas de logística sobre dominios (GitHub Student Pack / Namecheap / IONOS) de varios alumnos que todavía no lo tenían.
 
@@ -131,7 +131,7 @@ El profesor lo saca como "tercera cosa importante" de la clase, pero avisa de qu
 
 ## Matices y cosas a revisar
 - El número de letras de los root servers se repite otra vez de forma distinta a la clase anterior ("de la A a la G", cuando el 13/10 se dijo "de la A a la N"); sigue sin corregirse en directo — se mantiene como matiz pendiente de las clases anteriores, el profesor parece no tenerlo claro de memoria.
-- El formato exacto del campo "admin/hostmaster" del SOA no se explicó con el mismo detalle que el resto de campos — quedó como algo que "se copia y se pega" sin entrar en por qué tiene ese formato.
+- El formato exacto del campo "admin/hostmaster" del SOA no se explicó con el mismo detalle que el resto de campos — quedó como algo que "se copia y se pega" sin entrar en por qué tiene ese formato. *(Aclarado después, con el temario: es el correo del administrador con un punto en lugar de `@`; ver el [Laboratorio 3](2026-10-21_laboratorio3-dns-bind9.md#el-campo-admin-del-soa).)*
 - No se aclaró del todo si el segundo NS obligatorio del registrador necesita o no ser realmente un servidor distinto fuera del contexto de la asignatura (en clase se rellena con un valor duplicado/inventado solo para poder guardar el formulario).
 
 ## Para llevar a casa
