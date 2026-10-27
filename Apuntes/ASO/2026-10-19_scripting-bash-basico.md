@@ -1,14 +1,17 @@
 ---
 asignatura: Administración de Sistemas Operativos (ASO)
 fecha: 2026-10-19
-tema: Tema 2 (continuación) · primera clase de scripting en Bash: scripts, echo, variables, comillas, read y aritmética
-fuente: transcripción de la clase en directo
+tema: UD3 · Sesión 1 · primera clase de scripting en Bash: scripts, echo, variables, comillas, read y aritmética
+fuente: transcripción de la clase en directo + presentación «UD3 · Sesión 1 · Primeros scripts» (PDF, 18 págs.)
 ---
 # ASO · Primera clase de scripting en Bash: scripts, variables, read y aritmética (19/10)
 
-> Anterior: [Tema 2: repaso procesos, hardware y arranque (05/10)](2026-10-05_repaso-procesos-hardware-arranque.md) · Profesor: Jairo Bahillo Calvo
+> Anterior: [Tema 2: repaso procesos, hardware y arranque (05/10)](2026-10-05_repaso-procesos-hardware-arranque.md) · Siguiente: [Parámetros, argumentos y redirecciones (26/10)](2026-10-26_parametros-argumentos-redirecciones.md) · Profesor: Jairo Bahillo Calvo
 
 Primera clase "de verdad" de scripting (lo que el profesor llama **"la unidad fuerte del tema"**), empezando desde nivel 0 aunque parte del grupo ya tenga experiencia previa en programación (JavaScript de W, Go, etc.). Avisa explícitamente de que lo visto en estas 6 horas de clase programadas es solo la base: *"que nadie piense que con esto va a trabajar en el día a día; tenéis que seguir desarrollándoos vosotros por vuestra cuenta"*.
+
+> [!note] Corrección de etiquetado
+> Esta clase es la **UD3 · Sesión 1** (así lo indica la presentación, que dice expresamente "hoy no vamos a ver todavía `if`, bucles, parámetros ni arrays"). Una versión anterior de esta nota la llamaba "Tema 2 (continuación)"; el contenido de la clase no cambia.
 
 ## Logística y avisos
 
@@ -28,7 +31,23 @@ Primera clase "de verdad" de scripting (lo que el profesor llama **"la unidad fu
   - **Portabilidad**: un script escrito para Bash funciona en cualquier sistema que tenga Bash instalado.
 - Nota aparte de un alumno (Manuel Doña García, sin verificar por el profesor): muchas herramientas de infraestructura/contenedores (menciona "Terraform" y similares) están programadas en **Go**, que se está volviendo relevante para este tipo de automatización junto a Python.
 
+## Repaso previo: PID de la terminal (presentación)
+
+Arranque de la sesión según el PDF, enlazado con el Tema 2 (procesos). Cuando ejecutas un script, Bash lo lanza como **otro proceso**.
+
+```bash
+echo $$                          # PID de la Bash actual → p. ej. 2431
+ps -o pid,ppid,cmd -p $$         # → PID PPID CMD / 2431 2425 bash
+```
+
+- `$$` guarda el PID de la Bash en la que estás. (PDF; no consta en la transcripción que se haya practicado en directo, **sin confirmar**)
+
 ## Primer script: shebang y permisos de ejecución
+
+Los 4 pasos de siempre (PDF): **1.** crear el fichero (`nano`) · **2.** shebang `#!/bin/bash` · **3.** `chmod +x` · **4.** `./script.sh`. Carpeta de trabajo propuesta: `mkdir ~/scripts && cd ~/scripts`.
+
+> [!important] Error típico: `Permission denied`
+> Ejecutar `./hola_mundo.sh` **antes** de dar permisos devuelve `Permission denied`. El PDF propone el ejercicio de provocarlo a propósito y luego arreglarlo con `chmod +x` (Ejercicio 1).
 
 Pasos mostrados en vivo para crear y lanzar el primer script (`holamundo.sh`):
 
@@ -80,13 +99,14 @@ nano tarjeta.sh
 
 ## `echo`: las 3-4 opciones que hay que saber
 
-El profesor pide conocer al menos estas variantes de `echo`:
+El profesor pide conocer al menos estas variantes de `echo` (el PDF resume: *"hoy nos basta con `-n`, `-e`, `\n` y `\t`"*):
 
 | Opción | Efecto |
 |---|---|
 | `echo "texto"` | Imprime el texto y salta de línea al final (comportamiento por defecto) |
 | `echo -n "texto"` | Imprime el texto **sin** salto de línea al final |
 | `echo -e "texto"` | Habilita la interpretación de secuencias de escape con barra invertida (`\t`, `\n`...) dentro del texto |
+| `\n` / `\t` (dentro de `echo -e`) | Salto de línea / tabulación. **Sin `-e` se muestran tal cual** (pista del Ejercicio 2) |
 
 Detalles mostrados en el ejemplo `tarjeta.sh`:
 
@@ -123,6 +143,8 @@ echo "$nombre"  # correcto, aquí sí lleva el $
 - Convención de nombres que usa el profesor (no es obligatoria, cada alumno puede usar la suya): tipo *camelCase* — cuando el nombre tiene dos palabras, se juntan y la segunda empieza en mayúscula (ej. `nombreUsuario`). Pide nombres ni demasiado cortos (`a`, `b`, `c`) ni excesivamente largos tipo "nombreDelUsuarioDelFormularioDeLaPaginaDeNoSeQue".
 
 ### Variables del sistema (3 que hay que memorizar sí o sí)
+
+> El PDF lista cuatro variables estándar: `$HOME`, `$USER`, `$PWD` y además **`$PATH`** (lista de directorios donde el sistema busca ejecutables). Según la transcripción, las que el profesor remarcó como obligatorias son las tres de la tabla; `$PATH` aparece solo en la presentación, **sin confirmar si es examinable**.
 
 Demostradas en vivo ejecutando el mismo script con distintos usuarios para ver cómo cambia el resultado:
 
@@ -204,10 +226,60 @@ resta=$((a - b))
 Último ejercicio de la clase, combinando todo lo anterior (`read`, variables, operadores aritméticos):
 
 - Se pide el año de nacimiento al usuario.
-- Se extrae el año con una expresión regular ya preparada por el profesor — remarca explícitamente que **esta expresión regular concreta no hay que memorizarla**, la daría él mismo en el examen si hiciera falta.
+- Se extrae el año con una expresión ya preparada por el profesor — remarca explícitamente que **esta expresión concreta no hay que memorizarla**, la daría él mismo en el examen si hiciera falta.
+
+> [!warning] Discrepancia transcripción / PDF
+> La transcripción lo describe como "expresión regular". La presentación (Ejercicio 7) usa **`$(date +%Y)`** para el año actual. Lo más probable es que fuera esa sustitución de comandos, pero **no puedo confirmarlo** con el audio. Ver la sección «Ejercicios de la presentación» más abajo.
 - Se calcula la edad aproximada con `año_actual - año_nacimiento` y se usa el operador módulo (`%`) para obtener un resto (meses aproximados).
 - Bug corregido en directo: faltaba un espacio entre variables concatenadas en el `echo`, lo que juntaba los números sin separación en el mensaje final ("has vivido un..." sin espacio antes del número).
 - El profesor remata la demo pidiendo también la edad "a mano" (sin fecha) y recalculando con los mismos operadores, a modo de repaso conjunto de variables + aritmética.
+
+## Ejercicios de la presentación (UD3 Sesión 1)
+
+El PDF contiene 7 ejercicios y 2 tareas. En clase se hicieron los equivalentes en directo; los demás son para practicar. Para `read`, `echo -e`, `$(( ))` y variables, ver las secciones anteriores.
+
+| # | Fichero | Qué pide | Pista / cuidado del PDF |
+|---|---|---|---|
+| 1 | `hola_mundo.sh` | Ejecutarlo sin permisos (ver el error) y luego bien | `Permission denied` → `chmod +x` |
+| 2 | `tarjeta.sh` | Tarjeta con nombre, ciclo y módulo alineados con `\t`; frase partida en 2 `echo` con `-n`; 3 líneas con un solo `echo` (`\n`) | Sin `-e`, `\n` y `\t` salen tal cual |
+| 3 | `ficha.sh` | Variables de nombre, ciclo, módulo, curso; 2 frases; `$USER`, `$HOME`, `$PWD`; línea final con comillas simples | Pregunta: si cambio mi nombre, ¿cuántas líneas toco? (1: ahí está la gracia de la variable) |
+| 4 | `error.sh` | Encontrar 3 errores | Ver abajo |
+| 5 | `saludo.sh` | Pregunta nombre y edad; primero `echo`+`read`, luego `read -p` | |
+| 6 | `calculadora.sh` | Suma, resta, multiplicación, división y resto con `read -p` | Probar 7 y 2 (¿por qué 7/2=3?), 7 y 0 (¿qué error?), 7.5 y 2 (¿y ahora?). **Escribir `*` entre comillas dobles** (comodín fuera de ellas) |
+| 7 | `edad.sh` | Meses y días vividos a partir de la edad; año de nacimiento con `$(date +%Y)` | Salida ej.: 20 años → ~240 meses, ~7300 días, nacido ~2006 |
+| Reto | — | Intercambiar `a=5`, `b=8` | Hace falta **una tercera variable** ("una tercera caja") |
+
+### Ejercicio 4: el script con 3 errores (versión del PDF)
+
+```bash
+#!/bin/bash
+nombre = "Luis"                       # ERROR 1: espacios alrededor de =
+echo 'Hola, $nombre'                  # ERROR 2: comillas simples, no sustituye
+echo "Bienvenido al módulo de modulo" # ERROR 3: falta el $ (debe decir $modulo; y la variable no está definida)
+```
+
+- Mensaje al ejecutarlo: `./error.sh: line 2: nombre: command not found`.
+- Salida correcta buscada: `Hola, Luis` / `Bienvenido al módulo de ASO`.
+- **Posible discrepancia**: en el directo, según la transcripción, el primer error era la primera línea (shebang) mal escrita, no los espacios del `=`. Parece que el profesor usó un script similar pero distinto; los 3 *tipos* de fallo son los de abajo en "Para llevar a casa". **Sin confirmar** cuál era el script exacto.
+- **Matiz del PDF**: el error 3 está en la salida esperada (`ASO`), por lo que probablemente falta también declarar `modulo="ASO"`. Es inferencia mía a partir de la salida esperada.
+
+### Aritmética (PDF)
+
+```bash
+a=7; b=2
+echo "Suma: $((a + b))"        # 9
+echo "División: $((a / b))"    # 3
+echo "Resto: $((a % b))"       # 1
+```
+
+> [!important] Solo enteros
+> Bash trabaja solo con números enteros: **`7 / 2` da `3`** y **`7.5` da error**. Dentro de `$(( ))` las variables pueden ir sin `$`.
+
+### Tareas para casa (se corrigieron/retomaron el 26/10)
+
+- **Tarea 1 · `minutos.sh`**: pide minutos y muestra horas y minutos (`125` → `2 h y 5 min`). Usa `/ 60` y `% 60`.
+- **Tarea 2 · Ticket de la compra**: pide producto, precio por unidad y unidades; imprime `--- TICKET ---` y `Pan  x3  6 €`.
+- Próxima sesión según el PDF: **parámetros** (pasarle los números a la calculadora al ejecutarla). Ver [26/10](2026-10-26_parametros-argumentos-redirecciones.md).
 
 ## Para llevar a casa
 

@@ -7,7 +7,8 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-21 · Clase 2: primera clase de contenido (Linux básico)](ASO/2026-09-21_primera-clase-linux-basico.md)
 - [2026-09-28 · UD1 Linux básico](ASO/2026-09-28_ud1-linux-basico.md)
 - [2026-10-05 · Tema 2: repaso procesos, planificación, hardware y arranque](ASO/2026-10-05_repaso-procesos-hardware-arranque.md)
-- [2026-10-19 · Primera clase de scripting en Bash (scripts, variables, read, aritmética)](ASO/2026-10-19_scripting-bash-basico.md)
+- [2026-10-19 · UD3 Sesión 1: primera clase de scripting en Bash (scripts, variables, read, aritmética) + ejercicios del PDF](ASO/2026-10-19_scripting-bash-basico.md)
+- [2026-10-26 · UD3: parámetros/argumentos (`$0`, `$#`, `$@`, `$1`…), repasos y redirecciones `>`/`>>`](ASO/2026-10-26_parametros-argumentos-redirecciones.md)
 
 ## Ciberseguridad
 - [2026-09-15 · Clase 1: presentación del módulo](Ciber/2026-09-15_clase1-presentacion.md)
@@ -80,8 +81,9 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - SAD: próximamente vendrá un compañero del profesor de Deloitte a dar una charla sobre el SOC.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
-- ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original), en PDF y por secciones.
-- ⚠️ Examen ASO: habrá un ejercicio de "encontrar los fallos" en un script Bash ya escrito (como el año pasado, con varios fallos en un mismo bloque); memorizar sin falta `#!/bin/bash`, `chmod +x`/`755`, las variables de sistema `$USER`/`$HOME`/`$PWD`, comillas simples vs dobles y la aritmética con `$(( ))` (variables sin `$` dentro).
+- ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original), en PDF y por secciones. La "tarea 4" (`systemctl`) se quitó del enunciado pero sigue en la rúbrica: 4 criterios. Último día de dudas fue el 26/10.
+- ASO: 2 semanas sin clase desde el 26/10 (fecha de la siguiente sin confirmar); próximo tema `if`. Practicar los ejercicios de scripting. Mencionada una entrega de borrador del proyecto (fecha sin confirmar; el profesor pidió que quienes están en su proyecto se quedaran al final).
+- ⚠️ Examen ASO: habrá un ejercicio de "encontrar los fallos" en un script Bash ya escrito (como el año pasado, con varios fallos en un mismo bloque); memorizar sin falta `#!/bin/bash`, `chmod +x`/`755`, las variables de sistema `$USER`/`$HOME`/`$PWD`, comillas simples vs dobles y la aritmética con `$(( ))` (variables sin `$` dentro). Añadido el 26/10: `$0`, `$#`, `$@`, `$1…`; "por teclado" = `read`, "por argumentos" = `$1`; en test solo vale la respuesta literal exacta de "qué hace esta línea".
 - ⚠️ IAW: el cronograma subido a la plataforma estaba mal (era el de "Despliegue de Aplicaciones Web" de DAW/DAM) — el profesor avisó que lo iba a revisar, así que las fechas de entrega de actividades pueden cambiar; el temario de 10 temas en sí es el correcto y definitivo.
 - IAW Actividad 1: entrega 12/10 a las 23:59 (festivo; no dejarlo para el último minuto, solo PDF, fuera de plazo = 0).
 - IAW: para la clase del 26/10, tener WordPress instalado y funcionando (XAMPP, LAMP, Docker, hosting... el método da igual); se verán plugins y plantillas. Docker confirmado fuera del temario oficial. Examen en papel, contenido aún sin precisar por el profesor.
