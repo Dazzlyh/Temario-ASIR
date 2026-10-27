@@ -60,6 +60,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-09-28 · Cierre Tema 1 (cajón) + inicio Tema 2](SGBD/2026-09-28_cierre-tema1-cajon-inicio-tema2.md)
 - [2026-10-05 · Tema 2: repaso DDL/DML/DCL](SGBD/2026-10-05_tema2-repaso-ddl-dml-dcl.md)
 - [2026-10-19 · Tema 3: scripts, eventos y triggers (disparadores)](SGBD/2026-10-19_tema3-scripts-eventos-triggers.md)
+- [2026-10-26 · Tema 4: optimización, monitorización e índices + entrega 1 del TFC](SGBD/2026-10-26_tema4-optimizacion-monitorizacion-indices.md)
 
 ## Sostenibilidad
 Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 unidades).
@@ -80,7 +81,8 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - SAD: próxima sesión — pruebas reales de caída/fallo del servidor en el laboratorio AWS; tenerlo levantado antes de clase.
 - SAD: próximamente vendrá un compañero del profesor de Deloitte a dar una charla sobre el SOC.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
-- SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; la semana siguiente arranca el Tema 4 (transacciones). Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
+- SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; el Tema 4 (optimización/monitorización/índices, no transacciones) se vio el 26/10. Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
+- ⚠️ SGBD Tema 4: sin sintaxis de memoria; la única pregunta posible es describir los pasos físicos y lógicos para encontrar la causa de un sistema lento. Lo que sí quiere para mayo: scripts, procedimientos almacenados y commit/rollback. TFC: primera entrega **9/11** (6-8 págs.: motivación, conexión con asignaturas, mercado/diferenciación; sin profundidad técnica); segunda en diciembre (fecha sin precisar). Clase del viernes 30/10: dudas del feedback del TFC.
 - ASO: Actividad UD2 se entrega el 2/11 (no el 19/10 que marcaba el cronograma original), en PDF y por secciones. La "tarea 4" (`systemctl`) se quitó del enunciado pero sigue en la rúbrica: 4 criterios. Último día de dudas fue el 26/10.
 - ASO: 2 semanas sin clase desde el 26/10 (fecha de la siguiente sin confirmar); próximo tema `if`. Practicar los ejercicios de scripting. Mencionada una entrega de borrador del proyecto (fecha sin confirmar; el profesor pidió que quienes están en su proyecto se quedaran al final).
 - ⚠️ Examen ASO: habrá un ejercicio de "encontrar los fallos" en un script Bash ya escrito (como el año pasado, con varios fallos en un mismo bloque); memorizar sin falta `#!/bin/bash`, `chmod +x`/`755`, las variables de sistema `$USER`/`$HOME`/`$PWD`, comillas simples vs dobles y la aritmética con `$(( ))` (variables sin `$` dentro). Añadido el 26/10: `$0`, `$#`, `$@`, `$1…`; "por teclado" = `read`, "por argumentos" = `$1`; en test solo vale la respuesta literal exacta de "qué hace esta línea".

@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SGBD · Tema 3: Scripts, eventos y triggers (19/10)
 
-> Anterior: [Tema 2: repaso DDL/DML/DCL (05/10)](2026-10-05_tema2-repaso-ddl-dml-dcl.md) · Profesor: César Carrión
+> Anterior: [Tema 2: repaso DDL/DML/DCL (05/10)](2026-10-05_tema2-repaso-ddl-dml-dcl.md) · Siguiente: [Tema 4: optimización, monitorización e índices (26/10)](2026-10-26_tema4-optimizacion-monitorizacion-indices.md) · Profesor: César Carrión
 
 ## Logística al inicio de clase
 
@@ -267,4 +267,4 @@ El cuestionario tipo test (Kahoot) de este tema ya está preparado y se lanzará
 - Diferenciar **SQL estático** (sentencia fija) de **SQL dinámico** (la sentencia se recompone en tiempo de ejecución; se lanza con `EXEC`/`sp_executesql`), y saber dar sus ventajas: reutilización, adaptabilidad, rendimiento, flexibilidad.
 - Buena práctica recurrente del profesor: antes de tocar producción, usar un **entorno de pruebas (sandbox)**, control de versiones, copia de seguridad previa y documentación — y, ante borrados masivos, preferir **mover a tablas históricas** en vez de `DELETE` directo.
 - Cada motor tiene su propio lenguaje de triggers (T-SQL, PL/SQL, PL/pgSQL) y su propia herramienta de automatización (SQL Server Agent, Oracle Scheduler, pg_cron) — no hay que memorizarlos, solo saber que existen y que cada motor difiere.
-- Pendiente: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con el lanzamiento del Kahoot del Tema 3. La semana siguiente arranca el **Tema 4** (transacciones).
+- Pendiente: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con el lanzamiento del Kahoot del Tema 3. La semana siguiente arranca el **Tema 4** (en esta nota figuraba como "transacciones"; corrección: es optimización y monitorización, ver nota del 26/10).
