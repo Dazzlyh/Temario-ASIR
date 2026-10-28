@@ -6,11 +6,14 @@ fuente: "SER_Lab03_Guia.pdf (13 páginas) + SER_Lab03_Comandos (.txt y .pdf, con
 ---
 # SER · Laboratorio 3 (21/10) · Tu nombre en Internet: DNS con BIND9
 
-> Anterior: [DNS: archivo de zona, SOA y preparación de AWS (20/10)](2026-10-20_dns-zonas-soa-preparacion-bind9.md) · Profesor: Damián Sualdea Soy
+> Anterior: [DNS: archivo de zona, SOA y preparación de AWS (20/10)](2026-10-20_dns-zonas-soa-preparacion-bind9.md) · Siguiente: [Correcciones del lab 3 e intro al servidor web (27/10)](2026-10-27_correcciones-lab3-dns-e-intro-servidor-web.md) · Profesor: Damián Sualdea Soy
 
 Cierra el bloque que empezó el 13/10. Hoy se **escribe a mano** el archivo de zona de un dominio propio, se sirve desde una máquina de AWS con IP fija y se pregunta al servidor con `host` y `dig`. Es la base de la **Actividad 1** (opcional, 15 %, entrega **16/11**): al final de la guía se dice que lo de hoy, con capturas, es el criterio 1.
 
 Lo que hay aquí sale de tres fuentes, marcadas como **(guía)**, **(clase)** y **(temario)**. Lo que es mío o dudoso va indicado.
+
+> [!important] Actualización del 27/10: corrección oficial
+> En la clase del 27/10 el profesor **admitió un error suyo** en este laboratorio: en `named.conf.local` la zona directa lleva **el dominio puro**, sin `ns.`. Publicó guía y comandos corregidos (los subió el 22/10). Las demás aclaraciones de ese día (registros por defecto de Namecheap, `ping`, qué nombre va dónde, `recursion no`) están marcadas **«(27/10)»** en esta nota. Detalle en la [nota del 27/10](2026-10-27_correcciones-lab3-dns-e-intro-servidor-web.md).
 
 > [!note] Cómo fue la clase
 > El profesor pulsó por error el botón **Reset** del Learner Lab y se cargó su laboratorio, así que rehizo en directo el montaje de AWS. Su servidor no llegó a responder desde fuera porque la delegación no había propagado. Los compañeros con la delegación ya hecha de antes (María) sí vieron `host` funcionando. Lo útil de la grabación es el orden de pasos y los errores típicos; la referencia limpia es la guía.
@@ -62,6 +65,7 @@ Internet ──▶ Registrador ──(NS + glue)──▶ srv_dns (BIND9, Elasti
   - En clase se vio el fallo típico: la IP estaba **creada pero no asociada**, y la lista de instancias no la mostraba hasta asociarla y refrescar.
   - Motivo: la IP pública normal **cambia cada vez que paras y arrancas** la instancia; si delegas a esa, mañana la delegación apunta a una máquina que ya no es la tuya.
   - Coste: unos 0,005 $/hora por IPv4 pública (≈ 3,65 $/mes), asociada o no. **No se libera al acabar**: se reutiliza en el Tema 4 (servidor web).
+- **`ping` (27/10):** desde fuera la máquina **no responde a `ping`** porque AWS no abre **ICMP** por defecto. Si quieres hacer ping, añade al Security Group una regla ICMP. No hace falta para el laboratorio ni para la actividad; tendrá más sentido con el servidor web (clase).
 - ⛔ **No pulses «Reset»** en el Learner Lab: borra todo lo hecho (clase).
 - `chmod 400 labsuser.pem` y `ssh -i labsuser.pem ubuntu@<ELASTIC-IP>`.
 
@@ -71,6 +75,7 @@ Esto se lanza **ya, al principio**, porque tarda en propagar. Lo que se registra
 
 > [!important] El nombre del NS tiene que ser el mismo en todas partes
 > El nombre que registras (`ns`, `ns1`...) es el que luego va en el **SOA**, en el **registro NS** de la zona y como **registro A** de esa misma zona (guía). Si en el registrador pones `ns1` y en la zona escribes `ns`, no cuadra.
+> **(27/10)** `ns` es una convención del profesor ("main server"), no obligatoria: se puede trabajar sin `ns`, pero hay que quitarlo **a la vez** en el registrador y en el fichero de zona. El segundo NS (`ns1`/`ns2`) que piden algunos registradores no se usa en el laboratorio.
 
 | Registrador | Dónde se cambia (guía) |
 |---|---|
@@ -80,6 +85,10 @@ Esto se lanza **ya, al principio**, porque tarda en propagar. Lo que se registra
 | Name.com | Nameservers / Custom DNS, con registro de host (glue) si el `ns` va dentro de tu propio dominio |
 
 En Namecheap son **dos pantallas, en este orden**: primero se registra el nameserver con su IP (el *glue*) y después se le dice al dominio que use *Custom DNS*. Solo la segunda **no basta**: si pones un `ns.tu-dominio` que no has registrado antes con su IP, no resuelve. Algunos registradores piden **dos** nameservers (`ns1` y `ns2`): se ponen los dos a la **misma** Elastic IP (guía). En clase el profesor dijo que, en IONOS, el segundo puede llevar cualquier IP porque no se usa.
+
+> [!warning] Namecheap: borra los registros por defecto (27/10)
+> Un compañero con Namecheap (Sergio) contó que el panel trae **registros preconfigurados** (A/CNAME y un *redirect* en las capturas) que hacen que el dominio resuelva a una IP que **no** es tu Elastic IP. El profesor: "hay que borrarlo" (Advanced DNS, icono de papelera). **IONOS** borra todo al delegar, así que ahí no pasa.
+> **Sin confirmar:** el profesor no tiene Namecheap y no ha podido probarlo; dijo que con borrar debería responder tu servidor "pero esto no lo sé hasta que no se haga la prueba". Si lo pruebas, cuéntaselo: pidió capturas por correo y puede cambiar el manual. Señal de que te pasa: `host -t ns <dominio>` sale bien pero `host ns.<dominio>` no devuelve tu Elastic IP.
 
 Tras guardar, la propagación es de minutos a un par de horas. Se comprueba con `dig +trace tu-dominio` y en whatsmydns.net (tipo **NS**).
 
@@ -137,7 +146,8 @@ zone "31.172.in-addr.arpa" {
 
 > [!warning] El fallo número uno: la zona se llama como el DOMINIO, no lleva `ns.`
 > `zone "desplegando123.com"` está bien; `zone "ns.desplegando123.com"` sale todo doblado (`www.ns...`, `correo.ns...`) y no resuelve. El `ns` es un **registro dentro de la zona**, no parte de su nombre. Prueba: en el `dig axfr` el apex tiene que salir como `desplegando123.com.` a secas.
-> En clase esto generó confusión: un compañero (Manuel) argumentó que "por lógica tiene que ir el NS" y el profesor titubeó entre `ns.<dominio>` y el dominio (la transcripción es confusa en ese tramo). **Vale lo que dice la guía: zona = dominio.** Revisa que tu `named.conf.local` no tenga `ns.` en el nombre de la zona.
+> En clase esto generó confusión: un compañero (Manuel) argumentó que "por lógica tiene que ir el NS" y el profesor titubeó entre `ns.<dominio>` y el dominio (la transcripción es confusa en ese tramo). **(27/10) Confirmado por el profesor: zona = dominio puro.** Reconoció que el error fue suyo: en ese único fichero había puesto `ns.` en el nombre de la zona y por eso "se tiró la olla"; con todo lo demás tal cual, su dominio funcionó bien. Revisa que tu `named.conf.local` no tenga `ns.` en el nombre de la zona y, si ya lo tenías así, cámbialo y reinicia `named`.
+> **Por qué un solo dominio (27/10):** en producción un servidor lleva muchos dominios y hay servidores autoritativos y no autoritativos; aquí se simplifica a un servidor y un dominio.
 
 - `type master` = **servidor principal**, el que tiene el original (término del temario). En BIND ≥ 9.16 también se admite `primary` como sinónimo (dato mío, no dicho en clase).
 - `allow-transfer { any; }` deja que **cualquiera** pida la zona entera. Se pone **a propósito** para verlo funcionar (paso 9); se cierra más adelante con la lista de secundarios (Tema 7, febrero).
@@ -205,7 +215,7 @@ Reglas que te pueden hacer fallar (guía):
 - En un registro, el **valor** puede ser una IP (A) o un nombre (NS, CNAME, MX, PTR).
 
 > [!warning] Los puntos finales no son decoración
-> Todo nombre completo acaba en punto. Un nombre **sin** punto es **relativo** y BIND le pega el nombre de la zona detrás: `ns.desplegando123.com` se convierte en `ns.desplegando123.com.desplegando123.com.` (guía). BIND **no avisa**. Es como una ruta absoluta frente a una relativa. En clase el profesor lo repitió varias veces ("todo tiene que acabar con punto") y los fallos de ese rato fueron de esto: a alguien le dijo "te has comido un punto seguro" y María resolvió el suyo con "era un punto".
+> (27/10: el profesor y María lo resumieron como "para encadenar con el siguiente"; esa fórmula es imprecisa, vale la explicación de abajo.) Todo nombre completo acaba en punto. Un nombre **sin** punto es **relativo** y BIND le pega el nombre de la zona detrás: `ns.desplegando123.com` se convierte en `ns.desplegando123.com.desplegando123.com.` (guía). BIND **no avisa**. Es como una ruta absoluta frente a una relativa. En clase el profesor lo repitió varias veces ("todo tiene que acabar con punto") y los fallos de ese rato fueron de esto: a alguien le dijo "te has comido un punto seguro" y María resolvió el suyo con "era un punto".
 
 Comprueba **después de cada edición**:
 
@@ -218,7 +228,7 @@ La sintaxis es `named-checkzone <zona> <fichero>`. Si falla, da el **número de 
 
 ### El campo `admin` del SOA
 
-Esto se quedó sin explicar el 20/10 ("¿por qué `admin.`?"). Es el **correo del administrador de la zona con un punto en lugar de la `@`**: `admin.desplegando123.com.` = `admin@desplegando123.com`. Lo dice el temario (Tema 3, §3.7, ejemplo `admin.unir.net.`). El nombre `admin` es libre: el profesor dijo "este admin nos da igual" y que no lo va a utilizar (lo que importa es el servidor primario).
+Esto se quedó sin explicar el 20/10 ("¿por qué `admin.`?"). Es el **correo del administrador de la zona con un punto en lugar de la `@`**: `admin.desplegando123.com.` = `admin@desplegando123.com`. Lo dice el temario (Tema 3, §3.7, ejemplo `admin.unir.net.`). El nombre `admin` es libre: el profesor dijo "este admin nos da igual" y que no lo va a utilizar (lo que importa es el servidor primario). **(27/10)** Lo repitió ante la pregunta de María: el **primer campo** del SOA (`ns.<dominio>.`) "hay que ponerlo siempre"; el segundo "me lo estoy inventando yo".
 
 ## Paso 5 · Zona inversa (IP → nombre)
 
@@ -275,8 +285,8 @@ options {
 sudo named-checkconf
 ```
 
-> [!note] Esto no se hizo en clase
-> En la grabación no se toca `named.conf.options`; sale solo en la guía.
+> [!note] Esto no se hizo en directo
+> El 21/10 no se toca `named.conf.options`; sale en la guía. **(27/10)** El profesor sí lo mencionó al repasar el laboratorio: "ponedlo por si acaso, para que no funcione como propagador de DNS". Sigue sin haberse hecho en directo.
 
 Por qué (guía): el servidor es **autoritativo** (tiene el original de la zona) pero **no recursivo** (no resuelve Internet entera para quien pregunte). Un recursivo abierto en IP pública se usa en horas para **ataques de amplificación**: alguien manda consultas pequeñas con la IP de la víctima falsificada y las respuestas, grandes, se las come la víctima. Con `recursion no` quedas como autoritativo y nada más. En los resultados lo verás: la cabecera lleva el flag **`aa`** (respuesta autoritativa) y el aviso *«recursion requested but not available»*, y son justo lo que se busca.
 
@@ -334,6 +344,11 @@ Qué deberías ver (guía): el SOA con sus cinco números; tu Elastic IP en el A
 
 En clase el profesor probó contra `127.0.0.1` el SOA, el NS, el TXT y la inversa: el SOA y el NS respondieron bien, y en alguna consulta (TXT o inversa; el audio no deja claro cuál ni de quién) apareció un error que atribuyó a un punto final olvidado. Después, varios compañeros no obtenían respuesta de `host -t ns` **desde fuera** y el profesor concluyó que **no había propagado todavía**: "hay que esperar, probarlo mañana".
 
+> [!note] (27/10) Cómo se comprobó con los compañeros
+> - `host -t ns <dominio>`: dice quién es el NS. `host ns.<dominio>`: a qué IP resuelve. Si el primero sale y el segundo no da tu Elastic IP, mira los registros por defecto del registrador (ver paso 0b).
+> - El profesor añadió un subdominio (`maria`, con su PTR) y no salió al momento; atribuyó el retraso a la propagación y a que la máquina acababa de arrancar. Pasados unos minutos sí salía (comprobado con whatsmydns.net).
+> - Recomendó `dig axfr` para ver la transferencia, y pasar la salida a una IA si algo no se entiende.
+
 ## Paso 9 · La transferencia de zona
 
 ```bash
@@ -378,7 +393,7 @@ dig @127.0.0.1 blog.desplegando123.com +short
 dig @127.0.0.1 desplegando123.com SOA +short       # ahora con el serial 2026102102
 ```
 
-En tu propio servidor el cambio se ve **aunque no subas el serial**. Quien no se enteraría es un **secundario**. Por eso se sube siempre: para acostumbrarse (guía). En clase el profesor planteó la prueba de tocar un registro y ver el cambio.
+(27/10: el profesor dijo que "no hace falta reiniciar" tras añadir `maria`, pero su máquina acababa de arrancar. Mi lectura, sin confirmar: en un `named` ya en marcha un cambio en la zona sí necesita reinicio o recarga.) En tu propio servidor el cambio se ve **aunque no subas el serial**. Quien no se enteraría es un **secundario**. Por eso se sube siempre: para acostumbrarse (guía). En clase el profesor planteó la prueba de tocar un registro y ver el cambio.
 
 ## Si algo no funciona (guía)
 
@@ -424,8 +439,8 @@ Lo que apuntaste está bien en lo esencial. Esto es lo que conviene afinar:
 - **Máscara**: el profesor dijo `/24` y 2 octetos a la vez; vale la guía (`/16`, 2 octetos).
 - **Audio confuso**: al instalar, el profesor mencionó un paquete adicional con un nombre que la transcripción no recoge bien. La guía solo instala `bind9`, `bind9-utils` y `bind9-dnsutils`; usa esos.
 - **Nombres de fichero**: en clase se usaron `db.ns` / `db.31.172`; la guía usa `db.desplegando123.com`. Es indiferente si coincide con `named.conf.local`.
-- **No se vio en clase** (solo guía): `named.conf.options`/`recursion no`, `dig axfr unir.net`, el resultado de `+trace` ya propagado y la tabla de errores.
-- **No se llegó a verificar desde fuera** el resultado real en clase: el profesor terminó esperando a la propagación. Lo comprobado en vivo fue `named-checkzone` en OK, `named` activo y escuchando en el 53, y `host`/`dig` locales.
+- **No se vio en directo** (solo guía): `named.conf.options`/`recursion no` (mencionado el 27/10, no ejecutado), `dig axfr unir.net`, el resultado de `+trace` ya propagado y la tabla de errores.
+- **Desde fuera, el 21/10 no se verificó**: el profesor terminó esperando a la propagación. El 27/10 el suyo ya respondía (`host` de `ns.<dominio>` y `correo.<dominio>`), y a María y Sol les salía el NS; Sol no resolvía `ns.<dominio>` por los registros por defecto de Namecheap (sin confirmar que borrarlos baste).
 - No he visto qué **entra en el examen** de este laboratorio. Lo que el profesor marcó el 20/10 es que de la parte teórica importan los campos del SOA y los tipos de registro; este laboratorio es la práctica de eso.
 
 ## Logística y para llevar a casa
@@ -433,4 +448,5 @@ Lo que apuntaste está bien en lo esencial. Esto es lo que conviene afinar:
 - **Al acabar (guía):** EC2 → `srv_dns` → Instance state → **Stop** (nunca Terminate). **No liberar la Elastic IP**: se usa en el Tema 4 con el servidor web. En clase el profesor recomendó **dejar el servidor encendido hasta comprobar la propagación** ("lo dejaría encendido y probaría a última hora para ver si es viable"). Mi lectura de ambas cosas: déjalo encendido hasta verificar el `dig +trace` y entonces hazle Stop.
 - **Guarda una copia de tus dos ficheros de zona** (`db.<dominio>` y `db.31.172`) y las **capturas**: te hacen falta para la **Actividad 1 (entrega lunes 16/11)**, y la guía dice que lo de hoy cubre su criterio 1.
 - Pendiente tuyo: repetir el paso 10 cuando la delegación haya propagado (`dig +trace`, whatsmydns.net) y hacer una captura.
+- **(27/10)** El profesor pidió **repetir el laboratorio en casa con la guía actualizada**: la evaluación de la actividad exige DNS funcionando y luego se monta el servidor web encima (virtual hosts). Mira que tu copia de la guía y de los comandos sea la de después del 22/10.
 - Siguiente clase de SER: semana tranquila de comprobaciones y avance de teoría con práctica (el profesor, sin más detalle).
