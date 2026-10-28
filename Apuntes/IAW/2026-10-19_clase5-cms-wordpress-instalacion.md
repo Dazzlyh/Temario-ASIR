@@ -1,12 +1,15 @@
 ---
 asignatura: Implantación de Aplicaciones Web (IAW)
 fecha: 2026-10-19
-tema: Tema 2 · gestores de contenidos (CMS), licencias, instalación de WordPress sobre XAMPP
-fuente: transcripción de la clase en directo
+tema: Tema 3 · Sesión 1 · gestores de contenidos (CMS), licencias, instalación de WordPress sobre XAMPP
+fuente: transcripción de la clase en directo + presentación «Tema 3 · Instalación de gestores de contenidos» (PDF, 15 págs.)
 ---
 # IAW · Clase 5 (19/10) · Gestores de contenidos (CMS), licencias y primera instalación de WordPress
 
-> Anterior: [Clase 4 (05/10): instalación de XAMPP y PHP básico](2026-10-05_clase4-xampp-php-basico.md) · Profesor: Jairo Bahillo Calvo
+> Anterior: [Clase 4 (05/10): instalación de XAMPP y PHP básico](2026-10-05_clase4-xampp-php-basico.md) · Siguiente: [Clase 6 (26/10): WordPress por dentro](2026-10-26_clase6-wordpress-estructura-seguridad-contenido.md) · Profesor: Jairo Bahillo Calvo
+
+> [!note] Corrección de etiquetado y discrepancia
+> Esta clase es el **Tema 3 · Sesión 1** (así lo indica la presentación); una versión anterior la llamaba "Tema 2". El PDF del Tema 3 Sesión 1 se envió junto con la clase del 26/10, pero su contenido es el de esta clase del 19/10. **Discrepancia de requisitos**: en la transcripción se dijo "MariaDB 11", mientras que la presentación indica **MariaDB 10.11+** y **MySQL 8.0+** (PHP 8.3+ coincide). Prevalece lo que dice el PDF; el profesor lo leía en directo de la web de WordPress y puede haber citado otra versión.
 
 Clase teórico-práctica: panorama de gestores de contenidos (CMS), tipos de licencia de software, requisitos técnicos de WordPress y, como colofón, **instalación en directo de WordPress sobre XAMPP** en la máquina del profesor (Windows).
 
@@ -147,6 +150,18 @@ El profesor enlaza la demo con una reflexión sobre despliegue real:
   - Comentario de un alumno (Manuel) sobre la elección de motor de base de datos en el contenedor: opinión personal de que **MySQL es más estable que MariaDB cuando el volumen de registros es muy grande**, mientras que MariaDB sería más ligera/rápida para volúmenes pequeños — cada profesor/alumno usa el motor que prefiere, ambos son válidos para WordPress.
   - El comando de `docker compose` levantaría automáticamente ambos contenedores conectados, pero no se explicó el fichero YAML en detalle en clase.
 - Conclusión del profesor: quien quiera usar Docker para instalar WordPress puede hacerlo perfectamente (es un camino alternativo igual de válido), pero **no es exigible para el módulo** — lo mínimo exigido es tener XAMPP/Apache+PHP+base de datos funcionando, sea como sea que se monte por debajo.
+
+## Datos de la presentación (PDF) que complementan la clase
+
+- **Repaso del Tema 2 (XAMPP)**: Apache puertos **80 y 443**, MariaDB **3306**, phpMyAdmin en `localhost/phpmyadmin`, la web va en `C:\xampp\htdocs` y se abre en `localhost/<carpeta>/`.
+- **Licencias (4 tipos del PDF)**: propietaria (AEM, Sitecore), **SaaS** (HubSpot, Shopify), **GPL** (WordPress, Joomla, Drupal; lo derivado sigue siendo GPL) y **MIT/Apache 2.0** (permisivas; Apache añade cláusulas de patentes; ejemplos Ghost, Strapi).
+- **Tipos de CMS**: generalistas (WordPress, Joomla, Drupal) y especializados (e-commerce: Magento, Shopify, WooCommerce; *headless*: Contentful, Strapi; LMS: Moodle, Canvas, Blackboard; gestión documental: Alfresco, Nuxeo, SharePoint; membresías: MemberPress, Wild Apricot).
+- **Requisitos recomendados (2026)**: PHP 8.3+, MySQL 8.0+ o MariaDB 10.11+, Apache o Nginx, HTTPS. Cliente: navegador actualizado, JavaScript activado.
+- **Pregunta de la presentación**: "si WordPress son solo archivos PHP, ¿por qué hay que crear antes una base de datos?" (PHP = lógica; la BD guarda el contenido).
+- **Demo de 5 pasos**: Start Apache y MySQL → `CREATE DATABASE miwordpress;` en la pestaña SQL de phpMyAdmin → descomprimir WordPress en `htdocs` → `localhost/<carpeta>/` → datos de BD, sitio y administrador.
+- **`wp-config.php` (extracto)**: `DB_NAME`, `DB_USER` (`root`), `DB_PASSWORD` (vacía), `DB_HOST` (`localhost`, o `localhost:3340` si cambias el puerto) y `$table_prefix = 'wp_';` ("cámbialo si varias webs comparten base de datos").
+- **Tablas creadas (12)**: `wp_posts` (entradas y páginas), `wp_users` y `wp_usermeta` (usuarios), `wp_comments`, `wp_options` (ajustes del sitio), `wp_terms…` (categorías y etiquetas).
+- **Tarea del PDF**: entrenamientos **1 y 2** (crear la base de datos por SQL y los datos de conexión del asistente). Si el asistente falla: comprobar que MySQL esté en verde y que el nombre de la base de datos coincida.
 
 ## Mi propio montaje (alternativa a la demo de Windows)
 En vez de seguir la demo en Windows con XAMPP, monté mi propio entorno en un **contenedor LXC dedicado en mi Proxmox** (accesible desde mi equipo principal), con **LAMP** (el equivalente en Linux de XAMPP: **L**inux + **A**pache + **M**ySQL/MariaDB + **P**HP) y WordPress instalado encima. Ya lo tengo levantado y funcionando. Es una vía alternativa igual de válida a la demo del profesor en Windows — el propio profesor confirmó en clase que el proceso es "exactamente igual" en Linux, solo cambia la ruta de instalación (equivalente a `htdocs`) y el nombre del stack.
