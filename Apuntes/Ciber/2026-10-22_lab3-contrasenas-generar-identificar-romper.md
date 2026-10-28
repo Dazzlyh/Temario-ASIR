@@ -6,7 +6,7 @@ fuente: "CIBER_Lab03_Guia.pdf (8 páginas) + transcripción de la clase en direc
 ---
 # Ciber · Laboratorio 3 (22/10) · Contraseñas: generar, identificar y romper
 
-> Anterior: [Clase 6: Contraseñas y copias (20/10)](2026-10-20_clase6-contrasenas-copias.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 6: Contraseñas y copias (20/10)](2026-10-20_clase6-contrasenas-copias.md) · Siguiente: [Clase 7: análisis forense (27/10)](2026-10-27_clase7-analisis-forense.md) · Profesor: Damián Sualdea Soy
 
 **Aviso legal de la guía** (recordado al inicio del documento oficial): todo lo que se hace aquí — generar, identificar y romper contraseñas — **solo está permitido contra tu propia máquina**. Hacerlo contra sistemas ajenos sin autorización puede incurrir en los **artículos 197 y 264 del Código Penal**.
 

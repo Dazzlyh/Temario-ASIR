@@ -22,6 +22,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-13 · Clase 5: Criptografía (historia, Kerckhoff, Shannon, simétrica vs asimétrica)](Ciber/2026-10-13_clase5-criptografia.md)
 - [2026-10-20 · Clase 6: Contraseñas y copias (sal, cómo se roban y rompen, dorking, regla 3-2-1)](Ciber/2026-10-20_clase6-contrasenas-copias.md)
 - [2026-10-22 · Laboratorio 3: contraseñas — generar (crunch), identificar (hashid/nth/hashcat) y romper (John the Ripper) + GPG y rsync/cron para casa](Ciber/2026-10-22_lab3-contrasenas-generar-identificar-romper.md)
+- [2026-10-27 · Clase 7: análisis forense (4 fases, evidencias, hash, cadena de custodia, orden de volatilidad, herramientas)](Ciber/2026-10-27_clase7-analisis-forense.md)
 
 ## IAW
 - [2026-09-14 · Clase 1: presentación del módulo](IAW/2026-09-14_clase1-presentacion.md)
@@ -97,4 +98,5 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - SER Actividad 1 (DNS + BIND9): opcional, 15 %, entrega **16/11**. El Laboratorio 3 (21/10) ya está hecho y cubre su criterio 1 (según la guía): guardar los dos ficheros de zona (`db.<dominio>` y `db.31.172`) y las capturas. Pendiente: comprobar la delegación (`dig +trace`, whatsmydns.net) cuando haya propagado, y al acabar hacer **Stop** (no Terminate) a `srv_dns` y **no liberar la Elastic IP** (se usa en el Tema 4). El 21/10 `named.conf.options` (`recursion no`) solo salió en la guía, no en clase.
 - ⚠️ Examen Ciber: jamás escribir "encriptar" (penaliza -0,25 por aparición); la palabra correcta es cifrar/descifrar.
 - Ciber: laboratorio de romper contraseñas (Kali) la semana siguiente a la clase de criptografía (13/10).
-- Ciber Actividad 1 (Tema 3): Laboratorio 3 (22/10) — en clase se hizo completo el bloque de contraseñas (crunch, hashid/name-that-hash/hashcat, John the Ripper, incluido romper un ZIP); el cifrado con gpg y las copias con rsync/cron **no dio tiempo en clase y quedan para hacer en casa** siguiendo la guía. Entrega: 9 de noviembre. Clase 7 empieza Tema 4 (análisis forense).
+- Ciber Actividad 1 (Tema 3): Laboratorio 3 (22/10) — en clase se hizo completo el bloque de contraseñas (crunch, hashid/name-that-hash/hashcat, John the Ripper, incluido romper un ZIP); el cifrado con gpg y las copias con rsync/cron **no dio tiempo en clase y quedan para hacer en casa** siguiendo la guía. Entrega: 9 de noviembre. Clase 7 empieza Tema 4 (análisis forense). Visto el 27/10: faltan la **adquisición forense con hash** (laboratorio del 29/10) y el **informe técnico**.
+- ⚠️ Ciber (29/10): laboratorio de adquisición con `dd`/Guymager en Kali (conectar un USB/disco externo a la VM), calcular el hash y abrir una imagen con Autopsy. Examen: 4 fases del forense, orden de volatilidad, qué demuestra el hash y cadena de custodia.
