@@ -43,6 +43,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-14 · Tres puntos de vista de un incidente y análisis forense (Colonial Pipeline, SEPE, MTTR)](SAD/2026-10-14_tema1-puntos-vista-forense.md)
 - [2026-10-19 · Laboratorio: la primera foto del servidor (triaje, logs, usuarios, procesos)](SAD/2026-10-19_laboratorio-primera-foto-servidor.md)
 - [2026-10-21 · Corrección de la Actividad 1 + inicio del Tema 2: seguridad pasiva, física y ambiental](SAD/2026-10-21_tema2-seguridad-pasiva.md)
+- [2026-10-28 · Tema 2, 2ª parte: disponibilidad y «nueves», RTO/RPO, redundancia y Tiers, DRP; examen y calendario](SAD/2026-10-28_tema2-disponibilidad-rto-rpo-tiers.md)
 
 ## SER
 - [2026-09-15 · Presentación del módulo](SER/2026-09-15_presentacion-modulo.md)
@@ -80,8 +81,9 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
 - SAD Actividad 1: entregada el 19/10. El profesor corrige el criterio en clase el 21/10 — evalúa el proceso, no si el incidente elegido es "bueno o malo"; penaliza texto generado por IA sin supervisión y los emojis/iconos; exige código de técnica MITRE ATT&CK + fase (o justificar por qué no hay CVE) y medidas clasificadas como preventiva/detectora/correctora. Empieza a corregir el fin de semana del 24-25/10, feedback cuanto antes.
-- SAD: Tema 2 (seguridad pasiva, física y ambiental) arrancó el 21/10. Actividad 2 (seguridad lógica): entrega **18 de enero**. Actividad 3 (más técnica: antimalware, VPN, firewall, DMZ, Squid, pfSense, ClamAV): al final de curso. Cursos AWS Academy: altas previstas hacia el 15 de diciembre (3 meses de acceso).
-- SAD: próxima sesión — pruebas reales de caída/fallo del servidor en el laboratorio AWS; tenerlo levantado antes de clase.
+- SAD: Tema 2 (seguridad pasiva, física y ambiental) arrancó el 21/10 y se cerró el 28/10. Actividad 2: entrega **18 de enero** según mis apuntes anteriores, que la llamaban "seguridad lógica"; **el 28/10 el profesor la describió como seguridad pasiva** (sala de servidores, copias, acceso, RTO/RPO, con una lista de comprobación tipo auditor) y dijo que viene en el siguiente trimestre → **sin confirmar** tema y fecha. Actividad 3 (más técnica: antimalware, VPN, firewall, DMZ, Squid, pfSense, ClamAV): al final de curso. Cursos AWS Academy: altas previstas hacia el 15 de diciembre (3 meses de acceso).
+- SAD: próxima sesión (28/10) — laboratorio de **copias de seguridad** (completa/incremental/diferencial, frecuencia) sobre el servidor SAD1; el lunes 2/11 es festivo y el laboratorio se mete en clase (fecha exacta sin confirmar). Preparar: tener SAD1 levantado, repasar RTO/RPO, ejercicio del rack (opcional). Optativo: failover manual con Elastic IP y clon.
+- ⚠️ Examen SAD (28/10): todo el contenido es evaluable; test + un par de preguntas de desarrollo + ejercicio concreto si hay código o sistemas; RTO/RPO son preguntas "típicas" suyas. Propone 90 min de simulacro por trimestre en la semana de repaso (pendiente de su coordinadora). Una pregunta de test sobre MTTR tenía un error y se dará por buena cualquier respuesta (sin confirmar de qué test).
 - SAD: próximamente vendrá un compañero del profesor de Deloitte a dar una charla sobre el SOC.
 - SGBD (05/10) es solo lista de lo anotado en clase; pendiente de ampliar.
 - SGBD: entrega de la Actividad 1 (Tema 2) y repaso práctico el viernes 23/10, junto con Kahoot del Tema 3. Solo quedan 2 clases de SGBD este trimestre; el Tema 4 (optimización/monitorización/índices, no transacciones) se vio el 26/10. Examen de mayo: como mucho 3 preguntas del Tema 3, sin pedir sintaxis exacta.
