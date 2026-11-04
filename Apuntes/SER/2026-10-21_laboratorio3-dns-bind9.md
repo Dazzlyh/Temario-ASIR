@@ -446,6 +446,7 @@ Lo que apuntaste está bien en lo esencial. Esto es lo que conviene afinar:
 ## Logística y para llevar a casa
 
 - **Al acabar (guía):** EC2 → `srv_dns` → Instance state → **Stop** (nunca Terminate). **No liberar la Elastic IP**: se usa en el Tema 4 con el servidor web. En clase el profesor recomendó **dejar el servidor encendido hasta comprobar la propagación** ("lo dejaría encendido y probaría a última hora para ver si es viable"). Mi lectura de ambas cosas: déjalo encendido hasta verificar el `dig +trace` y entonces hazle Stop.
+  - **(27/10, PDF de instrucciones de la Clase 7)** «No toques tu `srv_dns`: déjala en **Stop** y **no liberes la Elastic IP**»; es la **misma máquina y el mismo nombre** que se usan en el Laboratorio 4 (miércoles 4/11, Apache). Mantengo mi lectura: Stop solo tras verificar la propagación; el Lab 4 exige arrancarla de nuevo.
 - **Guarda una copia de tus dos ficheros de zona** (`db.<dominio>` y `db.31.172`) y las **capturas**: te hacen falta para la **Actividad 1 (entrega lunes 16/11)**, y la guía dice que lo de hoy cubre su criterio 1.
 - Pendiente tuyo: repetir el paso 10 cuando la delegación haya propagado (`dig +trace`, whatsmydns.net) y hacer una captura.
 - **(27/10)** El profesor pidió **repetir el laboratorio en casa con la guía actualizada**: la evaluación de la actividad exige DNS funcionando y luego se monta el servidor web encima (virtual hosts). Mira que tu copia de la guía y de los comandos sea la de después del 22/10.
