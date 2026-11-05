@@ -259,7 +259,7 @@ La norma que citó se oye como "197 0 0 1": es probable que sea la **UNE 197001*
 ## Dudas y cosas sin confirmar
 
 - **El PDF no es del profesor** y yo no tengo el `.img`: los hashes completos y el MD5 no los he podido comprobar yo (se dan por buenos según el PDF).
-- **Fecha de entrega de SER:** el profesor dijo en clase que "también coincide con una entrega de SER el día 9". El material de SER dice **lunes 16/11**. No lo doy por resuelto. Posible malentendido del audio (la "entrega intermodular" también cae esa semana).
+- **Fecha de entrega de SER (resuelto):** el "día 9" que dijo aquí era un lapsus; en la clase de SER del mismo día se corrigió ("creía que era el 9") y la entrega es el **lunes 16/11**.
 - **El laboratorio del 29/10**, anunciado en la clase 7, **no tiene nota**: no sé si se hizo. Esta clase dice "lo he adelantado". La práctica de adquisición se hizo hoy (3/11).
 - Nombres de las certificaciones caras y la asociación de peritos (audio ilegible).
 - Si es obligatorio tener las 3 máquinas el jueves.

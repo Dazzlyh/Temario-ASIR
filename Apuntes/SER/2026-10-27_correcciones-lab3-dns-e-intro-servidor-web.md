@@ -6,7 +6,7 @@ fuente: "transcripción de la clase en directo (≈90 min; la primera mitad, dud
 ---
 # SER · 27/10 · Correcciones del Lab 3 y primer día de servidor web
 
-> Anterior: [Laboratorio 3: DNS con BIND9 (21/10)](2026-10-21_laboratorio3-dns-bind9.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Laboratorio 3: DNS con BIND9 (21/10)](2026-10-21_laboratorio3-dns-bind9.md) · Profesor: Damián Sualdea Soy · Siguiente: [Clase 8 (3/11): Apache y virtual hosts](2026-11-03_clase8-dns-actividad1-apache-virtual-hosts.md)
 
 Dos mitades. **Minutos 0–44:** dudas y errores del laboratorio 3 (DNS). **Minutos 44–90:** teoría del Tema 4 (servidor web) con una demostración de HTTP a mano. Los cambios que afectan al laboratorio ya están volcados en la [nota del 21/10](2026-10-21_laboratorio3-dns-bind9.md); aquí van **organizados por tarea** y con lo que es nuevo.
 
