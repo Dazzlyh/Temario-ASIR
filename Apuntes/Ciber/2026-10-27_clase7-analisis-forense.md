@@ -168,7 +168,7 @@ El RFC también insiste en: **no apagar el equipo, minimizar los cambios, docume
 ## Dudas y cosas sin confirmar
 
 - La palabra exacta que dijo para "buscar en clústeres borrados" (**carving** probable).
-- Número de la norma UNE y nombre de la asociación de peritos.
+- Número de la norma UNE y nombre de la asociación de peritos. (3/11: el profesor la nombró como «197 0 0 1»; probablemente UNE 197001, sin confirmar. Ver [nota del 3/11](2026-11-03_lab4-adquisicion-dd-guymager-e-informe-pericial.md).)
 - El formato de imagen de EnCase (E01/Ex01).
 - Qué quiso decir con "la clase 8 es la parte técnica".
 - La presentación de la clase no se ha recibido: faltan sus esquemas y la lista de certificaciones del final.
