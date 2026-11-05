@@ -86,8 +86,8 @@ md5sum imagen_dd.dd                 # (PDF da el MD5; el comando es mío)
 | **SHA-256** | `fa9f179ce1c31dd090c166b3a1d81321be511b95d2be17bd0142d5a834ecf40e` | PDF. El prefijo `fa9f1` lo confirmó el profesor |
 | **MD5** | `77fbab58ff42037677811b6d7144001b` | Solo el PDF |
 
-> [!warning] Sin confirmar
-> El hash completo y el MD5 salen del PDF, que no es del profesor. Del profesor solo tengo confirmado que el SHA-256 empieza por `fa9f1`. Si el tuyo no coincide **con el prefijo**, algo falló al copiar.
+> [!note] Fuente de los valores
+> El hash completo y el MD5 salen del PDF, y **ante duda se da por bueno el PDF antes que la transcripción** (regla de Dani para los laboratorios). El profesor confirmó en voz alta solo el prefijo `fa9f1`, coherente con el PDF. Si tu SHA-256 no coincide, algo falló al copiar.
 
 ### 4 · Adquirir en gráfico con Guymager
 
@@ -185,7 +185,7 @@ sudo apt update
 
 > [!warning] Dos cosas que faltan
 > - El **`.img.gz`** no ha llegado (el profesor lo repartió en clase); sin él no puedo comprobar los hashes ni los tamaños. Los hashes que doy son los del PDF.
-> - El **PDF no es del profesor**. Lo describe el audio: un compañero dijo haber pasado "la misma práctica, pero todos los comandos analizados y todos los parámetros". Es probable que sea ese, **sin confirmar**. Donde el PDF y la clase difieren, lo señalo.
+> - El **PDF no es del profesor** (según Dani). El audio describe un documento que un compañero pasó por el chat con "todos los comandos analizados y todos los parámetros"; es probable que sea ese, **sin confirmar**. Aun así, **en los laboratorios la transcripción no recoge todo lo del PDF**, así que si difieren, **manda el PDF**; lo señalo donde pasa.
 
 ---
 
@@ -258,7 +258,7 @@ La norma que citó se oye como "197 0 0 1": es probable que sea la **UNE 197001*
 
 ## Dudas y cosas sin confirmar
 
-- **El PDF no es del profesor** y yo no tengo el `.img`: los hashes completos y el MD5 no están comprobados.
+- **El PDF no es del profesor** y yo no tengo el `.img`: los hashes completos y el MD5 no los he podido comprobar yo (se dan por buenos según el PDF).
 - **Fecha de entrega de SER:** el profesor dijo en clase que "también coincide con una entrega de SER el día 9". El material de SER dice **lunes 16/11**. No lo doy por resuelto. Posible malentendido del audio (la "entrega intermodular" también cae esa semana).
 - **El laboratorio del 29/10**, anunciado en la clase 7, **no tiene nota**: no sé si se hizo. Esta clase dice "lo he adelantado". La práctica de adquisición se hizo hoy (3/11).
 - Nombres de las certificaciones caras y la asociación de peritos (audio ilegible).
