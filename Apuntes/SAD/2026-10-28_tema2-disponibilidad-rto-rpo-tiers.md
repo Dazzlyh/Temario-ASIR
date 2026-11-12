@@ -188,7 +188,7 @@ El profesor dio un **adelanto** y avisó de que es contenido nuevo del manual. N
 
 > [!important] Calendario según las diapositivas (PDF, diapositiva 28)
 > - **Laboratorio · lunes 2 de noviembre:** **fase 1 del servidor**: dejar `sad1` a punto (usuarios, red fija) y guardar la copia del estado inicial «contra la foto del día 0».
-> - **Clase 8 · miércoles 4 de noviembre:** empieza el **Tema 3, copias de seguridad**: completa, incremental y diferencial, frecuencia y política. «Es el RPO de hoy, hecho realidad.»
+> - **Clase 8 · miércoles 4 de noviembre:** empieza el **Tema 3, copias de seguridad**: completa, incremental y diferencial, frecuencia y política. «Es el RPO de hoy, hecho realidad.» **Ya recibida: ver [Tema 3 · copias (4/11)](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md).**
 > - **Actividad 2**, en profundidad: plan de seguridad pasiva (ver abajo).
 > - **Contradicción:** el profesor dijo en clase que el 2/11 era festivo y que el laboratorio se movía; la diapositiva (hecha antes) aún pone el 2/11. Lo más probable es que la diapositiva esté superada, pero **no tengo la transcripción del 2 o 4/11** para comprobarlo.
 
@@ -214,7 +214,7 @@ El profesor dio un **adelanto** y avisó de que es contenido nuevo del manual. N
 - **Fecha de la caída de Azure**.
 - **De qué test es la pregunta errónea de MTTR**.
 - **Actividad 2:** la fecha de entrega (el tema ya es seguro: seguridad pasiva).
-- **Cuándo se hizo el laboratorio de la fase 1 / copias** (festivo 2/11 frente a la diapositiva) y si habrá simulacros de examen (depende de su coordinadora).
+- **Cuándo se hizo el laboratorio de la fase 1** (festivo 2/11 frente a la diapositiva; la clase del 4/11 ya es de copias, y de la fase 1 no se habló allí) y si habrá simulacros de examen (depende de su coordinadora).
 - **Si el rack se vio o no en Ciber** (clase y PDF se contradicen).
 - **Si las notas de la Actividad 1 están subidas.**
 
@@ -224,3 +224,5 @@ El profesor dio un **adelanto** y avisó de que es contenido nuevo del manual. N
 - **Optativo:** el failover manual con Elastic IP (apartado 7), con un clon del SAD1.
 - (PDF, deberes) **Repasa el ejercicio de racks** y **la tabla de los nueves y los Tier** («son los números del tema y se usan en la Actividad 2»); **piensa los RTO y RPO de tu `sad1`** (cuánto podrías tardar en volver y cuántos datos podrías perder); **comprueba que no se te ha caducado la sesión de AWS** antes del laboratorio.
 - Sigue abierto desde el 21/10: la [corrección de la Actividad 1](2026-10-21_tema2-seguridad-pasiva.md).
+
+Siguiente: [Tema 3 · copias de seguridad (4/11)](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md)
