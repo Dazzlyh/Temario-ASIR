@@ -6,7 +6,7 @@ fuente: transcripción de la clase (1 h 27 min). Sin documentos nuevos (Dani). E
 ---
 # SER · Clase 8 (3/11) · DNS para la Actividad 1 + Apache + virtual hosts
 
-> Anterior: [Clase 7 (27/10): correcciones del Lab 3 e intro al servidor web](2026-10-27_correcciones-lab3-dns-e-intro-servidor-web.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 7 (27/10): correcciones del Lab 3 e intro al servidor web](2026-10-27_correcciones-lab3-dns-e-intro-servidor-web.md) · Siguiente: [Laboratorio 4 (4/11): WordPress, PHP y MariaDB](2026-11-04_laboratorio4-wordpress-php-mariadb.md) · Profesor: Damián Sualdea Soy
 
 Clase práctica, de las "técnicas": se monta un servidor web desde cero sobre la misma máquina del Lab 3. Primero se aclara qué hay que entregar del DNS en la **Actividad 1**, luego se instala **Apache**, se abre el firewall y se llega a los **sitios virtuales por nombre**. WordPress y PHP no se hicieron: quedan para el Laboratorio 4 (4/11).
 
@@ -230,7 +230,7 @@ sudo systemctl reload apache2             # lo pide el propio a2ensite
 > - Mío: el comando contrario para desactivar un sitio es `a2dissite`; no lo nombró.
 
 > [!warning] Sin confirmar
-> El audio es confuso sobre si la carpeta cuelga de **`/var/www/`** o de **`/var/www/html/`**. Lo que se oye apunta a `/var/www/<nombre>`. Sigue la ruta que dé la guía del Laboratorio 4, que es lo que manda.
+> El audio es confuso sobre si la carpeta cuelga de **`/var/www/`** o de **`/var/www/html/`**. Lo que se oye apunta a `/var/www/<nombre>`. **Resuelto (guía del Lab 4, recibida el 12/11):** la ruta es `/var/www/html/<subdominio>/`.
 
 ### Si algo no funciona
 
@@ -250,7 +250,7 @@ sudo systemctl reload apache2             # lo pide el propio a2ensite
 
 > [!important] Calendario y entregas
 > - **Actividad 1: lunes 16 de noviembre.** Según el material de la Clase 7 incluye también **HTTPS con Let's Encrypt** (Clase 9, 10/11). El profesor no lo mencionó hoy.
-> - **Laboratorio 4 (miércoles 4/11):** WordPress, PHP y MariaDB sobre Apache, con tres sitios virtuales. Hay que **arrancar `srv_dns`** y usar la misma Elastic IP. No tengo transcripción de ese laboratorio.
+> - **Laboratorio 4 (miércoles 4/11):** WordPress, PHP y MariaDB sobre Apache, con tres sitios virtuales. Hay que **arrancar `srv_dns`** y usar la misma Elastic IP. Ya está en su nota (guía y transcripción).
 > - **Próxima semana:** "laboratorio y clase", unas 2 h y media para repasar. Sin confirmar qué días exactos.
 > - **Material en el foro** (carpeta de PPT y material complementario): vídeos de virtual hosts, WordPress, PHP y la base de datos. El profesor pide verlos antes. También prometió pasar la URL del Prezi con la sesión iniciada.
 
@@ -267,7 +267,7 @@ sudo systemctl reload apache2             # lo pide el propio a2ensite
 
 - **Enunciado de la Actividad 1**: no lo tengo (puntos, texto del TXT, qué evidencia exacta).
 - **Ruta de la carpeta del virtual host** (`/var/www/` o `/var/www/html/`): audio confuso; manda la guía del Lab 4.
-- **Documento de comandos del Laboratorio 4**: el profesor lo consultó en pantalla ("punto 1: `apt install apache2`") y no me ha llegado.
+- **Documento de comandos del Laboratorio 4**: ya recibido como guía (`SER_Lab04_WordPress_Guia.pdf`); ver la nota del 4/11.
 - **Hora del laboratorio** ("mañana a 8 y media" de una compañera): no sé si es la hora del SER o de otro módulo.
 - **HTTPS**: el profesor dijo que lo haría "con el proceso entero" más adelante; el material de la Clase 7 lo sitúa en la Clase 9.
 - **Qué CMS en la Clase 9**: ni hoy ni en la Clase 7 se concreta.
