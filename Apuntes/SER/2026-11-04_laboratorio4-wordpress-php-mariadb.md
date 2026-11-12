@@ -6,7 +6,7 @@ fuente: transcripción del laboratorio (50 min) y guía oficial SER_Lab04_WordPr
 ---
 # SER · Laboratorio 4 (4/11) · WordPress sobre tu servidor
 
-> Anterior: [Clase 8 (3/11): DNS de la Actividad 1, Apache y virtual hosts](2026-11-03_clase8-dns-actividad1-apache-virtual-hosts.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 8 (3/11): DNS de la Actividad 1, Apache y virtual hosts](2026-11-03_clase8-dns-actividad1-apache-virtual-hosts.md) · Siguiente: [Clase 9 (10/11): HTTPS con Certbot y Moodle](2026-11-10_clase9-https-certbot-moodle.md) · Profesor: Damián Sualdea Soy
 
 Se monta WordPress de verdad (nube, dominio propio) sobre el `blog.<tu-dominio>` que quedó como virtual host el 3/11. Son cuatro piezas, en este orden: **PHP** → **MariaDB** → **ficheros de WordPress** → **asistente del navegador**. El profesor insistió en que **hacerlo con él equivale a haber hecho la actividad**: es el **criterio 4 de la Actividad 1 (20 %)** según la guía. Entrega: lunes 16/11.
 
@@ -223,7 +223,7 @@ SELECT user_login, user_pass FROM wp_users;   -- tu admin y su hash
 
 ## HTTPS: dos formas (guía)
 
-El candado se pone con **Certbot** (Let's Encrypt), que se explica en la **Clase 9** (el material de la Clase 7 la sitúa el 10/11).
+El candado se pone con **Certbot** (Let's Encrypt), que se explicó en la **Clase 9** (10/11): ver [su nota](2026-11-10_clase9-https-certbot-moodle.md), con Certbot por apt y por snap.
 
 | Forma | Cuándo | Qué hay que hacer |
 |---|---|---|
@@ -277,7 +277,6 @@ El profesor dijo que lo explica el próximo día ("cómo sería la instalación 
 
 - **Moodle**: dijo que lo subiría; **no lo tengo**, ni el enunciado de la Actividad 1.
 - **HTTPS en la Actividad 1**: sin confirmar el alcance (el material de la Clase 7 y esta guía lo incluyen).
-- **Fecha de la Clase 9** (10/11 según el material de la Clase 7): como la nota es posterior, **sin transcripción recibida**.
 - **Hash**: bcrypt/`$wp$2y$` es probable, no verificado en tu instancia.
 - **Nombres de aplicaciones** de la lista (audio confuso): ver tabla.
 - **Tutorías** (aparte): el profesor planteó si las tutorías deben seguir siendo laboratorios/actividades en lugar de teoría; pide que se lo digáis directamente o a través del delegado. No es evaluable.
