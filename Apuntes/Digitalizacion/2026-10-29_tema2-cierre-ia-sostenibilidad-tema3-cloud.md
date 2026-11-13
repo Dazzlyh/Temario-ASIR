@@ -6,7 +6,7 @@ fuente: "Transcripción de la clase en directo + temario oficial (Digitalizació
 ---
 # Digitalización · Cierre Tema 2 (IA y sostenibilidad) + inicio Tema 3: cloud (29/10)
 
-> Anterior: [Tema 2: tecnologías habilitadoras (15/10)](2026-10-15_clase3-digitalizacion.md) · Profesor: David Cantos
+> Anterior: [Tema 2: tecnologías habilitadoras (15/10)](2026-10-15_clase3-digitalizacion.md) · Siguiente: [Repaso Temas 1-3 y caso ERP de las 5 tiendas (12/11)](2026-11-12_repaso-temas1-3-caso-erp-5-tiendas-simulacro.md) · Profesor: David Cantos
 
 > [!info] Cómo leer estos apuntes
 > Nota pensada para estudiar **sin ver la grabación**. El profesor proyectó diapositivas propias (con tablas comparativas) que **no están en la transcripción**: solo se oye lo que dice. Origen de cada cosa: **(clase)** = dicho en voz alta; **(temario)** = `Digitalización/dig_tema03_cloud_sistemas_conectados.md`; **(mío)** = conocimiento general mío, no dicho en clase ni en el PDF. Las tablas de la clase no se pueden reproducir; las que aparecen aquí las he reconstruido yo (mío) a partir de lo que él dijo y del temario.
