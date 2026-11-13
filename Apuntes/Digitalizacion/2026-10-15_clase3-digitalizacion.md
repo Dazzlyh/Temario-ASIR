@@ -6,7 +6,7 @@ fuente: "Transcripción de la clase en directo + temario oficial (Digitalizació
 ---
 # Digitalización · Tecnologías habilitadoras digitales (15/10)
 
-> Anterior: [Tema 1: qué es digitalizar, IT vs OT y convergencia (01/10)](2026-10-01_tema1-que-es-digitalizar-it-ot-convergencia.md) · Profesor: David Cantos
+> Anterior: [Tema 1: qué es digitalizar, IT vs OT y convergencia (01/10)](2026-10-01_tema1-que-es-digitalizar-it-ot-convergencia.md) · Siguiente: [Cierre Tema 2 e inicio Tema 3: cloud (29/10)](2026-10-29_tema2-cierre-ia-sostenibilidad-tema3-cloud.md) · Profesor: David Cantos
 
 > [!info] Cómo leer estos apuntes
 > El profesor proyectó diapositivas propias que **no están en la transcripción** (solo se oye lo que dice). Lo que aparece aquí es lo que dijo en voz alta; lo que viene del temario oficial va marcado como "temario". La clase fue muy conversada y se vio **poco contenido del Tema 2**: solo 5 de las tecnologías (IoT, big data, IA, blockchain, realidad aumentada) y un ejercicio de "problema -> tecnología". El resto del Tema 2 (5G, fog, cobótica, gemelos digitales, ciberseguridad IT/OT, huella digital) **no se tocó**, pero también es temario evaluable.
