@@ -6,7 +6,7 @@ fuente: transcripción de la clase (1 h 27 min). Documento de la práctica citad
 ---
 # SAD · Tema 3, sesión 8 (4/11) · Copias de seguridad
 
-> Anterior: [Tema 2, 2ª parte (28/10): disponibilidad, RTO/RPO, Tiers](2026-10-28_tema2-disponibilidad-rto-rpo-tiers.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Tema 2, 2ª parte (28/10): disponibilidad, RTO/RPO, Tiers](2026-10-28_tema2-disponibilidad-rto-rpo-tiers.md) · Siguiente: [Tema 3, sesión 9 (11/11): cron, ventana, rotación GFS/Hanoi, política](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md) · Profesor: Damián Sualdea Soy
 
 Empieza el **Tema 3 (seguridad pasiva: copias de seguridad)**. La copia es una **medida pasiva**, "la más importante" para recuperarse de un ataque o un fallo, y encaja con el **RPO** del Tema 2 ("es el RPO de hoy hecho realidad"). Hoy: teoría de la regla **3-2-1** y de los tipos de copia, y una práctica pequeña sobre el servidor de AWS (copia completa con `tar`, `rsync`, snapshot de volumen) más una demostración de **S3**. La práctica "grande" (3-2-1 completo con un servidor montado) **queda para otro día**.
 
@@ -228,10 +228,10 @@ Moraleja: **tener copia no basta, hay que verificar que se puede restaurar.**
 
 ## Próximas sesiones y logística
 
-- **Siguiente clase (según el profesor):** automatizar: **`cron` + `rsync`**, una **restauración real**, y la **política de copias** (frecuencia, **ventana de copia**, **rotación**). También montará un servidor con varios servicios para hacer un **3-2-1 completo** ("el desastre").
+- **Siguiente clase (según el profesor):** automatizar: **`cron` + `rsync`**, una **restauración real**, y la **política de copias** (frecuencia, **ventana de copia**, **rotación**). También montará un servidor con varios servicios para hacer un **3-2-1 completo** ("el desastre"). **Actualización (11/11, nota nueva):** se hizo `cron` + rotación (GFS/Hanoi) + ventana + política; **no hubo restauración real ni 3-2-1 completo**: el profesor lo ata a la Actividad 2 (ver [11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md)).
 - **Material a leer:** el profesor pidió leer "el 3.2 y el 3.3" del temario (es **probable** que sea el Tema 3, apartados **3.2 Copias de seguridad** y **3.3 Frecuencia**) y la **guía de INCIBE sobre la regla 3-2-1**.
 - **Calendario:** el profesor preguntó si el **lunes** era festivo (en Madrid, el **9/11** es la festividad de la Almudena, lo dijo sin certeza) y si afectaba a UNIR; **sin confirmar** si hubo clase. La práctica grande se hace "cuando se pueda".
-- **Actividad 2:** "la ponemos de fondo", "para que os vaya sonando; las de SAD son siempre las primeras"; lo dijo junto a una fecha, **16 de noviembre** (audio muy confuso: habla de "el 9 está mal", "clase el 9, el 11 no es clase"). Hasta ahora anoté **18/01** (sin confirmar). Con esto la fecha sigue **sin confirmar**: **mira la entrega en el campus**.
+- **Actividad 2:** "la ponemos de fondo", "para que os vaya sonando; las de SAD son siempre las primeras"; lo dijo junto a una fecha, **16 de noviembre** (audio muy confuso: habla de "el 9 está mal", "clase el 9, el 11 no es clase"). Hasta ahora anoté **18/01** (sin confirmar). Con esto la fecha sigue **sin confirmar**: **mira la entrega en el campus**. **Actualización (11/11):** el audio apoya la entrega del **18/01** (con un "no" dudoso); sigue sin confirmar en el campus.
 - **Conexión con otros módulos:** en **Ciber** se hicieron copias con `rsync`/`cron` y cifrado con `gpg` ([Clase 6](../Ciber/2026-10-20_clase6-contrasenas-copias.md)); en **SER** tienes la parte práctica de un servidor real.
 
 ## Si algo no funciona
@@ -250,7 +250,7 @@ Moraleja: **tener copia no basta, hay que verificar que se puede restaurar.**
 - **Documento de la práctica** y presentación de la clase: no recibidos; comandos reconstruidos.
 - **Fecha de entrega de la Actividad 2:** 18/01 (anterior) frente a un "16 de noviembre" confuso en el audio.
 - **Si hubo clase el 9/11** (festivo local en Madrid, sin confirmar).
-- **Qué ejecutó exactamente** con `rsync` (¿`--delete`?, ¿qué destino?).
+- **Qué ejecutó exactamente** con `rsync` (¿`--delete`?, ¿qué destino?). **11/11:** dicta `rsync -a --delete`, así que es probable que el 4/11 fuera lo mismo.
 - **Política de ejemplo** (frecuencias): audio confuso.
 - **"Leeros el 3.2 y el 3.3"**: interpretado como apartados del temario.
 - **Cómo se restaura un snapshot** (crear volumen o AMI): no se mostró (solo la creación).
