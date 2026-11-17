@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo + presentación «Tema 4 – Optim
 ---
 # SGBD · Tema 4: optimización, monitorización e índices (26/10)
 
-> Anterior: [Tema 3: scripts, eventos y triggers (19/10)](2026-10-19_tema3-scripts-eventos-triggers.md) · Profesor: César Carrión
+> Anterior: [Tema 3: scripts, eventos y triggers (19/10)](2026-10-19_tema3-scripts-eventos-triggers.md) · Siguiente: [Repaso del trimestre y simulacro (16/11)](2026-11-16_repaso-trimestre-simulacro-que-entra-y-que-no.md) · Profesor: César Carrión
 
 > [!warning] Corrección al índice del repo
 > El README decía que el Tema 4 era "transacciones". **No lo es**: el Tema 4 es *optimización y monitorización del rendimiento* (así lo dicen las dos presentaciones y el profesor). Las transacciones (`commit`/`rollback`) se mencionaron como contexto. Según el profesor, el **Tema 5 trata de copias de seguridad**.
