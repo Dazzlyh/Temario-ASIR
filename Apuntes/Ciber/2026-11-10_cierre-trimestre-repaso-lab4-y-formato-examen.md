@@ -6,7 +6,7 @@ fuente: transcripción de la clase (22 min). Sin PDF ni diapositivas. El vídeo 
 ---
 # Ciber · 10/11 · Cierre del trimestre, repaso del Lab 4 y cómo será el examen
 
-> Anterior: [Lab 4 parte 2 (5/11): Sleuth Kit y Autopsy](2026-11-05_lab4-analisis-forense-sleuthkit-autopsy-caso-rrhh.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Lab 4 parte 2 (5/11): Sleuth Kit y Autopsy](2026-11-05_lab4-analisis-forense-sleuthkit-autopsy-caso-rrhh.md) · Siguiente: [Repaso para el simulacro (17/11)](2026-11-17_repaso-simulacro-formato-examen-y-que-estudiar.md) · Profesor: Damián Sualdea Soy
 
 Clase corta. La mayor parte se dedicó al ritmo del curso; lo técnico es poco: el cierre del tema forense y, sobre todo, **cómo será el examen** (esto último es lo útil).
 
@@ -55,7 +55,7 @@ El profesor recogió quejas del delegado: las clases son **muy técnicas y rápi
 
 - **Los 3 intentos de un test:** un alumno preguntó si hay que hacer los 3 intentos para que cuente. Respuesta: **no, se queda la puntuación más alta**. No se dijo de qué test; es probable que fuera de otro módulo (en Sostenibilidad son 3 intentos, según el temario), **sin confirmar**.
 - **Fecha de entrega** del apartado forense y **fecha de las notas**: no dadas.
-- **Simulacro de Ciber:** fecha de publicación y formato, no precisados.
+- **Simulacro de Ciber:** precisado el 17/11 (publicado el viernes 20/11 y resuelto el martes 24/11).
 - **Contenido del vídeo** del Forense 3: ilegible en el audio.
 
 ## Logística y para llevar a casa
@@ -63,4 +63,4 @@ El profesor recogió quejas del delegado: las clases son **muy técnicas y rápi
 - [ ] Hacer el caso forense (RRHH o un Windows) y guardar **capturas + comandos** como evidencia.
 - [ ] Mirar el **foro**: enlace al vídeo de la solución del Forense 3 y, el 17/11, el simulacro.
 - [ ] Preparar el repaso: 4 fases del forense, orden de volatilidad, hash y cadena de custodia (examen, según la [clase 7](2026-10-27_clase7-analisis-forense.md)), más la lectura de comandos.
-- [ ] La clase del **17/11** (repaso de temas) no la tengo: si la pasas, la integro.
+- [ ] La clase del **17/11** (repaso de temas y simulacro) ya está en su [nota](2026-11-17_repaso-simulacro-formato-examen-y-que-estudiar.md).
