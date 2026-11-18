@@ -93,6 +93,18 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - [2026-10-29 · Cierre Tema 2 (IA y sostenibilidad) e inicio Tema 3: cloud (definición NIST, IaaS/PaaS/SaaS y responsabilidades, contrato, mist/edge/fog/cloud, caso ERP de las 5 tiendas)](Digitalizacion/2026-10-29_tema2-cierre-ia-sostenibilidad-tema3-cloud.md)
 - [2026-11-12 · Repaso Temas 1-3: caso ERP de las 5 tiendas (local vs SaaS), preguntas tipo test de práctica y examen solo tipo test confirmado](Digitalizacion/2026-11-12_repaso-temas1-3-caso-erp-5-tiendas-simulacro.md)
 
+## Inglés
+Apuntes redactados para estudiar sin ver las grabaciones (módulo transversal sin actividades evaluables; evaluación por tests + examen final común tipo test). [Índice de la asignatura](Ingles/README.md).
+- [2026-09-16 · Presentación: metodología híbrida, tipos de sesión, calendario y evaluación](Ingles/2026-09-16_presentacion-metodologia-calendario.md)
+- [2026-09-22 · Tutoría: práctica oral con distintos tiempos verbales](Ingles/2026-09-22_tutoria-practica-oral-tiempos-verbales.md)
+- [2026-10-06 · Tutoría: presente simple/continuo, adverbios de frecuencia y preguntas](Ingles/2026-10-06_tutoria-present-simple-continuous-frequency-adverbs.md)
+- [2026-10-07 · Emails formales: cortesía, *I'm afraid*, *inquire*, cierres](Ingles/2026-10-07_clase-emails-formales.md)
+- [2026-10-14 · Telephoning: expresiones y errores típicos](Ingles/2026-10-14_clase-telephoning.md)
+- [2026-10-20 · Tutoría: repaso de la Unidad 1 (audio confuso)](Ingles/2026-10-20_tutoria-repaso-unidad1.md)
+- [2026-11-03 · Tutoría: past simple vs continuous en incidencias IT](Ingles/2026-11-03_tutoria-past-simple-continuous-incidentes.md)
+- [2026-11-04 · Comparativos y superlativos](Ingles/2026-11-04_clase-comparativos-superlativos.md)
+- [2026-11-17 · Causa/propósito/resultado (Unidad 2) + simulacro 25/11 y examen](Ingles/2026-11-17_tutoria-cause-purpose-result-y-simulacro.md)
+
 ## Pendiente / avisos
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.
 - SAD Actividad 1: entregada el 19/10. El profesor corrige el criterio en clase el 21/10 — evalúa el proceso, no si el incidente elegido es "bueno o malo"; penaliza texto generado por IA sin supervisión y los emojis/iconos; exige código de técnica MITRE ATT&CK + fase (o justificar por qué no hay CVE) y medidas clasificadas como preventiva/detectora/correctora. Empieza a corregir el fin de semana del 24-25/10, feedback cuanto antes.
@@ -125,3 +137,4 @@ Apuntes redactados para estudiar sin ver las grabaciones (clases quincenales, 5 
 - ⚠️ Ciber (29/10): laboratorio de adquisición con `dd`/Guymager en Kali (conectar un USB/disco externo a la VM), calcular el hash y abrir una imagen con Autopsy. Examen: 4 fases del forense, orden de volatilidad, qué demuestra el hash y cadena de custodia.
 - ⚠️ Ciber (5/11): el Lab 4 parte 2 fue con la imagen RRHH (Sleuth Kit/Autopsy), NO con Windows 7 (retos opcionales Forense 1-3). En `fls`, `*` = borrado, no robado. Actividad 1 forense: un solo caso, "hasta donde llegues". Faltan: enunciado del caso y solución del profesor.
 - ⚠️ Ciber (10/11 y 17/11): examen = 15 test (sin penalización) + preguntas cortas de 3-4 líneas + bloque de interpretar comandos (no escribirlos). Estudiar 1.2, 1.3, 1.5, 2.2, 2.3, 3.2-3.4 (3.4 ligera) y 4.2-4.4; **dimensionar el SAI no entra**. Simulacro **no puntúa**: lo publica el **viernes 20/11** y lo resuelve en clase el **martes 24/11** (50 min + 10). Jamás "encriptar" (−0,25). Más teoría y labs más explicados en el 2.º trimestre (promesa del profesor). Diapositivas de repaso y simulacro: no recibidos.
+- ⚠️ Inglés (17/11): **simulacro NO puntuable el miércoles 25/11 a las 16:00** (test, ~30 preguntas sin confirmar); examen final común a todos los grupos, tipo test, Unidades 1 y 2. La profesora dijo que Digitalización y Sostenibilidad «no tienen examen», lo que contradice tu agenda de evaluación (sin verificar). No recibido: temario/PDFs/vídeos de Inglés, simulacro y transcripción del 18/11. Audio muy confuso en 20/10, 22/09 y 17/11.
