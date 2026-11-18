@@ -6,7 +6,10 @@ fuente: transcripción de la clase (VTT) + CIBER_Clase08_Practica_adquisicion.pd
 ---
 # Ciber · 3/11 · Adquirir un disco (`dd` y Guymager) + informe pericial
 
-> Anterior: [Clase 7: análisis forense (27/10)](2026-10-27_clase7-analisis-forense.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 7: análisis forense (27/10)](2026-10-27_clase7-analisis-forense.md) · Profesor: Damián Sualdea Soy · Siguiente: [Lab 4 parte 2 (5/11): análisis con Sleuth Kit y Autopsy](2026-11-05_lab4-analisis-forense-sleuthkit-autopsy-caso-rrhh.md)
+
+> [!warning] Corrección (5/11)
+> Aquí se anotó que el jueves 5/11 se analizaría una máquina Windows 7. No fue así: se analizó la imagen del caso RRHH con Sleuth Kit y Autopsy; las máquinas Windows 7 quedaron como retos opcionales.
 
 Clase en dos tramos: **teoría del informe pericial** (la primera mitad) y **práctica de adquisición** con `dd` y Guymager sobre un disco de prácticas (`disco_practica.img.gz`). Con esto queda hecho el **apartado de adquisición de la Actividad 1**; falta el análisis de una máquina forense (jueves 5/11) y el informe técnico.
 
