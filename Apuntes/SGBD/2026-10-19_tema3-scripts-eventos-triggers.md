@@ -6,7 +6,7 @@ fuente: transcripción de la clase en directo
 ---
 # SGBD · Tema 3: Scripts, eventos y triggers (19/10)
 
-> Anterior: [Tema 2: repaso DDL/DML/DCL (05/10)](2026-10-05_tema2-repaso-ddl-dml-dcl.md) · Siguiente: [Tema 4: optimización, monitorización e índices (26/10)](2026-10-26_tema4-optimizacion-monitorizacion-indices.md) · Profesor: César Carrión
+> Anterior: [Tema 2: repaso DDL/DML/DCL (05/10)](2026-10-05_tema2-repaso-ddl-dml-dcl.md) · Siguiente: [Tutoría 23/10: entrega y cómo preguntará](2026-10-23_tutoria-repaso-temas-2-3-entrega-y-como-preguntara.md) · Profesor: César Carrión
 
 ## Logística al inicio de clase
 

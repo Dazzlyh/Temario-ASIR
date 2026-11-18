@@ -60,3 +60,15 @@ Explicación del concepto de puerto dada en clase (analogía): un ordenador es c
 
 ## Deberes / cierre
 No entregable. Practicar la instalación de los 3 motores durante el fin de semana con el PDF subido. El lunes se lanzaría un cajón de repaso del Tema 1 antes de arrancar el Tema 2.
+
+## Añadido (tutoría del 9/10): lo que no estaba aquí
+
+> Segunda tutoría de instalación (9/10), con el mismo contenido práctico. Solo se recogen los detalles nuevos.
+
+- **Descargar el SQL Server correcto:** la página de Microsoft muestra por defecto una **versión de prueba de 30 días** (de pago, con formulario de registro). Hay que bajar un poco y elegir **SQL Server Express** (gratuita). Con DBeaver pasa igual: buscar la versión gratuita para Windows.
+- **Aclaración de conceptos (pregunta de una alumna):** **XAMPP** es un paquete (Apache + MariaDB + phpMyAdmin...), **no** un gestor; **MariaDB**, **SQL Server** y **Oracle** son los **sistemas de bases de datos**; **phpMyAdmin**, **SSMS** y **DBeaver** son **clientes** de gestión. DBeaver es un "concentrador": un solo cliente para todos.
+- **Capa física:** los datos de MariaDB en XAMPP están como carpetas y ficheros en `C:\xampp\mysql\data`. Por eso hace falta un cliente en lugar de tocar los ficheros.
+- **Valores por defecto de MariaDB en XAMPP:** `localhost`, puerto **3306**, usuario **root** y **sin contraseña**.
+- **SQL Server tras instalar:** habilitar **TCP/IP** en el *Configuration Manager* (por defecto desactivado), comprobar el puerto **1433** (si lo cambias, igual en DBeaver) y **reiniciar** el servicio. Con la autenticación de Windows no hace falta `sa`; si lo activas, `ALTER LOGIN sa ENABLE` y contraseña.
+- **Principio:** a un desarrollador no se le da `sa` ni `root`, sino un usuario con los permisos justos.
+- **No obligatorio:** con tener SQL Express y XAMPP basta; Oracle es opcional. Las actividades no dependen del motor.

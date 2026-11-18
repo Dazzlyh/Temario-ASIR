@@ -6,7 +6,7 @@ fuente: "Transcripción de la clase en directo (1 h 25 min) + lista de important
 ---
 # SGBD · Repaso del trimestre y simulacro del 23/11 (16/11)
 
-> Anterior: [Tema 4: optimización, monitorización e índices (26/10)](2026-10-26_tema4-optimizacion-monitorizacion-indices.md) · Profesor: César Carrión
+> Anterior: [Tutoría 6/11: calendario y simulacros](2026-11-06_tutoria-calendario-simulacros-y-repaso-temas-3-4.md) · Profesor: César Carrión
 
 Clase distinta: no hay materia nueva. El profesor repasó los Temas 1-4 diciendo **qué entra y qué no entra** en el simulacro de la semana siguiente y en el examen de mayo, y **cómo hay que contestar**. Esta nota contrasta tu lista con lo que dijo (transcripción) y con las diapositivas (PDF manda sobre el audio). Origen: **(clase)**, **(PDF TemaX)**, **(tu lista)**, **(mío)**.
 
