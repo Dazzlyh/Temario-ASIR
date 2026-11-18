@@ -6,7 +6,7 @@ fuente: transcripción de la clase (1 h 07 min) y tres PDF del laboratorio (LÉE
 ---
 # Ciber · Laboratorio 4 (parte 2) · Analizar una imagen con Sleuth Kit y Autopsy (5/11)
 
-> Anterior: [Clase 8 / Lab 4 parte 1 (3/11): adquisición con `dd` y Guymager](2026-11-03_lab4-adquisicion-dd-guymager-e-informe-pericial.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Clase 8 / Lab 4 parte 1 (3/11): adquisición con `dd` y Guymager](2026-11-03_lab4-adquisicion-dd-guymager-e-informe-pericial.md)  · Siguiente: [Cierre del trimestre y formato del examen (10/11)](2026-11-10_cierre-trimestre-repaso-lab4-y-formato-examen.md) · Profesor: Damián Sualdea Soy
 
 El 3/11 se **adquirió** un disco (copia bit a bit + hash). Hoy se hace lo siguiente: **analizar** la copia de un caso. La evidencia es la imagen del **equipo de RRHH de una empresa de nóminas**, ya adquirida y sellada con su hash; el trabajo es investigarla **sin tocarla**, con herramientas de Kali, y sacar de ahí el material del informe de la **Actividad 1**.
 
