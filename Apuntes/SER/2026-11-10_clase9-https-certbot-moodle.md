@@ -6,7 +6,7 @@ fuente: transcripción de la clase (1 h 39 min) y guía oficial SER_Guia_Web_de_
 ---
 # SER · Clase 9 (10/11) · HTTPS con Certbot y segundo CMS
 
-> Anterior: [Laboratorio 4 (4/11): WordPress sobre Apache](2026-11-04_laboratorio4-wordpress-php-mariadb.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Laboratorio 4 (4/11): WordPress sobre Apache](2026-11-04_laboratorio4-wordpress-php-mariadb.md) · Siguiente: [Repaso y simulacro (17/11)](2026-11-17_repaso-simulacro-dibujos-dns-apache-https.md) · Profesor: Damián Sualdea Soy
 
 Cierre de la **Actividad 1** (entrega **lunes 16/11**). El profesor repasó el camino completo (DNS → Apache → VirtualHost → HTTPS), puso el **candado con Certbot** y montó **Moodle** en un subdominio nuevo (`academia`) para enseñar el proceso entero con un CMS. Un compañero resolvió en directo el fallo del Moodle (ver Tarea 4).
 
