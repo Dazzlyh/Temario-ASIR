@@ -6,7 +6,7 @@ fuente: transcripción de la clase (1 h 30 min). La presentación de la sesión 
 ---
 # SAD · Tema 3, sesión 9 (11/11) · cron, ventana de copia, rotación y política de copias
 
-> Anterior: [Tema 3, sesión 8 (4/11): copias 3-2-1, tar, rsync, snapshot, S3](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md) · Profesor: Damián Sualdea Soy
+> Anterior: [Tema 3, sesión 8 (4/11): copias 3-2-1, tar, rsync, snapshot, S3](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md) · Siguiente: [Repaso Temas 1-3 y simulacro (18/11)](2026-11-18_repaso-simulacro-temas-1-2-3.md) · Profesor: Damián Sualdea Soy
 
 Es la **última clase con contenido nuevo** de SAD este trimestre: cierra el Tema 3. El 4/11 se hicieron las copias **a mano**; hoy se **automatizan** con `cron` y se deciden las preguntas de diseño: **cada cuánto** (RPO), **cuándo** (ventana de copia), **cuánto tiempo se guardan** y **cómo se rotan** (GFS u Hanoi). El profesor remata con la **política de copias** y con el simulacro y la Actividad 2.
 
