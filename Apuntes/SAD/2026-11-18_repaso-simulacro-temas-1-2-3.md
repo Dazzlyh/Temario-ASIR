@@ -2,7 +2,7 @@
 asignatura: Seguridad y Alta Disponibilidad (SAD)
 fecha: 2026-11-18
 tema: "Repaso del trimestre (Temas 1, 2 y 3) y formato del simulacro del 25/11"
-fuente: transcripción de la clase (1 h 7 min) + lista de contenidos del PDF de repaso del profesor (copiada por Dani). El PDF/presentación en sí no se ha recibido. Contrastado con los Temas 1-3 del temario y con las notas anteriores de SAD.
+fuente: transcripción de la clase del **18/11** (1 h 7 min) + **PDFs de la Clase 10 recibidos el 25/11**: diapositivas `SAD_Clase10_diapositivas.pdf` (23 págs.) y `SAD_Clase10_Guia_repaso.pdf` (2 págs.) + lista de contenidos que copió Dani. Contrastado con los Temas 1-3 del temario y con las notas anteriores de SAD. Donde el PDF y el audio difieren, manda el PDF.
 ---
 # SAD · Repaso Temas 1-3 y simulacro (18/11)
 
@@ -10,16 +10,16 @@ fuente: transcripción de la clase (1 h 7 min) + lista de contenidos del PDF de 
 
 Clase de repaso, sin contenido nuevo evaluable. El profesor recorre los tres temas, explica **cómo es el simulacro** y da consejos de estudio. Convención: **(clase)** = audio; **(PDF de Dani)** = la lista que pasó Dani; **(temario)** = Temas del repo; **(mío)** = añadido por mí.
 
-> [!warning] Lo que NO tengo
-> No he recibido la **presentación de repaso**; solo la lista de contenidos que copió Dani. Tampoco el **simulacro** (todavía no publicado a esta hora). Las diapositivas con capturas de `crontab` que dice que proyectó no se ven en el audio.
+> [!note] Actualización 25/11: PDFs recibidos
+> La clase de repaso fue el **miércoles 18/11** («Clase 10 · 18 de noviembre» en las diapositivas del 11/11; el audio es del 18-11). El **20/11** que mencionabas es, como mucho, la fecha en que se publicaba el simulacro. Con la **guía de repaso** y las **diapositivas** recibidas he fijado qué entra, la **hora del simulacro (19:00)** y varias dudas; ver la sección «Lo que fija el PDF». **Sigo sin tener el simulacro.**
 
 ## Lo imprescindible
 
 > [!important] Simulacro: lo que dijo
 > - **Miércoles 25/11, en clase; lo corrige él allí mismo.** **No cuenta para la nota.**
 > - Entra **solo lo de los Temas 1, 2 y 3** ("absolutamente todo lo que hemos visto en clase").
-> - **Estructura:** **test de 15 preguntas** + **preguntas cortas** + **casos prácticos** (ejemplos que dio: **interpretar un `crontab`**, **la restauración** de una copia y **dibujar un esquema**). Sobre el esquema se contradice: primero lo lista y luego dice «aquí nos entra esquema, no» (audio confuso); al final aconseja saber **dibujar la regla 3-2-1**. **Sin confirmar** si cae; **prepáralo** por si acaso.
-> - Lo **publica en el foro/tablón** y avisa para que lo bajes. En el audio dice que **«mañana tenéis que disponer de los simulacros»** y que revisa y sube las diapositivas del Tema 2 «mañana por la mañana», o sea el **19/11**. Mi nota anterior decía **viernes 20/11** para el simulacro de SAD; **no coinciden, mira el aula**.
+> - **Estructura:** **test de 15 preguntas** (cifra del audio) + **preguntas cortas** + **casos prácticos** (**interpretar un `crontab`**, **una restauración** o **dibujar un esquema**). **PDF (diapositiva 17 y 21): sí entra dibujar el esquema 3-2-1 de un servidor** («las tres copias, los dos soportes y la que va fuera»). Resuelto: **prepáralo**.
+> - **Cuándo y dónde:** **miércoles 25/11 a las 19:00**, «en nuestra franja de siempre» (diapositiva 17). Lo tendrás **en Archivos y en el foro**; el audio decía que lo subía el 19/11 (mi nota anterior: 20/11): **no hay fecha en el PDF**, mira el aula.
 > - **Cómo prepararlo (su consejo):** estudiar los apuntes, hacerlo **en papel, con cronómetro de 60 min**, sin mirar; fallar no penaliza.
 > - **Estilo del examen:** de **comprensión, no de recitar**. «No quiero parrafadas». Preguntas cortas y **casos prácticos** tipo entrevista de trabajo («te pongo un caso y me lo resuelves»). El de mayo irá igual.
 
@@ -29,12 +29,45 @@ Los apartados que cita (en el audio salen con números confusos; contrastados co
 
 | Tema | Qué entra (lista del PDF de Dani) | Apartados (temario, **sin confirmar** el rango exacto) |
 |---|---|---|
-| **1** | Tríada **CID**; **activos, amenazas, vulnerabilidades y riesgo**; **medidas de protección** | 1.2-1.7 (dice «del 1 al 7») |
-| **2** | Seguridad **pasiva física y ambiental**; **CPD**; **SAI**; **climatización e incendios**; **seguridad activa** | 2.2 y 2.3 («el resto del tema que lo miráis») |
-| **3** | **Copias**: tipos, regla **3-2-1**; **frecuencia**; **RPO y RTO**; **rotación y automatización con cron**; **restauración** | 3.2, 3.3 y 3.4, más `tar`, `rsync`, `cron` y verificar/dibujar la 3-2-1 |
+| **1** | Tríada **CID**; **activos, amenazas, vulnerabilidades y riesgo**; **medidas de protección** (preventiva/detectora/correctora); activa/pasiva y física/lógica | **1.2 a 1.7** (confirmado por la guía) |
+| **2** | **CPD**; **SAI**; **climatización e incendios**; qué protege la pasiva física | **2.2 y 2.3** (confirmado por la guía) |
+| **3** | **Copias**: tipos, regla **3-2-1** (con dibujo); **frecuencia, RPO y ventana de copia**; **`tar`/`rsync`/`cron`**; restauración y comprobaciones | **3.2, 3.3 y 3.4** (confirmado por la guía) |
 
-> [!warning] «Seguridad activa» en tu lista
-> En el audio **no** repasa la seguridad activa como bloque: dice que **«todavía no la hemos trabajado»** (la lógica/activa llega en el 2.º y 3.er trimestre). Es probable que solo entre **la diferencia activa/pasiva** (ver más abajo). Si la lista del PDF la incluye, no te la saltes, pero no esperes preguntas técnicas de firewalls o antivirus.
+> [!note] «Seguridad activa» en tu lista: resuelto
+> La guía la sitúa en el **Tema 1**: «**diferenciar seguridad activa y pasiva, y física y lógica**». No es un bloque técnico aparte: solo la diferencia (ver la tabla de Tema 1 abajo).
+
+## Lo que fija el PDF (guía de repaso y diapositivas de la Clase 10)
+
+La guía dice: «**no hace falta estudiar "todo": esto es exactamente lo que entra en el simulacro**» y «no te aprendas la respuesta de memoria: entiende el porqué». Es el **ensayo del examen de verdad**.
+
+**Tema 1 (Tema 01, 1.2-1.7) · tienes que saber:**
+- Definir la **CID** con un ejemplo de cada una, **en especial la disponibilidad**.
+- Decir **qué principio se rompe** en un caso (p. ej. se modifican datos sin permiso → **integridad**).
+- Medidas según **cuándo actúan**: **preventiva** (antes: contraseñas, cortafuegos, formación, permisos), **detectora** (durante: logs, IDS, alertas, antivirus), **correctora** (después: restaurar copia, parche, aislar la máquina).
+- **Cuándo un activo es crítico**: cuanto **más daño causaría perderlo o que fallara**.
+- **Activa** (evita: antivirus, contraseñas, cortafuegos) frente a **pasiva** (reduce o repara el daño: copias, SAI); **física** (el sitio y el equipo: acceso, SAI, incendios) frente a **lógica** (software y datos: permisos, cifrado).
+
+**Tema 2 (Tema 02, 2.2 y 2.3) · tienes que saber:**
+- **Tres medidas físicas o ambientales** de un CPD (acceso, climatización, detección de incendios) y **reconocer cuál NO lo es** (**el cifrado es lógica**).
+- Para qué el control de **temperatura y humedad**: que los equipos **no se sobrecalienten y fallen**.
+- La pasiva física protege **el sitio y los equipos (el soporte físico)**.
+- SAI (diapositiva 11): batería que mantiene los equipos encendidos; da tiempo a **apagar bien o a que arranque el grupo electrógeno**; «se elige por **potencia y autonomía**» (conceptual: el cálculo, según el audio, no entra).
+
+**Tema 3 (Tema 03, 3.2-3.4) · tienes que saber:**
+- Tipos de copia y **cuál restaura más rápido** (la **completa**; entre las otras dos, la **diferencial**). Truco: «**incremental mira a la copia de ayer; diferencial mira siempre a la última completa**».
+- **RPO** (cuántos datos puedes perder; decide **cada cuánto** copiar) y **ventana de copia** (cuándo conviene), y cómo deciden tu política.
+- **`tar`** empaqueta (con `-z`, comprime; **restaura con `-x`**) frente a **`rsync`** (espejo; **`--delete` deja la copia exacta**).
+- **Leer una línea de `cron`** (5 campos) y ejemplo `0 2 * * *` = a las 2:00.
+- **Comprobar una restauración con `sha256sum`** (huellas iguales = íntegra) y **ver si cron corrió con `grep CRON`** en el log.
+- **Dibujar el esquema 3-2-1** de un servidor.
+
+**Lo que «cae seguro» (diapositiva 22):** la **disponibilidad** (CID) y **las medidas**, **cuándo un activo es crítico**, **el RPO**, **incremental frente a diferencial** y **leer una línea de cron**. «En el examen de verdad te van a pedir **aplicar, no recitar**.»
+
+> [!warning] Dos discrepancias entre el PDF y la clase
+> 1. **«El original no cuenta» (diapositiva 14 de la Clase 10).** El PDF dice «3 copias de tus datos… **el original no cuenta: tres copias de verdad**». El profesor, en el audio del 18/11, vio esa frase, **no supo por qué** y dijo «original y 2 copias»; y la diapositiva 10 de la Clase 8 cuenta el **original** entre las 3. **Las fuentes se contradicen.** En un examen, escribe la regla **explicitando qué cuentas** («3 copias en total: el original y 2 copias, en 2 soportes, 1 fuera»), y si puedes, **pregúntalo en el foro** (la guía lo pide: «si algo no te sale, pregúntalo en el foro»).
+> 2. **«`tar` empaqueta y comprime» (guía) frente a «`tar` NO comprime» (Clase 9).** Lo correcto: **`tar` solo empaqueta**; **`-z` (gzip) comprime**. En las diapositivas 14 de la Clase 10 lo dicen bien («con `-z` lo comprime»). Escribe «**empaqueta; con `-z` comprime**».
+> - **Matiz (mío) en las medidas:** el **antivirus** sale como medida **activa** (diapositiva 6) y como **detectora** (diapositiva 8). **Activa/pasiva y preventiva/detectora/correctora** son dos clasificaciones distintas; en una pregunta, mira cuál te piden.
+
 
 ## Tema 1 · Principios de seguridad
 
@@ -55,8 +88,8 @@ Los apartados que cita (en el audio salen con números confusos; contrastados co
 | **Activo** | Lo que tiene valor en la empresa | Información de nóminas, el servidor, el ordenador del director (se trata distinto del equipo de recepción) |
 | **Amenaza** | Lo que **puede** atacar o dañar el activo | Un **actor de amenaza** (atacante), **malware**, un **incendio**, el **error humano** («capa 8» del modelo OSI) |
 | **Vulnerabilidad** | **Debilidad/fallo** que hace viable la amenaza | Contraseña débil, software sin parchear, **puerto abierto que no hace falta** |
-| **Riesgo** | **Probabilidad** de que la amenaza explote la vulnerabilidad | Se reduce con medidas de protección |
-| **Impacto** | Daño al activo cuando ocurre; baja su valor | — |
+| **Riesgo** | **Combinación de probabilidad e impacto** (PDF, diapositiva 7): cómo de probable es que la amenaza aproveche la vulnerabilidad y cuánto daño haría. Analizarlo = decidir qué proteger primero | Se reduce con medidas de protección |
+| **Impacto** | Daño al activo cuando ocurre; baja su valor. Un **CVE** (PDF) = vulnerabilidad conocida con nombre | — |
 
 Cadena: **activo → amenazas → vulnerabilidad → impacto → riesgo**; las **medidas de protección** (p. ej. una puerta con cerradura en la sala del servidor) **reducen el riesgo**; nunca lo dejan en cero («todos somos vulnerables a algo»).
 
@@ -111,7 +144,7 @@ Truco suyo: *«la diferencial se carga sobre la completa; la incremental sobre l
 - **Abuelo-padre-hijo** (rotación, **GFS**): copias mensuales/semanales/diarias; ver la [nota del 11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md).
 
 ### Regla 3-2-1 (clase)
-**3** copias (**el original y 2 copias**) · **2** soportes/sitios distintos (disco del servidor y otro disco) · **1** fuera de sitio (p. ej. **la nube**). El profesor vio una diapositiva que decía que «el original no cuenta» y **no supo por qué**; su criterio, igual que en el 4/11: **original + 2 copias**. **Resuelto en parte:** la diapositiva 10 de la clase del 4/11 cuenta el original como una de las 3 copias («datos + copia local + snapshot en la nube = 3 copias»), ver [4/11](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md). La diapositiva del 18/11 que él vio **no la tengo**.
+**3** copias (**el original y 2 copias**, según el audio) · **2** soportes/sitios distintos (disco del servidor y otro disco) · **1** fuera de sitio (p. ej. **la nube**). **Las fuentes se contradicen:** la Clase 10 (diapositiva 14) dice «el original **no** cuenta»; el profesor, en clase, «original y 2 copias»; la Clase 8 (diapositiva 10) cuenta el original (ver [4/11](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md)). Ver el aviso de arriba.
 
 ### `tar`, `gzip`, `rsync` (clase)
 - **`tar` empaqueta** muchos ficheros en **uno solo**; **`gzip` (`.gz`) comprime**. «`tar` es el empaquetado, `gz` la compresión». Típico: **`.tar.gz`**.
@@ -152,6 +185,10 @@ Una copia no probada no es una copia. **Pruébala en un servidor** (instalación
 14. Una pyme tiene todo en un NAS en la misma oficina. Diseña, con la regla 3-2-1, qué añades y dónde.
 15. **Dibujo:** esquema de la regla 3-2-1 (original, 2 copias, 2 soportes, 1 fuera de sitio) con flechas.
 16. Un cliente pierde datos un jueves a las 10:00 y su última completa fue el domingo 02:00 con diferenciales diarias a las 02:00. ¿Qué restauras y cuánto trabajo pierde (RPO real en ese momento)?
+17. Di de cada medida si es **preventiva, detectora o correctora**: (a) formación del usuario, (b) registros de acceso (logs), (c) restaurar una copia, (d) permisos de acceso.
+18. Indica cuál de estas **NO** es una medida física o ambiental de un CPD: acceso con tarjeta, climatización, detección de incendios, cifrado de disco.
+19. Tras restaurar un fichero, ¿cómo compruebas que es **idéntico** al de la copia? ¿Y cómo ves si una tarea de `cron` se ejecutó?
+20. Un fallo en una BD modifica importes sin permiso: ¿qué principio de la CID se rompe? ¿Y si la BD no responde?
 
 ### Soluciones
 1. **Disponibilidad** (no puedes acceder a la información).
@@ -170,17 +207,21 @@ Una copia no probada no es una copia. **Pruébala en un servidor** (instalación
 14. Ejemplo: copia local en un **segundo disco/NAS distinto** + **copia en la nube** (fuera de sitio). **(mío)** Completa semanal + incrementales/diferenciales diarias con `cron`, y **prueba de restauración** periódica.
 15. Esqueleto (texto): `[Servidor: ORIGINAL] → [Disco B: copia 1] → [Nube: copia 2, fuera de sitio]`; etiqueta: **3 copias · 2 soportes · 1 fuera**.
 16. **Completa del domingo + diferencial del jueves 02:00** (la última hecha antes de la caída). Se pierde lo trabajado entre las 02:00 y las 10:00: **8 h** de datos nuevos (el RPO real de ese momento). **(mío)** el cálculo.
+17. (a) **Preventiva**; (b) **detectora**; (c) **correctora**; (d) **preventiva** (según la guía: «permisos»).
+18. **El cifrado de disco** (es seguridad **lógica**).
+19. Con **`sha256sum`** de ambos ficheros: **huellas iguales = íntegra**. Para `cron`: **`grep CRON /var/log/syslog | tail`** (y ver los ficheros con la fecha de hoy).
+20. Se rompe la **integridad**; si no responde, la **disponibilidad**.
 
 ## Dudas y cosas sin confirmar
-- **Fecha de publicación del simulacro:** el audio apunta al **19/11**; mi nota anterior decía **20/11**. Revisa el aula.
+- **Fecha de publicación del simulacro:** el audio apunta al **19/11**; mi nota anterior decía **20/11**; los PDF solo dicen «en Archivos y en el foro». Revisa el aula.
 - **Laboratorio de restauración:** el profesor dice **«este viernes vamos a hacer una restauración en un servidor»** y antes comenta (audio confuso) que **un laboratorio se mueve** y «no vale para la Actividad 2». Las diapositivas del 11/11 aclaran que el montaje de la política y **la restauración** se hacen **«en el laboratorio de diciembre, al arrancar la Actividad 2»** (aunque otra diapositiva citaba el lunes 16/11), ver [11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md). Lo del viernes sigue **sin confirmar**; **comprueba en el campus** qué laboratorio hay y la entrega de la Actividad 2.
 - **Puntos extra («plus»):** habla de **cibercooperantes/ciber voluntarios** (charla, hacer fotos…) y dice que da **«un plus de 1 punto en el examen»** por apuntarse. Audio confuso (**sin confirmar** si es 1 punto ni a qué examen aplica).
-- **Esquema en el simulacro:** contradictorio, ver arriba.
-- **Hora del simulacro del 25/11:** no se dice; consulta el aula (el **Inglés** también tiene simulacro ese mismo miércoles, a las 16:00).
+- ✅ **Esquema en el simulacro:** resuelto por el PDF: **sí entra dibujar la 3-2-1**.
+- ✅ **Hora del simulacro del 25/11:** **19:00** (diapositiva 17), «nuestra franja de siempre». El de **Inglés** es ese mismo día a las 16:00: no se solapan.
 - Omitido: charla sobre uso de la IA y su supervisión, anécdotas personales, memes, conversación sobre noticias y videojuegos y la demostración de un simulador de redes de un compañero.
 
 ## Logística y para llevar a casa
 1. **Hoy o mañana:** bajar el simulacro del aula y las diapositivas del Tema 2 (19/11).
 2. **Antes del 25/11:** hacer el autotest en papel, 60 min, y **cronometrado**; repasar leer `crontab` y la restauración con completa+incrementales/diferenciales.
 3. Repasar **las notas del 28/10 (RTO/RPO, nueves, Tiers), 4/11 y 11/11** si fallas algo.
-4. Confirmar en el aula: laboratorio del viernes, Actividad 2 y hora del simulacro.
+4. Confirmar en el aula: laboratorio del viernes, Actividad 2 y dónde está el simulacro (**miércoles 25/11, 19:00**). Si dudas de la 3-2-1, **pregunta en el foro**.
