@@ -65,7 +65,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-21 · Laboratorio 3: DNS con BIND9 (zona directa e inversa, `named-checkzone`, `host`/`dig`, AXFR y delegación; actualizado el 27/10 con las correcciones del profesor)](SER/2026-10-21_laboratorio3-dns-bind9.md)
 - [2026-10-27 · Correcciones del Lab 3 (zona = dominio puro, Namecheap, `ping`) e intro al servidor web (HTTP, `curl`/`telnet`, códigos de estado; incluye el material oficial: diapositivas e instrucciones de la Clase 7)](SER/2026-10-27_correcciones-lab3-dns-e-intro-servidor-web.md)
 - [2026-11-03 · Clase 8: requisitos DNS de la Actividad 1, instalar Apache + Security Group (80), `/var/www/html` y virtual hosts por nombre (`sites-available`, `a2ensite`, `ServerName`/`DocumentRoot`); **+ PDFs (25/11): teoría 4.3-4.6, guía VirtualHost, DNS sin BIND9, HTTPS, proteger un sitio (`htpasswd`, `.htaccess`, `Require ip`) y criterios de la Actividad 1**](SER/2026-11-03_clase8-dns-actividad1-apache-virtual-hosts.md)
-- [2026-11-04 · Laboratorio 4: WordPress sobre Apache (PHP + `php-mysql`, MariaDB con BD y usuario propios, `wget`/`tar`/`cp`/`chown www-data`, asistente web, `info.php`, errores típicos y HTTPS en dos formas)](SER/2026-11-04_laboratorio4-wordpress-php-mariadb.md)
+- [2026-11-04 · Laboratorio 4: WordPress sobre Apache (PHP + `php-mysql`, MariaDB con BD y usuario propios, `wget`/`tar`/`cp`/`chown www-data`, asistente web, `info.php`, errores típicos y HTTPS en dos formas); **+ guía de Moodle (25/11): segundo CMS, `moodledata`, utf8mb4**](SER/2026-11-04_laboratorio4-wordpress-php-mariadb.md)
 - [2026-11-10 · Clase 9: HTTPS con Certbot (por `apt` y por `snap`), el orden de la Actividad 1 (DNS → Apache → VirtualHost → 443), tres caminos de DNS, `ServerAlias www` y Moodle en un subdominio (DocumentRoot `/public`)](SER/2026-11-10_clase9-https-certbot-moodle.md)
 - [2026-11-17 · Repaso y simulacro: qué entra por tema, los 3 dibujos (Apache con virtual hosts, DNS con BIND9, HTTPS con Certbot), lectura de zona DNS y de virtual host, comandos, hoja de respuestas y práctica con soluciones](SER/2026-11-17_repaso-simulacro-dibujos-dns-apache-https.md)
 
@@ -107,6 +107,8 @@ Apuntes redactados para estudiar sin ver las grabaciones (módulo transversal si
 - [2026-11-17 · Causa/propósito/resultado (Unidad 2) + simulacro 25/11 y examen](Ingles/2026-11-17_tutoria-cause-purpose-result-y-simulacro.md)
 
 ## Pendiente / avisos
+
+- ⚠️ SER Lab 4 (guía de Moodle, recibida el 25/11): `moodledata` va en `/var/moodledata` con `0770` (corrige el audio del 10/11). La guía no menciona que en Moodle 5.1+ el `DocumentRoot` es `.../public`; en clase salió la web en blanco por eso. La guía de WordPress ya estaba aplicada, sin cambios.
 
 - ⚠️ SER (3/11, PDFs recibidos el 25/11): la nota se corrigió (ruta `/var/www/html/<nombre-completo>`) y ahora recoge los siete criterios de la Actividad 1 (3 puntos, 16/11 23:59). **Contradicción de los PDF:** la hoja de instrucciones dice que Apache se monta el 4/11; la guía «VirtualHost» y el audio, que el 3/11. La guía «Proteger un sitio» (`htpasswd`) choca con el aviso del 17/11 de que «no entra»; sin confirmar. Sigue sin recibir el enunciado completo de la Actividad 1.
 - ⚠️ Examen SAD: una instrucción de `openssl` a explicar.

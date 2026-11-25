@@ -2,7 +2,7 @@
 asignatura: Servicios en Red e Internet (SER)
 fecha: 2026-11-10
 tema: "Tema 4 · Clase 9: HTTPS con Certbot / Let's Encrypt (snap y apt) y un segundo CMS (Moodle) en un subdominio"
-fuente: transcripción de la clase (1 h 39 min) y guía oficial SER_Guia_Web_de_punta_a_punta.pdf (5 páginas, "guía maestra de la Actividad 1"). Donde difieren, manda la guía. Documento del laboratorio de Moodle citado por el profesor: no recibido. Contraste externo marcado (web).
+fuente: transcripción de la clase (1 h 39 min) y guía oficial SER_Guia_Web_de_punta_a_punta.pdf (5 páginas, "guía maestra de la Actividad 1"). Donde difieren, manda la guía. Documento del laboratorio de Moodle citado por el profesor: recibido el 25/11 (`SER_Lab04_Moodle_Guia.pdf`, resumido en la [nota del Lab 4](2026-11-04_laboratorio4-wordpress-php-mariadb.md)). Contraste externo marcado (web).
 ---
 # SER · Clase 9 (10/11) · HTTPS con Certbot y segundo CMS
 
@@ -212,12 +212,12 @@ Otros pasos y datos de la clase:
 - **PHP:** `max_input_vars` ≥ **5000** (Moodle lo exige, web); el profesor lo subió en el `php.ini` de Apache y reinició. **(mío)** ruta: `/etc/php/<versión>/apache2/php.ini`. La máquina de clase tenía **PHP 8.3.6**.
 - **Base de datos** (como en el Lab 4, pero nueva): una **BD**, un **usuario** propio (en clase `moodle_user`; BD `moodle`) y **contraseña fuerte**:
   ```sql
-  CREATE DATABASE moodle;                                    -- (mío) Moodle recomienda utf8mb4
+  CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;   -- (guía del Lab 4) utf8mb4 es obligatorio
   CREATE USER 'moodle_user'@'localhost' IDENTIFIED BY '<clave-fuerte>';
   GRANT ALL PRIVILEGES ON moodle.* TO 'moodle_user'@'localhost';
   FLUSH PRIVILEGES;
   ```
-- **Carpeta `moodledata`** (donde Moodle guarda ficheros): el instalador pide una ruta. El profesor la creó en `/var/www/html/moodledata`, la puso a **`www-data`** y permisos amplios (en el audio "0, 7, 7, 0": **sin confirmar** si fue `0770` o `0777`); justificó que "no tiene acceso desde fuera". **(mío)** Moodle recomienda que **no** esté bajo la carpeta pública (ponla "una más atrás", p. ej. `/var/www/moodledata`, y cambia esa ruta en el instalador).
+- **Carpeta `moodledata`** (donde Moodle guarda ficheros): el instalador pide una ruta. El profesor la creó en `/var/www/html/moodledata`, la puso a **`www-data`** y permisos amplios (en el audio "0, 7, 7, 0": **sin confirmar** si fue `0770` o `0777`); justificó que "no tiene acceso desde fuera". **La guía del Lab 4 (PDF, manda) lo contradice:** `moodledata` va **fuera de `/var/www`**, en **`/var/moodledata`**, con `chown www-data:www-data` y **`chmod 0770`** (si estuviera en el sitio web, sus ficheros privados se descargarían por HTTP). El `0770` zanja el audio confuso; no hace falta `0777`.
 - **Asistente web** de Moodle: idioma **Español (España)**, ruta de `moodledata`, tipo de BD **MariaDB**, datos de la BD, *Continuar*; instalación de tablas (muy larga: "`htop` a tope"), después usuario administrador (`admin`), nombre del sitio ("Academia") y correo.
 - **Versión de MariaDB (audio confuso, sin confirmar):** el instalador rechazó la MariaDB de la máquina por **versión**; el profesor la **cambió a otra** (habla de 11.4 y de 10.11.14) para continuar y dijo que "bajar así de versión es una barbaridad" en un servidor real. Moodle 5.1 pide **MariaDB ≥ 10.11.0** y **PHP ≥ 8.2** (web). **Es probable** que bajara una versión de Moodle más reciente de la que soportaba su stack; la lección es **mirar los requisitos de versión antes de instalar** y, si no encaja, usar una **rama estable anterior**. Con la versión de MariaDB de tu máquina (`mariadb --version`) comprueba que cumple lo que pide el Moodle que descargues.
 
@@ -246,10 +246,10 @@ Otros pasos y datos de la clase:
 ## Dudas y cosas sin confirmar
 
 - **Comandos exactos de la instalación por snap**: no se oyen; ver aviso arriba y certbot.eff.org.
-- **Permisos de `moodledata`** (`0770` o `0777`): audio confuso.
+- ✅ **Permisos de `moodledata`:** `0770`, según la guía del Lab 4.
 - **Versión de MariaDB y de Moodle** usadas y por qué falló: audio confuso.
 - **«Index con IA»** (criterio de la guía) y el contenido exacto de la **documentación**: sin enunciado.
-- **Documento del laboratorio de Moodle** y la guía de comandos Linux que citó: no recibidos.
+- **Documento del laboratorio de Moodle:** ya recibido (25/11). La **guía de comandos Linux** que citó el profesor: sigue sin recibir.
 - **Renovación con apt:** lo he descrito de memoria; verifica con `systemctl list-timers`.
 - Dijo que "más adelante" enseñará "algo que lo hace todo automático" (sin concretar) y que el correo electrónico llegará en temas posteriores; sin valor evaluable por ahora.
 

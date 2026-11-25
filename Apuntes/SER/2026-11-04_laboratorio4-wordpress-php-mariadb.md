@@ -2,7 +2,7 @@
 asignatura: Servicios en Red e Internet (SER)
 fecha: 2026-11-04
 tema: "Tema 4 · Laboratorio 4: WordPress sobre Apache (PHP + MariaDB + instalación por navegador)"
-fuente: transcripción del laboratorio (50 min) y guía oficial SER_Lab04_WordPress_Guia.pdf (3 páginas). Donde difieren, manda la guía. Contrastado con wordpress.org/about/requirements y con documentación externa (marcada como (web)).
+fuente: transcripción del laboratorio (50 min), guía oficial SER_Lab04_WordPress_Guia.pdf (3 páginas) y, desde el 25/11, SER_Lab04_Moodle_Guia.pdf (3 páginas). Donde difieren, manda la guía. Contrastado con wordpress.org/about/requirements y con documentación externa (marcada como (web)).
 ---
 # SER · Laboratorio 4 (4/11) · WordPress sobre tu servidor
 
@@ -266,6 +266,79 @@ El profesor dijo que lo explica el próximo día ("cómo sería la instalación 
 
   "Todo esto lo podéis tener en vuestro servidor", todo gratuito. Algunas (ownCloud, correo) volverán en temas posteriores.
 
+## Segundo gestor: Moodle · guía oficial `SER_Lab04_Moodle_Guia.pdf` (3 págs., recibida el 25/11)
+
+> [!note] Qué es esta guía
+> Es el documento de Moodle que el profesor dijo que subiría. Es del Lab 4 (4/11), pero no se hizo en directo: **la clase de Moodle en directo fue el 10/11** (ver [nota del 10/11](2026-11-10_clase9-https-certbot-moodle.md)). Sirve como **segundo gestor** (criterio de 20 %). **(Mío)** La guía usa el subdominio `aula.`; en clase se usó `academia.`; el nombre es libre.
+
+Moodle es un **LMS** (gestor de aprendizaje): cursos, usuarios, tareas, cuestionarios. Mismo tipo de web dinámica que WordPress (PHP + BD) pero **más exigente**: más extensiones de PHP y carpeta de datos propia. Orden: **sitio (DNS + VirtualHost) → PHP y extensiones → MariaDB → `moodledata` → descargar Moodle → asistente**.
+
+```bash
+# Paso 0 · sitio: registro A "aula" -> <ELASTIC-IP> (BIND9 o registrador) y su VirtualHost
+sudo mkdir -p /var/www/html/aula.desplegando123.com
+sudo nano /etc/apache2/sites-available/aula.desplegando123.com.conf
+#   <VirtualHost *:80>
+#       ServerName aula.desplegando123.com
+#       DocumentRoot /var/www/html/aula.desplegando123.com
+#   </VirtualHost>
+sudo a2ensite aula.desplegando123.com.conf
+sudo systemctl reload apache2
+host aula.desplegando123.com            # tiene que dar tu Elastic IP
+
+# Paso 1 · PHP y extensiones (más que WordPress)
+sudo apt update
+sudo apt install -y php libapache2-mod-php php-mysql \
+    php-xml php-mbstring php-curl php-zip php-gd php-intl php-soap
+sudo systemctl restart apache2
+# max_input_vars >= 5000 en /etc/php/8.3/apache2/php.ini (ajusta la versión), luego restart apache2
+
+# Paso 2 · MariaDB en utf8mb4 (lo exige Moodle)
+sudo apt install -y mariadb-server       # si no la instalaste con WordPress
+sudo mysql
+```
+```sql
+CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY '<TU-CLAVE-FUERTE>';
+GRANT ALL PRIVILEGES ON moodle.* TO 'moodleuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+```bash
+# Paso 3 · carpeta de datos FUERA del sitio web
+sudo mkdir -p /var/moodledata
+sudo chown -R www-data:www-data /var/moodledata
+sudo chmod -R 0770 /var/moodledata
+
+# Paso 4 · descargar y colocar (enlace .tgz de download.moodle.org; cambia según la versión)
+cd /tmp
+wget <enlace-del-.tgz>
+tar xf moodle-latest-*.tgz
+sudo cp -r moodle/* /var/www/html/aula.desplegando123.com/
+sudo chown -R www-data:www-data /var/www/html/aula.desplegando123.com
+# Paso 5 · navegador: http://aula.desplegando123.com/  -> asistente
+```
+> [!important] Datos que pide el asistente (guía)
+> Ruta de `moodledata` = **`/var/moodledata`**; tipo de BD = **MariaDB**; BD `moodle`, usuario `moodleuser` y su contraseña. Acepta las comprobaciones, deja crear las tablas y crea el administrador. **Qué tienes que ver:** la página de requisitos (casi todo en verde) y después el panel.
+
+> [!important] Por qué `moodledata` fuera de `/var/www` (guía)
+> Si estuviera dentro del sitio, cualquiera podría **descargar por HTTP** los ficheros privados (tareas, copias). Fuera del `DocumentRoot`, Apache no los sirve. **Permisos: `0770`** (la guía zanja la duda del audio del 10/11, donde se oyó «0, 7, 7, 0»).
+
+| Síntoma | Casi siempre es… |
+|---|---|
+| Requisito de PHP en rojo | Falta una extensión (`php-xml`, `php-intl`, `php-zip`, `php-gd`…): instálala y reinicia Apache |
+| `max_input_vars` en rojo | Ajuste de `php.ini` del paso 1 |
+| «No se puede conectar a la base de datos» | BD/usuario mal, o no la creaste en **utf8mb4** |
+| «No se puede escribir en moodledata» | `chown www-data` y `chmod 0770` |
+| El sitio no abre por su nombre | Falta el registro A o su VirtualHost |
+
+**HTTPS (guía):** con Moodle importa más que con WordPress. *Al final:* tras Certbot, edita **`$CFG->wwwroot`** en `config.php` con `https://`; tiene que ser **exactamente la URL real** o no arranca (**bucle de redirección**). *Primero (recomendada):* Certbot antes de instalar, y el `wwwroot` nace con `https`. Un único `certbot --apache` cubre todos los subdominios. **Antes de cerrar:** anota subdominio, BD, usuario y ruta de `moodledata`; **Stop** (nunca Terminate).
+
+> [!warning] Aviso (mío, con la nota del 10/11): la guía puede quedarse corta con versiones nuevas
+> La guía **no menciona** que en **Moodle 5.1+** el `DocumentRoot` debe apuntar a **`.../public`**; en clase del 10/11 la web salió **en blanco** por eso (ver nota del 10/11). Si descargas la «última versión estable» y te sale en blanco, no es un fallo tuyo: revisa ese `DocumentRoot` (en el `.conf` del 80 **y** en el del 443). Es probable que la guía esté escrita para una versión anterior; **no lo he verificado con la versión actual**.
+
+## WordPress: la guía ya estaba aplicada
+`SER_Lab04_WordPress_Guia.pdf` (3 págs.) es la que ya usaba esta nota como fuente; la he vuelto a comparar y **no hay cambios** respecto a lo anotado (PHP, MariaDB, ficheros, asistente, tabla de síntomas, las dos formas de HTTPS y el cierre).
+
 ## Cierre del laboratorio
 
 - [ ] Borrar `info.php`.
@@ -275,7 +348,7 @@ El profesor dijo que lo explica el próximo día ("cómo sería la instalación 
 
 ## Dudas y cosas sin confirmar
 
-- **Moodle**: dijo que lo subiría; **no lo tengo**, ni el enunciado de la Actividad 1.
+- ✅ **Guía de Moodle**: recibida el 25/11 (sección propia arriba). Sigue sin recibir **el enunciado de la Actividad 1**.
 - **HTTPS en la Actividad 1**: sin confirmar el alcance (el material de la Clase 7 y esta guía lo incluyen).
 - **Hash**: bcrypt/`$wp$2y$` es probable, no verificado en tu instancia.
 - **Nombres de aplicaciones** de la lista (audio confuso): ver tabla.
