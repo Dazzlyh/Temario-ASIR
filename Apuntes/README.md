@@ -68,6 +68,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-11-04 · Laboratorio 4: WordPress sobre Apache (PHP + `php-mysql`, MariaDB con BD y usuario propios, `wget`/`tar`/`cp`/`chown www-data`, asistente web, `info.php`, errores típicos y HTTPS en dos formas); **+ guía de Moodle (25/11): segundo CMS, `moodledata`, utf8mb4**](SER/2026-11-04_laboratorio4-wordpress-php-mariadb.md)
 - [2026-11-10 · Clase 9: HTTPS con Certbot (por `apt` y por `snap`), el orden de la Actividad 1 (DNS → Apache → VirtualHost → 443), tres caminos de DNS, `ServerAlias www` y Moodle en un subdominio (DocumentRoot `/public`)](SER/2026-11-10_clase9-https-certbot-moodle.md)
 - [2026-11-17 · Repaso y simulacro: qué entra por tema, los 3 dibujos (Apache con virtual hosts, DNS con BIND9, HTTPS con Certbot), lectura de zona DNS y de virtual host, comandos, hoja de respuestas y práctica con soluciones](SER/2026-11-17_repaso-simulacro-dibujos-dns-apache-https.md)
+- [2026-11-24 · Simulacro T1-4 (enunciado en blanco, formato 15 test + 3 cortas + 4 casos, mis respuestas) y corrección comentada de la Actividad 1](SER/2026-11-24_simulacro-t1-4-enunciado-y-correccion-actividad1.md)
 
 ## SGBD
 - [2026-09-14 · Clase 1: presentación del módulo](SGBD/2026-09-14_clase1-presentacion.md)
@@ -107,6 +108,8 @@ Apuntes redactados para estudiar sin ver las grabaciones (módulo transversal si
 - [2026-11-17 · Causa/propósito/resultado (Unidad 2) + simulacro 25/11 y examen](Ingles/2026-11-17_tutoria-cause-purpose-result-y-simulacro.md)
 
 ## Pendiente / avisos
+
+- ⚠️ SER (PDFs del repaso y simulacro, recibidos el 25/11): el PDF corrige el audio del 17/11: **sí entran** el saludo TCP de 3 pasos, IPv4/IPv6, ámbito/exclusión/reserva/concesión y la autenticación básica en texto plano (test). Nueva errata: «HTTP 1.2» no existe. Corrección de la Actividad 1: fallo más repetido, URL en `http` tras activar HTTPS; `moodledata` debe ir fuera del árbol web (en clase se creó dentro: manda el PDF). Sin recibir: grabación y corrección del simulacro del 24/11 y tu nota de la Actividad 1. Mis respuestas del simulacro son mías, sin clave oficial.
 
 - ⚠️ SER Lab 4 (guía de Moodle, recibida el 25/11): `moodledata` va en `/var/moodledata` con `0770` (corrige el audio del 10/11). La guía no menciona que en Moodle 5.1+ el `DocumentRoot` es `.../public`; en clase salió la web en blanco por eso. La guía de WordPress ya estaba aplicada, sin cambios.
 
