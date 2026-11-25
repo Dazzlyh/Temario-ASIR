@@ -173,7 +173,7 @@ Una copia no probada no es una copia. **Pruébala en un servidor** (instalación
 
 ## Dudas y cosas sin confirmar
 - **Fecha de publicación del simulacro:** el audio apunta al **19/11**; mi nota anterior decía **20/11**. Revisa el aula.
-- **Laboratorio de restauración:** el profesor dice **«este viernes vamos a hacer una restauración en un servidor»** (¿**20/11**?), pero antes comenta (audio confuso) que **un laboratorio se mueve al siguiente trimestre y «no vale para la Actividad 2»**. **No coincide** con lo apuntado el 11/11 (Actividad 2 = laboratorio en SAD1, entrega 18/01). **Comprueba en el campus** qué laboratorio hay el viernes y qué pasa con la Actividad 2.
+- **Laboratorio de restauración:** el profesor dice **«este viernes vamos a hacer una restauración en un servidor»** y antes comenta (audio confuso) que **un laboratorio se mueve** y «no vale para la Actividad 2». Las diapositivas del 11/11 aclaran que el montaje de la política y **la restauración** se hacen **«en el laboratorio de diciembre, al arrancar la Actividad 2»** (aunque otra diapositiva citaba el lunes 16/11), ver [11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md). Lo del viernes sigue **sin confirmar**; **comprueba en el campus** qué laboratorio hay y la entrega de la Actividad 2.
 - **Puntos extra («plus»):** habla de **cibercooperantes/ciber voluntarios** (charla, hacer fotos…) y dice que da **«un plus de 1 punto en el examen»** por apuntarse. Audio confuso (**sin confirmar** si es 1 punto ni a qué examen aplica).
 - **Esquema en el simulacro:** contradictorio, ver arriba.
 - **Hora del simulacro del 25/11:** no se dice; consulta el aula (el **Inglés** también tiene simulacro ese mismo miércoles, a las 16:00).

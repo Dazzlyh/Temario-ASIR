@@ -2,7 +2,7 @@
 asignatura: Seguridad y Alta Disponibilidad (SAD)
 fecha: 2026-11-11
 tema: "Tema 3 · Sesión 9: automatizar copias con cron, `tar` frente a `rsync`, RPO/RTO, ventana de copia, rotación (GFS y torres de Hanoi) y política de copias; simulacro y Actividad 2"
-fuente: transcripción de la clase (1 h 30 min). La presentación de la sesión (se ve en pantalla en el audio) y la guía práctica no se han recibido. Contrastado con el Tema 3 del temario (3.2, 3.3, 3.4 y los entrenamientos 3 y 5) y con fuentes externas marcadas (web).
+fuente: transcripción de la clase (1 h 30 min) + **PDFs del profesor recibidos el 25/11**: diapositivas `SAD_Clase09_diapositivas.pdf` (27 págs.) y guía `SAD_Clase09_Practica.pdf` (2 págs.). Contrastado con el Tema 3 del temario (3.2, 3.3, 3.4 y los entrenamientos 3 y 5) y con fuentes externas marcadas (web). Donde el PDF y el audio difieren, manda el PDF.
 ---
 # SAD · Tema 3, sesión 9 (11/11) · cron, ventana de copia, rotación y política de copias
 
@@ -12,8 +12,8 @@ Es la **última clase con contenido nuevo** de SAD este trimestre: cierra el Tem
 
 Convención: **(clase)** = audio, **(temario)** = Tema 3 del repo, **(web)** = fuente externa, **(mío)** = añadido por mí.
 
-> [!warning] Lo que NO tengo
-> No me ha llegado la **presentación** de la clase ni ninguna guía práctica. Las líneas de `crontab` que siguen salen de lo que dicta y escribe el profesor en directo; las que él **lee de las diapositivas** van marcadas **(reconstruido, sin confirmar)**. Cuando tengas el PDF, mándalo: manda sobre este apunte.
+> [!note] Actualización 25/11: PDFs recibidos
+> Esta nota se hizo primero solo con el audio. Con las **diapositivas** y la **guía de la práctica** ya recibidas, he **corregido las líneas de `crontab`** (la completa es a las **3:00**; la «incremental» de lunes a sábado es **`rsync -a` sin `--delete`**; no hay subcarpeta `completa/`), he **cerrado la política de ejemplo** (hito mensual) y he **aclarado el calendario** (repaso el 18/11 y laboratorio movido a diciembre). La guía de la práctica está resumida en la **Tarea 5.9**.
 
 ## Lo imprescindible
 
@@ -151,7 +151,7 @@ Se basa en el **puzle de las torres de Hanoi**: cada **soporte (nivel)** equival
 ### 5.1 Qué es y por qué (clase)
 - **`cron` es un demonio** (*daemon*): un programa que **corre siempre en segundo plano** y **lanza tareas a la hora que le digas**, sin que estés delante. Está en **todos los Linux**.
 - **Por qué automatizar:** el **error humano**. Acordarse de conectarse por SSH, hacer el `tar`, comprimirlo… "a las 3 de la mañana un viernes" no es fiable. Lo que se hace: **probar la copia a mano, automatizarla y dejar guardado cómo se hace y cómo se recupera.**
-- **Equivalentes (clase):** **Windows**: *Programador de tareas*, la *copia de seguridad de Windows* y `robocopy`. **macOS**: *Time Machine* y `launchd`. Hoy se centra en **Linux** porque es el servidor que hay que proteger (SAD1).
+- **Equivalentes (clase y diapositiva 24):** **Windows**: *Programador de tareas*, *Copias de seguridad* y `robocopy`. **macOS**: *Time Machine* y `launchd` (o `cron`). Hoy se centra en **Linux** porque es el servidor que hay que proteger (SAD1).
 - **Diferencia:** `cron` = el servicio; **`crontab`** = la instrucción para **programarlo** (cada usuario tiene su tabla).
 
 ### 5.2 Comandos (clase)
@@ -193,8 +193,8 @@ crontab -l      # listar lo programado (comprobar que está guardado)
 ### 5.4 Prueba sencilla: una tarea cada minuto (clase)
 ```bash
 crontab -e
-# se añade esta línea (la hora de la clase la cambia: aquí, cada minuto):
-* * * * * echo "Hola, soy el cron $(date)" >> /home/ubuntu/cron_prueba.txt
+# se añade esta línea (diapositiva 15; cada minuto):
+* * * * * echo "hola, soy cron: $(date)" >> /home/ubuntu/cron_prueba.txt
 ```
 - **`echo`** escribe el mensaje; **`$(date)`** lo sustituye por la **fecha y hora del sistema** (con **paréntesis**: el profesor se equivocó al principio con **llaves `${date}`**, "vengo de Java", y no funcionó hasta corregirlo).
 - **`>>`** **añade al final** del fichero; con **un solo `>`** se **sobrescribe** ("se carga lo anterior").
@@ -218,25 +218,27 @@ grep CRON /var/log/syslog | tail            # (clase) busca CRON en el log del s
 ### 5.6 La copia real con rsync cada 2 horas (clase)
 ```bash
 crontab -e
-0 */2 * * * rsync -a --delete /home/ubuntu/datos/ /home/ubuntu/copias/espejo/    # (reconstruido: la parte de tiempo "cada 2 h" es audio confuso)
+0 */2 * * * rsync -a --delete /home/ubuntu/datos/ /home/ubuntu/copias/espejo/    # (solo audio: NO está en las diapositivas ni en la guía; el campo «cada 2 h» es audio confuso)
 ```
 - Ya probado a mano: ahora solo es **meterlo en `cron`**. Se comprueba con `crontab -l`.
 
-### 5.7 Política completa: completa semanal + diaria (clase, reconstruido)
+### 5.7 Política completa: completa semanal + diaria · **(PDF: diapositiva 21 y guía, paso 3)**
 ```cron
-# Completa: los domingos de madrugada (el audio dice a las 3, luego a las 2: sin confirmar)
-0 2 * * 0 tar -czf /home/ubuntu/copias/completa/datos_$(date +\%F).tar.gz -C /home/ubuntu datos
-# "Incremental" diaria (en realidad el espejo con rsync): de lunes a sábado a las 2:00
-0 2 * * 1-6 rsync -a --delete /home/ubuntu/datos/ /home/ubuntu/copias/espejo/
+# completa cada domingo a las 3:00
+0 3 * * 0 tar -czf /home/ubuntu/copias/completa-$(date +\%F).tar.gz -C /home/ubuntu datos
+# incremental de lunes a sábado a las 2:00
+0 2 * * 1-6 rsync -a /home/ubuntu/datos/ /home/ubuntu/copias/espejo/
 ```
-- **`-C /home/ubuntu datos`**: cambia a esa carpeta antes de empaquetar, así el paquete guarda la ruta **relativa** `datos/...`. En directo **se le olvidó el `-C`** y un alumno se lo señaló ("esto me iba a dar un error de crontab").
-- **`\%F`**: en `crontab`, **`%` es un salto de línea**, así que se **escapa con `\`**: "esta barra lo interpreta como literal; si no, se lo come el cron". **(web)** Está en `man 5 crontab`.
-- **`+%F`** da **`AAAA-MM-DD`** (**(mío)**: el profesor lo llama "formato día mes año"; es año-mes-día).
-- **Rutas absolutas** siempre en `cron` (el temario, Entrenamiento 5, lo exige: "usa la ruta completa").
-- La carpeta `copias/completa/` **tiene que existir** (**(mío)**: `mkdir -p`).
+- **Completa: domingos a las 3:00** (el audio dudaba entre 2:00 y 3:00; **el PDF dice 3:00**). Sin subcarpeta `completa/`: el fichero va directo a `~/copias/` con nombre **`completa-AAAA-MM-DD.tar.gz`** (con guion).
+- **«Incremental»: `rsync -a` SIN `--delete`** (mi reconstrucción anterior lo ponía con `--delete`). La diaria del paso 2 (`0 2 * * * rsync -a --delete …`) **es la que se sustituye** por estas dos: la guía dice «edita otra vez el crontab y deja estas dos».
+- **`-C /home/ubuntu datos`**: cambia a esa carpeta antes de empaquetar, así el paquete guarda la ruta **relativa** `datos/...`. En directo **se le olvidó el `-C`** y un alumno se lo señaló.
+- **`\%F`**: en `crontab`, **`%` es un salto de línea**, así que se **escapa con `\`**. **Guía: «si te saltas la barra, la tarea de la copia completa fallará en silencio»**. **(web)** Está en `man 5 crontab`.
+- **`+%F`** da **`AAAA-MM-DD`** (**(mío)**: el profesor lo llama «formato día mes año»; es año-mes-día).
+- **Rutas absolutas** siempre en `cron` (el temario, Entrenamiento 5, lo exige: «usa la ruta completa»). **(mío)** Que `~/copias` exista.
+- En la línea de la guía, el `crontab` se ve partido en dos líneas por el formato del PDF; en el fichero real va **todo en una sola línea**.
 
-> [!warning] Aquí se ve el problema del `--delete`
-> La "incremental" de lunes a sábado es un **espejo**: **sin historial y con borrados incluidos**. La **completa del domingo** es la única que guarda **versiones fechadas**. Es una **política razonable de partida**, pero **no es la incremental del temario**.
+> [!warning] Matiz (mío)
+> Un `rsync -a` sin `--delete` **no propaga borrados** al espejo (queda el fichero borrado), pero sigue siendo **un solo estado**, **sin historial de versiones**. La **completa del domingo** es la única copia **fechada**. Es una **política razonable de partida**, no la incremental del temario.
 
 > [!important] El profesor lo pondrá en el examen
 > "No os voy a pedir que hagáis esto. **Quiero que interpretéis comandos.**" Dijo que pondrá en el **simulacro** una línea de `crontab` que **comprime con `tar`** o usa `rsync` y que hay que explicar: "así va un poco el examen". Práctica: coge cada línea de arriba y explica **cuándo se ejecuta**, **qué hace cada opción** y **dónde deja el resultado**.
@@ -244,6 +246,38 @@ crontab -e
 ### 5.8 Para terminar la clase
 - **Antes de irte, para el cron**: edita (`crontab -e`) y **pon `#` delante de cada línea**. Sobre todo la de **cada minuto**, que va llenando el fichero.
 - Si dejas el resto encendido, **a la semana siguiente** puedes ver si ha funcionado (`grep CRON ...`, y la carpeta de copias).
+
+### 5.9 La guía de la práctica, paso a paso · **(PDF: guía de la Clase 9)**
+Requisitos: laboratorio de AWS Academy arrancado, `sad1` en marcha, SSH, y las carpetas `~/datos` y `~/copias` de la práctica anterior (si no, `mkdir -p ~/datos ~/copias` y mete algún fichero).
+
+1. **Abrir la lista de tareas:** `crontab -e`. La primera vez pregunta el editor: **elige `nano` (opción 1)**.
+2. **Copia diaria:** añade `0 2 * * * rsync -a --delete /home/ubuntu/datos/ /home/ubuntu/copias/espejo/` (espejo cada día a las 2:00). Guardar en nano: **Ctrl+O, Enter, Ctrl+X**. Comprobar con `crontab -l`.
+3. **Política en dos líneas** (completa semanal + incremental diaria): las del apartado 5.7.
+4. **Comprobar de verdad que se ejecuta:**
+   ```bash
+   date                                   # hora actual del servidor
+   crontab -e                             # pon una copia para dentro de 2 minutos, p. ej.:
+   37 14 * * * rsync -a /home/ubuntu/datos/ /home/ubuntu/copias/prueba/
+   grep CRON /var/log/syslog | tail       # ¿la lanzó cron?
+   ls -lh /home/ubuntu/copias/prueba/     # ¿están los ficheros, con la fecha de ahora?
+   ```
+   «Una tarea programada que nadie comprueba es una tarea que no existe» (diapositiva 22).
+5. **Montar tu política** (es, literalmente, el apartado de copias de la **Actividad 2**; «no hay una única respuesta correcta», pero tiene que salir de tu **RPO** y tu **RTO**):
+
+| Qué se copia | Cada cuánto | Se guarda | Dónde |
+|---|---|---|---|
+| **Datos (incremental)** | Diaria, 2:00 (`cron`) | **1 semana** | Disco aparte (diapositiva: «+ otra máquina») |
+| **Sistema (completa)** | Semanal, domingo | **1 mes** (GFS) | **Snapshot de AWS** |
+| **Hito mensual** | Día 1 de cada mes | **1 año** | **Snapshot archivado** |
+
+Es un **GFS**: hijo = diaria (1 semana), padre = semanal (1 mes), abuelo = mensual (1 año).
+
+> [!important] Antes de cerrar (guía)
+> 1. **Deja en el crontab solo las tareas buenas** (quita la de prueba de los 2 minutos; la de «cada minuto» de clase, también).
+> 2. **Apaga la instancia con *Stop* (NO *Terminate*).**
+> 3. **Apunta en el «diario de incidentes»:** qué copias has programado, a qué hora y cómo comprobaste que corrían.
+
+**Dos datos más de las diapositivas:** `cron` **no baja de un minuto** («no existe "cada 5 segundos"»), y hay webs como **crontab.guru** para no fallar con la sintaxis.
 
 ## Tarea 6 · La política de copias (cierre)
 
@@ -260,12 +294,15 @@ El profesor cierra: "con la información que tenemos somos capaces de ir a cualq
 | **Automatización** | **`cron`** |
 | **Pruebas** | **Restaurar siempre**, de forma periódica |
 
-**Política de ejemplo (clase, audio parcialmente confuso):**
-1. **Datos**: incremental diaria, **en un disco aparte y en otra máquina** (regla **3-2-1**).
-2. **Completa semanal**, el **domingo**.
-3. **Rotación GFS** con las copias semanales.
-4. **Snapshot de AWS** (y, dijo, también **S3**).
-5. Hito **mensual**: algo sobre "de un mes a un año" que no se entiende.
+**Política de ejemplo · diapositiva 25 y guía (cierra el audio confuso)**
+
+| Qué | Cada cuánto | Se guarda | Dónde |
+|---|---|---|---|
+| Datos (incremental) | Diaria, 2:00 (`cron`) | 1 semana | Disco aparte **+ otra máquina** (regla 3-2-1) |
+| Sistema (completa) | Semanal, domingo | 1 mes (GFS) | Snapshot de AWS |
+| **Hito mensual** | **Día 1 de cada mes** | **1 año** | **Snapshot archivado** |
+
+«Esta tabla es, entera, el apartado de copias de la Actividad 2. Si la sabes rellenar para un servidor, tienes esa parte hecha.» (En el audio dijo también **S3**; no está en la tabla del PDF.)
 
 > [!important] Mensajes de cierre
 > - **El backup es "la única medida" que permite levantarte dentro de un RPO y un RTO.** Esto es **seguridad pasiva**: "nos van a dar" un incidente, y hay que estar preparados.
@@ -292,14 +329,11 @@ El profesor cierra: "con la información que tenemos somos capaces de ir a cualq
 
 ## Dudas y cosas sin confirmar
 
-- **Presentación y guía de la clase**: no recibidas. Las líneas `tar`/`rsync` de `crontab` están **reconstruidas del audio**.
-- **Campos de tiempo del `rsync` "cada 2 h"** (`0 */2 * * *`): audio confuso.
-- **Hora de la completa semanal**: 2:00 o 3:00.
-- **Nº de copias del GFS**: "5 o 7" diarias y "4 o 5" semanales, según el audio.
-- **"Clase 10 del 28 de noviembre"** (repaso, según el audio): **el 28/11 es sábado**. Es probable que sea el **miércoles 18/11**; sin confirmar.
+- ✅ **Resueltas con los PDF:** hora de la completa (**3:00**), nº de copias del GFS (**5-7 diarias, 4-5 semanales, 12 mensuales**), «clase 10 del 28» (= **miércoles 18/11**; la diapositiva 26 lo dice), hito mensual de la política (**día 1, 1 año, snapshot archivado**), hora/forma de la «incremental» (`rsync -a` sin `--delete`).
+- **Campos de tiempo del `rsync` «cada 2 h»** (`0 */2 * * *`): **solo audio** (no está en los PDF), confuso.
 - **Fecha de entrega de la Actividad 2** (ver abajo) y **visto bueno del simulacro**.
 - **"Preguntas de solo 3 temas"** en el test del simulacro: no queda claro cuáles.
-- **Una parte de la actividad que "con el SAD1 no se puede hacer"** (algo de control de acceso/grupos): audio confuso.
+- **Una parte de la actividad que «con el SAD1 no se puede hacer»** (algo de control de acceso/grupos): audio confuso; los PDF no la mencionan.
 - **Cuánto tiempo hay que conservar datos personales** y **plazo de brecha**: lo dicho en clase (3 años, 32 h) no coincide con lo contrastado (72 h; el 3 solo como plazo de prescripción).
 - **Nombre del modelo de soporte "sin noche"**: **(mío)** *follow the sun*, sin confirmar.
 - **Consejo de certificaciones** (no evaluable, audio confuso): recomendó la familia **LPIC** (1 y 2 para el sistema y los servicios, 3 para seguridad).
@@ -307,8 +341,8 @@ El profesor cierra: "con la información que tenemos somos capaces de ir a cualq
 ## Logística y para llevar a casa
 
 **Calendario (clase):**
-- **Hoy, 11/11: última clase con temario nuevo.** **Semana siguiente (miércoles 18/11): repaso**, clases normales; dijo que cree que no hay tutorías (sin confirmar). Dará "pistas" de qué es importante.
-- **Simulacro:** la **semana del 23 al 29/11**. Lo **publica el viernes 20/11** (para que haya fin de semana) y **lo resuelve en clase el miércoles 25/11**. Test con preguntas de **solo 3 temas** más preguntas de desarrollo. Está **pendiente del visto bueno** de coordinación ("a ver si me dan el visto bueno; ya la tengo preparada"). Habla de "todas las asignaturas": **sin confirmar si incluye SER y Ciber**.
+- **Hoy, 11/11: última clase con temario nuevo.** **Semana siguiente (miércoles 18/11): repaso** (diapositiva 26: «Clase 10 · 18 de noviembre: repaso de los temas 1, 2 y 3 y preparación del simulacro»). Dará «pistas» de qué es importante.
+- **Simulacro (diapositiva 26):** «examen de prueba de los temas 1 a 3, **en nuestra franja del miércoles**» (**25/11**), «sin sorpresas: lo que hemos dado». La **semana del 23 al 29/11**. Lo **publica el viernes 20/11** (para que haya fin de semana) y **lo resuelve en clase el miércoles 25/11**. Test con preguntas de **solo 3 temas** más preguntas de desarrollo. Está **pendiente del visto bueno** de coordinación ("a ver si me dan el visto bueno; ya la tengo preparada"). Habla de "todas las asignaturas": **sin confirmar si incluye SER y Ciber**.
 - **Soluciones del simulacro:** no las publica de antemano; **resuelve en clase con su respuesta** y lo hace así a propósito.
 - **Cómo contestar el desarrollo (clase):** **párrafos de 4–5 líneas como mucho**; quiere **los puntos principales con tus propias palabras**, "como en una entrevista", **no una respuesta aprendida de memoria**.
 
@@ -317,10 +351,11 @@ El profesor cierra: "con la información que tenemos somos capaces de ir a cualq
 - **Práctica/automatización:** **`cron` + rotación**, y **leer líneas de `crontab`**.
 
 **Actividad 2 (clase):**
-- La **adelanta** ("para que en Navidades tengáis la actividad hecha"). Será un **laboratorio más "apretadito"**, sobre **SAD1**: un **servidor web** (Apache, etc.) con sus puntos importantes, una **copia completa** y un **bucket de S3** para guardarla. Es la **"copia guapa"** que anunció el 4/11.
+- **Laboratorio (diapositiva 26):** «el montaje de la política de copias sobre el servidor (rsync, tar, cron y la **restauración**) lo hacemos en el **laboratorio de diciembre**, al arrancar la Actividad 2». La diapositiva 27 dice a la vez «para el **laboratorio del lunes 16** arrancamos con la política completa»: **se contradice**; el 18/11 el profesor dijo que un laboratorio se movía, así que es **probable** que el del 16/11 pasara a diciembre (**sin confirmar**).
+- La **adelanta** («para que en Navidades tengáis la actividad hecha»). Será un **laboratorio más "apretadito"**, sobre **SAD1**: un **servidor web** (Apache, etc.) con sus puntos importantes, una **copia completa** y un **bucket de S3** para guardarla. Es la **"copia guapa"** que anunció el 4/11.
 - **Entrega: 18 de enero** (en el audio: "la actividad **no** se entrega el 18 de enero"; el "no" es probablemente un fallo, porque la frase siguiente solo tiene sentido si la entrega es **después** de Navidad). **Sin confirmar: mira el campus.** Con esto, el "16 de noviembre" del audio del 4/11 **no** parece ser esta fecha.
 
-**Para hacer en casa:**
+**Para hacer en casa** (diapositiva 27: «poca cosa, pero déjalo listo»: programa una copia diaria con `cron` y **comprueba al día siguiente** que ha corrido, en el log y mirando los ficheros; ten `sad1` a punto y que **no se te caduque la sesión de AWS**; empieza a repasar los Temas 1-3):
 1. En **SAD1**, repetir en orden: tarea **cada minuto** → `rsync` **cada 2 h** → `tar` **dominical**, comprobando con `crontab -l` y `grep CRON /var/log/syslog | tail`. **Al acabar, comentar con `#`.**
 2. **Practicar a interpretar `crontab`**: escribe 8–10 líneas (hora, días, opciones) y explícalas sin mirar.
 3. Leer **Tema 3, 3.3** (torres de Hanoi, con sus tablas) y **3.4** (política), y los **entrenamientos 3 y 5** (Hanoi con 5 niveles; `rsync` + `cron` en Ubuntu).
