@@ -25,7 +25,7 @@ Apuntes de clase completos, un fichero por clase/práctica. Carpeta usable como 
 - [2026-10-27 · Clase 7: análisis forense (4 fases, evidencias, hash, cadena de custodia, orden de volatilidad, herramientas)](Ciber/2026-10-27_clase7-analisis-forense.md)
 - [2026-11-03 · Clase 8 / Lab 4 (parte 1): adquisición con `dd` y Guymager (losetup -r, hash, .E01 vs dd raw), chuleta de comandos e informe pericial (estructura, Locard, Daubert)](Ciber/2026-11-03_lab4-adquisicion-dd-guymager-e-informe-pericial.md)
 - [2026-11-05 · Lab 4 (parte 2): análisis forense con Sleuth Kit y Autopsy — caso RRHH (`fls`, `icat`, `mactime`, `foremost`, extensión falsa, línea temporal) + práctica](Ciber/2026-11-05_lab4-analisis-forense-sleuthkit-autopsy-caso-rrhh.md)
-- [2026-11-10 · Cierre del trimestre: ritmo del curso, repaso del Lab 4 y formato del examen (leer instrucciones, no escribirlas)](Ciber/2026-11-10_cierre-trimestre-repaso-lab4-y-formato-examen.md)
+- [2026-11-10 · Cierre del trimestre: ritmo del curso, repaso del Lab 4 y formato del examen (leer instrucciones, no escribirlas); **+ diapositivas (25/11): el caso en cuatro golpes, fallos típicos del informe, vídeo de Deloitte**](Ciber/2026-11-10_cierre-trimestre-repaso-lab4-y-formato-examen.md)
 - [2026-11-17 · Repaso para el simulacro: formato (15 test sin penalización + cortas + comandos), qué estudiar por apartado, tu lista contrastada y práctica con soluciones](Ciber/2026-11-17_repaso-simulacro-formato-examen-y-que-estudiar.md)
 
 ## IAW
@@ -108,6 +108,8 @@ Apuntes redactados para estudiar sin ver las grabaciones (módulo transversal si
 - [2026-11-17 · Causa/propósito/resultado (Unidad 2) + simulacro 25/11 y examen](Ingles/2026-11-17_tutoria-cause-purpose-result-y-simulacro.md)
 
 ## Pendiente / avisos
+
+- ⚠️ Ciber (10/11, diapositivas recibidas el 25/11): el vídeo proyectado era el de Deloitte «Companies like yours», no la solución del Forense 3 (esa sigue sin recibir). Contradicción sobre el «caso práctico»: el audio dice leer una instrucción de una herramienta; el PDF dice interpretar un escenario (`auth.log`, imagen, CVE, vector CVSS). Prepara las dos. Trimestre 2 (1/12): «ataques y defensa de redes» según el PDF.
 
 - ⚠️ SER (PDFs del repaso y simulacro, recibidos el 25/11): el PDF corrige el audio del 17/11: **sí entran** el saludo TCP de 3 pasos, IPv4/IPv6, ámbito/exclusión/reserva/concesión y la autenticación básica en texto plano (test). Nueva errata: «HTTP 1.2» no existe. Corrección de la Actividad 1: fallo más repetido, URL en `http` tras activar HTTPS; `moodledata` debe ir fuera del árbol web (en clase se creó dentro: manda el PDF). Sin recibir: grabación y corrección del simulacro del 24/11 y tu nota de la Actividad 1. Mis respuestas del simulacro son mías, sin clave oficial.
 
