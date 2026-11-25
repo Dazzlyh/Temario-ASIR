@@ -111,7 +111,7 @@ Truco suyo: *«la diferencial se carga sobre la completa; la incremental sobre l
 - **Abuelo-padre-hijo** (rotación, **GFS**): copias mensuales/semanales/diarias; ver la [nota del 11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md).
 
 ### Regla 3-2-1 (clase)
-**3** copias (**el original y 2 copias**) · **2** soportes/sitios distintos (disco del servidor y otro disco) · **1** fuera de sitio (p. ej. **la nube**). El profesor vio una diapositiva que decía que «el original no cuenta» y **no supo por qué**; su criterio, igual que en el 4/11: **original + 2 copias**. **Sin verificar** contra la diapositiva.
+**3** copias (**el original y 2 copias**) · **2** soportes/sitios distintos (disco del servidor y otro disco) · **1** fuera de sitio (p. ej. **la nube**). El profesor vio una diapositiva que decía que «el original no cuenta» y **no supo por qué**; su criterio, igual que en el 4/11: **original + 2 copias**. **Resuelto en parte:** la diapositiva 10 de la clase del 4/11 cuenta el original como una de las 3 copias («datos + copia local + snapshot en la nube = 3 copias»), ver [4/11](2026-11-04_tema3-copias-3-2-1-tar-rsync-snapshot.md). La diapositiva del 18/11 que él vio **no la tengo**.
 
 ### `tar`, `gzip`, `rsync` (clase)
 - **`tar` empaqueta** muchos ficheros en **uno solo**; **`gzip` (`.gz`) comprime**. «`tar` es el empaquetado, `gz` la compresión». Típico: **`.tar.gz`**.

@@ -2,7 +2,7 @@
 asignatura: Seguridad y Alta Disponibilidad (SAD)
 fecha: 2026-11-04
 tema: "Tema 3 · Sesión 8: copias de seguridad (regla 3-2-1, completa/incremental/diferencial, en caliente o en frío, bases de datos), práctica con `tar`, `rsync` y snapshot de AWS, y S3"
-fuente: transcripción de la clase (1 h 27 min). Documento de la práctica citado por el profesor y presentación: no recibidos (en el audio se ve que la práctica tenía un documento aparte). Contrastado con el Tema 3 del temario (3.2) y con fuentes externas marcadas (web). Los comandos de la práctica no se dictan: ver el aviso.
+fuente: transcripción de la clase (1 h 27 min) + **PDFs del profesor recibidos el 25/11**: diapositivas `SAD_Clase08_diapositivas.pdf` (27 págs.) y guía `SAD_Clase08_Practica.pdf` (2 págs.). Contrastado con el Tema 3 del temario (3.2) y con fuentes externas marcadas (web). Donde el PDF y el audio difieren, manda el PDF.
 ---
 # SAD · Tema 3, sesión 8 (4/11) · Copias de seguridad
 
@@ -12,8 +12,8 @@ Empieza el **Tema 3 (seguridad pasiva: copias de seguridad)**. La copia es una *
 
 Convención: **(clase)** = audio, **(temario)** = Tema 3 del repo, **(web)** = fuente externa, **(mío)** = añadido por mí.
 
-> [!warning] Lo que NO tengo
-> El profesor repartió **un documento de la práctica** que no me ha llegado, y los comandos **no se dictan** en el audio (se copian y pegan). Los de abajo son lo que se entiende más una reconstrucción mía y van marcados **(sin confirmar)**. Cuando tengas el PDF, **manda el PDF**.
+> [!note] Actualización 25/11: PDFs recibidos
+> Esta nota se hizo primero solo con el audio. Con las **diapositivas** y la **guía de la práctica** ya recibidas se han **corregido los comandos de la Tarea 5** (el audio no los dictaba), la **política de ejemplo** (Tarea 8) y las **fechas del calendario**. Cambios importantes: **`rsync -av --delete`** (no `-avz` a secas), **`tar … -C ~`**, nombres con **guion** (`completa-AAAA-MM-DD.tar.gz`) y **`sha256sum` sí se ejecuta** en la práctica.
 
 ## Lo imprescindible
 
@@ -106,72 +106,78 @@ mysql -u <usuario> -p < respaldo_AAAA-MM-DD.sql                        # (mío) 
 ```
 **(mío)** Con tablas InnoDB, `--single-transaction` da un volcado consistente sin parar el servicio.
 
-## Tarea 5 · Práctica en el servidor (AWS, `sad1`)
+## Tarea 5 · Práctica en el servidor (AWS, `sad1`) · **(PDF: guía de la práctica)**
 
-Servidor de prácticas: el de SAD (EC2 de AWS Academy), conectándote por SSH. Idea de la práctica: **proteger lo importante, simular un desastre pequeño y restaurar.**
-
-> [!warning] Comandos reconstruidos (sin confirmar)
-> No tengo el documento de la práctica. Lo que sigue es lo que se entiende del audio más los parámetros habituales; **verifica contra el PDF**.
+Idea: **hacer la copia de dos formas (completa con `tar` y espejo con `rsync`), provocar un desastre a propósito y restaurar comprobando que el dato recuperado es idéntico.** Requisitos (guía): laboratorio de AWS Academy arrancado (*Start Lab* en verde), instancia `sad1` en marcha, SSH con `labsuser.pem` y usuario `ubuntu`. La guía está hecha para poder seguirla solo si no te daba tiempo en directo.
 
 ### 5.1 Preparar los datos de prueba
 ```bash
-mkdir -p ~/datos ~/copias            # (clase) carpetas "datos" y "copias"
-cd ~
-echo "nóminas de octubre" > datos/nominas.txt        # (clase: "nóminas de octubre", "contrato 2026"; con echo en vez de nano)
-echo "contrato 2026"      > datos/contratos.txt
-ls datos
+mkdir -p ~/datos ~/copias
+echo 'nóminas de octubre' > ~/datos/nominas.txt
+echo 'contratos 2026'     > ~/datos/contratos.txt
+ls ~/datos        # contratos.txt  nominas.txt
 ```
-(Según el profesor: "lo importante son los datos"; la práctica final será un servidor completo con más cosas.)
 
-### 5.2 Copia completa comprimida: `tar`
+### 5.2 Copia completa con `tar`
 ```bash
-tar -czf copias/completa_$(date +%F).tar.gz datos      # (clase: "siempre z, c, z, f"; "dollar day con la F mayúscula" = fecha) (sin confirmar el comando exacto)
-ls -lh copias
+tar -czf ~/copias/completa-$(date +%F).tar.gz -C ~ datos
+ls -lh ~/copias
 ```
-- `c` crea, `z` comprime con gzip, `f` indica el fichero de salida; `-C`… no se usó.
-- **`$(date +%F)`** pone la fecha (`AAAA-MM-DD`) en el nombre: así **no se pisan** las copias. En clase a varios no les puso la fecha ("no ha puesto timestamp"); el profesor lo dejó pasar.
-- El profesor insiste: **siempre `-czf`** ("siempre se me olvida: tiene que ir antes el formato, luego el fichero").
+- `-c` crear, `-z` comprimir (gzip), `-f` fichero de salida. **`-C ~ datos`** = "entra en `~` y empaqueta `datos`": así el `.tar.gz` guarda la ruta relativa `datos/…` y al restaurar con `-C ~` vuelve a su sitio.
+- **`$(date +%F)`** = fecha `AAAA-MM-DD` en el nombre (no se pisan las copias). Nombre en la guía: **`completa-2026-11-04.tar.gz`** (con guion; mi versión anterior ponía guion bajo).
+- Audio: el profesor insiste en **`-czf`** («siempre se me olvida: primero el formato, luego el fichero»).
 
-### 5.3 Copia "espejo" con `rsync`
+### 5.3 Copia espejo con `rsync`
 ```bash
-sudo apt install -y tree          # (clase) para ver la estructura de carpetas
-rsync -avz datos/ copias/espejo/  # (clase: "a, v, z") (sin confirmar el destino exacto)
-tree
+rsync -av --delete ~/datos/ ~/copias/espejo/
+rsync -av --delete ~/datos/ ~/copias/espejo/     # repetida: casi no copia nada
 ```
-- `-a` archivo (conserva permisos, fechas…, recursivo), `-v` detalle, `-z` comprime. La salida dice **`sending incremental file list`** y lista lo copiado. Se puede repetir las veces que quieras: la segunda vez **solo copia lo que ha cambiado**.
-- **`tree`**: `sudo apt install tree` (el profesor lo usa muchísimo para comprobar "qué hay").
+- `-a` archivo (recursivo, conserva permisos y fechas), `-v` detalle. La primera vez copia todo; la segunda **solo lo cambiado** (mensaje `sending incremental file list`).
+- **`--delete` = espejo exacto**: lo que borras en el origen **también desaparece de la copia**. La guía: «úsalo con cabeza».
+- **Barra final en `~/datos/`**: copia **el contenido** de `datos` dentro de `espejo/`. Sin barra, crearía `espejo/datos/`. **(mío)**
+- *(Diapositiva 13; la salida de ejemplo lista `datos/contratos.txt` y `datos/nominas.txt`.)*
+
+> [!warning] Corrección respecto a mi versión anterior
+> Escribí que «con `rsync -avz` a secas los borrados no se propagan» y que el profesor se equivocaba al decir que se borraba del espejo. **La guía usa `--delete`, así que el profesor tenía razón para su comando.** Lo general sigue siendo cierto (**sin `--delete` un `rsync` nunca borra en destino**), pero en esta práctica **sí**.
 
 > [!warning] Cómo lo llama el profesor y qué es en realidad
-> En la clase llama al `rsync` **"copia incremental"**, **"diferencial"** y **"espejo"**, según el momento. Lo correcto: `rsync` es una **sincronización** que **transfiere solo las diferencias** (de ahí el mensaje "incremental file list"). Eso es una propiedad de la **transferencia**, no el tipo de copia: un `rsync` plano deja **una sola copia** del estado actual, **sin versiones anteriores** (a menos que uses opciones específicas, **(mío)** como `--backup` o `--link-dest`). Para el examen, quédate con los tres tipos del temario: completa, incremental, diferencial.
+> En clase dice a ratos «copia incremental», «diferencial» y «espejo». Lo correcto: `rsync` es una **sincronización** que transfiere solo diferencias; con `--delete` es un **espejo**. No es uno de los tres tipos del temario (completa, incremental, diferencial). Un `rsync` plano deja **una sola copia** del estado actual, **sin versiones anteriores**.
 
-> [!warning] Borrados y espejo: lo que dijo no es del todo exacto
-> El profesor dijo: "si borras algo del origen, **también desaparece de la copia**, hay que tener cuidado" y, al sincronizar tras borrar, "me cargo nóminas del espejo". **Con `rsync -avz` a secas eso no ocurre**: los ficheros borrados del origen **siguen en el destino**; solo se eliminan con la opción **`--delete`** (web: tutorial de GoLinuxCloud: "`--delete` removes files on the destination that are not present on the source"). **Es probable que el espejo del que habla sea con `--delete`**, que no se oye. Si quieres un espejo exacto, añade `--delete` (y pruébalo antes con `--dry-run`, **(mío)**); si quieres que no te borre, no lo uses. **Sin confirmar** qué ejecutó él.
-
-### 5.4 Desastre pequeño y restauración
+### 5.4 Copia en otro servidor (opcional · guía, paso 4)
 ```bash
-tree datos
-rm datos/nominas.txt               # (clase) "borramos las nóminas" (desastre pequeño)
-tree datos                         # ya no está
-rsync -avz copias/espejo/nominas.txt datos/    # (clase) recuperarlas del espejo
-tree datos                         # vuelve a estar
+rsync -avz ~/datos/ ubuntu@<IP-SEGUNDA-MAQUINA>:~/copias/espejo/
 ```
-- **Sacar un `sha256sum`** (hash) de los ficheros antes y después "para verificar que no ha cambiado nada" (el profesor lo mencionó y no lo ejecutó, **(mío)** `sha256sum datos/*`).
-- **Desastre grande:** `rm -rf datos` y se pierde todo. Restauras desde la **completa**:
-  ```bash
-  tar -xzf copias/completa_<fecha>.tar.gz     # (clase: "primero descomprimirlo y copiarlo donde estaba") (sin confirmar)
-  tree
-  ```
-  Con **todo** de vuelta (`contratos.txt` y `nominas.txt`).
+`-z` comprime durante el envío. La guía usa una IP privada de ejemplo (`10.0.0.20`); cámbiala por la de tu segunda máquina **si la tienes**. Esa copia «vive en OTRA máquina»: es el «otro sitio» de la 3-2-1. *(En el audio el profesor no la hizo en vivo; quería montar esto con otro servidor o S3 otro día.)*
 
-> [!important] Lo que enseñó el fallo en directo (clase)
-> Al profesor le salió mal: tras el desastre ejecutó otra sincronización y comprobó que el espejo **solo tenía lo que había en el momento** del `rsync` (había creado los ficheros **después**, o los actualizó con un estado ya borrado). Moraleja que repitió, con ayuda de un alumno que lo formuló bien: **el `rsync` captura "ese instante"**; si lo vuelves a ejecutar con el origen ya dañado, **copias el daño** (o pierdes lo que tenías). **La copia completa es la que te salva.**
-> - **Uso que le da el profesor al `rsync`:** para **configuraciones que sabes que funcionan** (DNS, Apache con todos sus virtual hosts): lo hace **una vez** cuando el servidor está completo y lo guarda como "punto de retorno". **Para datos, no**: ahí van las completas/incrementales/diferenciales y los volcados.
-> - Alternativa pensada: guardar la sincronización **comprimida con la fecha** ("espejo del 4/11, espejo del 5/11…"), porque si no pierdes versiones. Y ya apareció **Git** como ejemplo de "commits = snapshots de texto" para volver atrás; lo veremos otro día.
+### 5.5 Desastre pequeño: borrar un fichero y restaurarlo
+```bash
+rm ~/datos/nominas.txt
+cat ~/datos/nominas.txt                      # No existe el archivo
+rsync -av ~/copias/espejo/nominas.txt ~/datos/    # restaurar SOLO ese fichero (sin --delete)
+cat ~/datos/nominas.txt                      # vuelve: nóminas de octubre
+sha256sum ~/datos/nominas.txt ~/copias/espejo/nominas.txt
+```
+- **Si las dos huellas coinciden, la restauración es íntegra**: recuperaste «el MISMO fichero». La guía: **«recuperar sin verificar no vale»**. *(Mi versión anterior decía que el profesor no ejecutó el `sha256sum`; en la guía y la diapositiva 18 **sí** está.)*
+- Ojo: aquí el **origen es la copia** y el destino tus datos, al revés que al copiar.
 
-### 5.5 Sacar la copia del servidor: `scp`
+### 5.6 Desastre total: restaurar la carpeta entera con `tar`
+```bash
+rm -rf ~/datos            # se va la carpeta entera
+ls ~/datos                # ya no existe
+tar -xzf ~/copias/completa-$(date +%F).tar.gz -C ~
+ls ~/datos                # contratos.txt  nominas.txt: restaurada entera
+```
+`-x` extraer. Con `$(date +%F)` la restauración **solo funciona el mismo día** de la copia; otro día, escribe la fecha a mano. **(mío)**
+
+> [!important] Lo que enseñó el fallo en directo (audio)
+> Al profesor le salió mal una restauración en clase: el `rsync --delete` repetido **tras** el borrado **propagó el borrado al espejo** («me cargo nóminas del espejo»). Moraleja suya: el `rsync` **captura ese instante**; si lo vuelves a lanzar con el origen ya dañado, **copias el daño**. **La copia completa (`tar`) es la que te salva.**
+> - **Uso que le da el profesor al `rsync`:** para **configuraciones que sabes que funcionan** (DNS, Apache con virtual hosts): una vez, con el servidor completo, como «punto de retorno». **Para datos, no**: completas/incrementales/diferenciales y volcados.
+> - Alternativa: guardar el espejo **comprimido con fecha** («espejo del 4/11, del 5/11…») para no perder versiones; apareció **Git** como ejemplo de «commits = snapshots de texto» (otro día).
+
+### 5.7 Sacar la copia del servidor: `scp` (solo audio)
 - El profesor la baja a su equipo con **`scp`** (parte de SSH que **sube y baja ficheros**) o la sube a otro servidor por SSH. **(mío)**:
   ```bash
-  scp -i labsuser.pem ubuntu@<TU-ELASTIC-IP>:/home/ubuntu/copias/completa_<fecha>.tar.gz .
+  scp -i labsuser.pem ubuntu@<TU-ELASTIC-IP>:/home/ubuntu/copias/completa-<fecha>.tar.gz .
   ```
   Lo ve "la semana siguiente" con más calma (**sin confirmar**; dijo que "no lo conocéis todavía").
 - Quería montar una práctica con **copia en otro servidor** (conectarse por SSH a otra máquina) y, mejor, a un **bucket de S3**: "me quedaría guapísimo"; **lo prepara él** para otra clase.
@@ -180,16 +186,16 @@ tree datos                         # vuelve a estar
 
 AWS permite una **copia exacta** del volumen del servidor en ese instante: es la excepción a "no copies todo el sistema". Se restaura de forma muy rápida y "te ahorra reinstalar y reconfigurar el servidor entero". Idea del profesor: **datos a diario, sistema con menos frecuencia**.
 
-Pasos en la consola (clase):
+Pasos en la consola (clase y guía, paso 7; la guía lo llama **Crear snapshot**, la consola en español **Crear instantánea**):
 1. **EC2 → Elastic Block Store → Volúmenes** (menú izquierdo). Quita el filtro si no ves tu volumen y localiza el de tu instancia (en la instancia, pestaña **Almacenamiento**; en clase, 8 GiB).
 2. Selecciona el volumen → **Acciones → Crear instantánea**.
-3. **Descripción** con la fecha (en clase: "copia del 4/11/2026") → **Crear instantánea**.
+3. **Descripción** con la fecha (en clase: «copia del 4/11/2026»; guía: «sad1 estado 4-nov») → **Crear instantánea**.
 4. Mira en **Instantáneas** (menú izquierdo): aparece la creada. Si ves rojo por *Data Lifecycle Manager*, "da igual": es por no tener política.
 
 > [!note] Mío (web, sin verificar hoy)
 > Una instantánea de un volumen en marcha es **consistente ante fallos** (como si se cortara la luz), no consistente con la aplicación: la misma limitación de la base de datos de la Tarea 4. Para una BD, vuelca antes con `mysqldump` o para el servicio. En AWS las instantáneas posteriores guardan solo los bloques cambiados.
 
-Un snapshot de AWS **sería la copia "1" (fuera, en otro sitio) de la regla 3-2-1**, dijo el profesor.
+**Diapositiva 19:** `tar` y `rsync` copian **ficheros**; el snapshot copia el **disco entero** (sistema incluido) y AWS lo guarda **aparte del servidor**: si el servidor desaparece, la foto sigue. **Se complementan: ficheros a diario, snapshot del sistema de vez en cuando.** Un snapshot de AWS **sería la copia "1" (fuera, en otro sitio) de la regla 3-2-1**, dijo el profesor.
 
 ## Tarea 7 · S3: buckets (demostración)
 
@@ -211,27 +217,47 @@ Ejercicio en clase: **¿qué RPO para una pyme?** "La seguridad es muy adaptativ
 
 Cómo calcularlo: "cuánto pierdes en una semana", mirar qué documentos cambian al día, si ya hay copia en OneDrive/servidor local, etc. Recuerda: **RPO = la antigüedad máxima de la última copia útil** (Tema 2).
 
-**Política de ejemplo del profesor (audio confuso, sin confirmar):**
-- **Datos de trabajo:** incrementales frecuentes más completa periódica, en disco aparte.
-- **Sistema entero:** completa semanal/cada pocas semanas, con la frecuencia que convenga ("completa cada 4 semanas").
-- **Configuración histórica** (`/etc`): una copia **cuando terminas de configurar** el servidor (y al cambiar algo importante).
-- Cierre: **"una copia de seguridad que no has restaurado no es una copia, es una esperanza"** ("lo último que se pierde").
+**Política de ejemplo para `sad1` · diapositiva 23 (el detalle, «a fondo» en la Clase 9)**
+
+| Qué se copia | Cada cuánto | Se guarda | Dónde |
+|---|---|---|---|
+| **Datos de trabajo** | Diaria · **incremental** | **30 días** | Disco aparte |
+| **Sistema entero** | Semanal · **completa** | **4 semanas** | **Snapshot AWS** |
+| **Configuración (`/etc`)** | **En cada cambio** | Histórico | Copia local |
+
+«La política no se inventa: sale del **RTO y RPO**.» ¿Cuántos datos puedes perder? → marca **cada cuánto** copias. ¿Cuánto puedes tardar en volver? → marca **dónde y cómo** guardas. *(Mi versión anterior, hecha solo con audio, decía «sistema entero completa cada 4 semanas»: la tabla del PDF es semanal con retención de 4 semanas.)*
+
+Cierre (diapositivas 24 y 27): **«una copia que no has restaurado nunca no es una copia: es una esperanza»**; **«hacer copias es fácil, restaurarlas el día malo, no»**.
+
+## Lo que traen las diapositivas y no estaba claro en el audio
+
+- **Diapositiva 3:** la copia **fija tu RPO** («si copias cada día, tu RPO es de un día»). Dice que la 3-2-1 y completa/incremental ya se vieron en **Ciber**: «hoy no las reexplicamos, las usamos» (aun así las repasó en clase).
+- **Diapositiva 7:** además de disco, NAS, cinta o nube: **cerca** (rápida) y **lejos** («para cuando arde el edificio, como OVH»), y **RAID no es copia**: «si borras un fichero por error, se borra en todos a la vez; el RAID es disponibilidad».
+- **Diapositiva 8, qué se copia:** **SÍ** datos de trabajo, configuración (`/etc`) y bases de datos; **NO** SO, programas, caché y `/tmp`; **excepción:** una imagen/snapshot del sistema «de vez en cuando».
+- **Diapositiva 9, frío/caliente:** frío = paras, copias, arrancas; caliente = sin parar, con riesgo si hay BD en marcha; **solución: volcado (dump) o snapshot**. «La trampa clásica: copiar con `rsync` los ficheros de una BD en marcha.»
+- **Diapositiva 10, 3-2-1:** 3 copias · 2 medios distintos · 1 fuera del edificio. Ejemplo en `sad1`: **datos + copia local + snapshot en la nube = 3 copias, 2 medios (disco y snapshot), 1 fuera**; «sobrevives a un borrado, un disco muerto, un ransomware e incluso un incendio». **Aquí el original SÍ cuenta como una de las 3** (ver nota del [18/11](2026-11-18_repaso-simulacro-temas-1-2-3.md)).
+- **Diapositiva 6 (la semana):** completa el lunes; **incremental** = martes (solo martes), miércoles (solo miércoles), jueves (solo jueves) → restaurar el jueves = **completa + 3 incrementales (4 piezas; si falta una, no restauras)**; **diferencial** = martes, martes+miércoles, martes+miércoles+jueves → **completa + la del jueves (2 piezas)**: «la diferencial es más segura de restaurar».
+
+> [!important] Antes de cerrar (guía de la práctica)
+> 1. Comprueba que los datos están restaurados (`ls ~/datos` y `cat`).
+> 2. **Apaga la instancia con *Stop* (NO *Terminate*)**; el snapshot se queda guardado.
+> 3. **Apunta en el «diario de incidentes»**: qué copiaste, qué borraste, cómo restauraste y si la huella coincidía.
 
 ## Casos reales que citó
 
 | Caso | Qué pasó | Verificado |
 |---|---|---|
-| **Toy Story 2** | Alguien lanzó un borrado sobre el servidor de la película y se perdió casi todo; las **copias llevaban semanas fallando** y nadie lo miraba; se salvó por la copia en casa de una empleada | Citado por el profesor; **no lo he verificado hoy** |
+| **Toy Story 2 (1998)** | Alguien lanzó un borrado sobre el servidor de la película; las **copias llevaban semanas fallando** y nadie lo miraba; se salvó por la copia que una empleada tenía **en su casa** | Diapositiva 21 y audio; **no lo he verificado en fuente externa** |
 | **GitLab (2017)** | Un técnico borró por error la base de datos de **producción** (era el servidor equivocado). Quedó ~**4,5 GB de unos 300 GB**. **Cinco** técnicas de copia/replicación **no funcionaban bien**. Restauraron desde una copia de unas **6 horas** antes y **perdieron 6 h de datos** | **Sí**, según el informe oficial de GitLab (web) |
 
 Moraleja: **tener copia no basta, hay que verificar que se puede restaurar.**
 
 ## Próximas sesiones y logística
 
-- **Siguiente clase (según el profesor):** automatizar: **`cron` + `rsync`**, una **restauración real**, y la **política de copias** (frecuencia, **ventana de copia**, **rotación**). También montará un servidor con varios servicios para hacer un **3-2-1 completo** ("el desastre"). **Actualización (11/11, nota nueva):** se hizo `cron` + rotación (GFS/Hanoi) + ventana + política; **no hubo restauración real ni 3-2-1 completo**: el profesor lo ata a la Actividad 2 (ver [11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md)).
-- **Material a leer:** el profesor pidió leer "el 3.2 y el 3.3" del temario (es **probable** que sea el Tema 3, apartados **3.2 Copias de seguridad** y **3.3 Frecuencia**) y la **guía de INCIBE sobre la regla 3-2-1**.
+- **Siguiente clase (diapositiva 25):** **Clase 9 · 11/11**: frecuencia y política a fondo (RPO/RTO, ventana de copia, retención y rotación con **Torres de Hanói**) y **automatizar con `cron`**. **Laboratorio · 16/11**: «la copia completa en serio: `rsync`, `tar` y `cron` sobre el servidor, y una **restauración real**; deja hecho el **apartado de copias de la Actividad 2**». **Actualización (11/11 y 18/11):** el 11/11 se hizo `cron` + rotación + política; **no hubo restauración real ni 3-2-1 completo**, y el 18/11 el profesor dijo que **un laboratorio se movía al siguiente trimestre**: es **probable** que sea este del 16/11 (**sin confirmar**; ver [11/11](2026-11-11_tema3-cron-ventana-rotacion-gfs-hanoi-politica.md)).
+- **Para la próxima clase (diapositiva 26):** (1) **repetir la copia y la restauración** en tu `sad1` «sin mirar los apuntes»; (2) **hacer un snapshot** del volumen de `sad1` (lo necesitas «a punto para el laboratorio del 16»); (3) **leer 3.2 y 3.3** del campus (confirmado: **Tema 3, 3.2 Copias y 3.3 Frecuencia**). Audio: además, la **guía de INCIBE sobre la 3-2-1**.
 - **Calendario:** el profesor preguntó si el **lunes** era festivo (en Madrid, el **9/11** es la festividad de la Almudena, lo dijo sin certeza) y si afectaba a UNIR; **sin confirmar** si hubo clase. La práctica grande se hace "cuando se pueda".
-- **Actividad 2:** "la ponemos de fondo", "para que os vaya sonando; las de SAD son siempre las primeras"; lo dijo junto a una fecha, **16 de noviembre** (audio muy confuso: habla de "el 9 está mal", "clase el 9, el 11 no es clase"). Hasta ahora anoté **18/01** (sin confirmar). Con esto la fecha sigue **sin confirmar**: **mira la entrega en el campus**. **Actualización (11/11):** el audio apoya la entrega del **18/01** (con un "no" dudoso); sigue sin confirmar en el campus.
+- **Actividad 2:** el PDF aclara el «16 de noviembre» confuso del audio: es la fecha del **laboratorio**, **no** de la entrega. Diapositiva 25: «tu plan de seguridad pasiva incluye el **plan de copias**; todo lo de hoy y de la Clase 9 es **material directo de esa actividad**». La entrega sigue siendo **18/01 (sin confirmar en el campus)**.
 - **Conexión con otros módulos:** en **Ciber** se hicieron copias con `rsync`/`cron` y cifrado con `gpg` ([Clase 6](../Ciber/2026-10-20_clase6-contrasenas-copias.md)); en **SER** tienes la parte práctica de un servidor real.
 
 ## Si algo no funciona
@@ -240,19 +266,17 @@ Moraleja: **tener copia no basta, hay que verificar que se puede restaurar.**
 |---|---|---|
 | `tar` no pone la fecha en el nombre | La sustitución `$(date +%F)` mal escrita, o entre comillas simples | Comprueba que sea `$(date +%F)` y sin comillas simples |
 | `rsync` no copia nada nuevo | No ha cambiado nada (es lo normal) | Modifica un fichero y repite |
-| `rsync` se "pasa" borrando | Usaste `--delete` | Pruébalo con `--dry-run` antes |
+| El espejo pierde un fichero tras un desastre | `--delete` propaga los borrados si relanzas el `rsync` | Restaura **antes** de relanzarlo; prueba con `--dry-run` |
 | La restauración sale vacía | La copia se hizo después del borrado, o con el origen ya dañado | Restaura desde una **completa anterior**; haz copias **antes** del problema |
 | `tree: command not found` | No está instalado | `sudo apt install tree` |
 | La BD restaurada da errores | Copia en caliente a medias | Usa `mysqldump` o para el servicio |
 
 ## Dudas y cosas sin confirmar
 
-- **Documento de la práctica** y presentación de la clase: no recibidos; comandos reconstruidos.
-- **Fecha de entrega de la Actividad 2:** 18/01 (anterior) frente a un "16 de noviembre" confuso en el audio.
+- ✅ **Resueltas con los PDF:** comandos exactos de la práctica, uso de `--delete`, `sha256sum`, política de ejemplo, «16 de noviembre» (= laboratorio) y «leer 3.2 y 3.3».
+- **Fecha de entrega de la Actividad 2:** 18/01, sin confirmar en el campus.
 - **Si hubo clase el 9/11** (festivo local en Madrid, sin confirmar).
-- **Qué ejecutó exactamente** con `rsync` (¿`--delete`?, ¿qué destino?). **11/11:** dicta `rsync -a --delete`, así que es probable que el 4/11 fuera lo mismo.
-- **Política de ejemplo** (frecuencias): audio confuso.
-- **"Leeros el 3.2 y el 3.3"**: interpretado como apartados del temario.
+- **Si el laboratorio del 16/11 se celebró o se movió** (el 18/11 dijo que uno se movía; sin confirmar que sea este).
 - **Cómo se restaura un snapshot** (crear volumen o AMI): no se mostró (solo la creación).
 
 Fuentes (web): [GitLab: postmortem de la incidencia de 2017](https://about.gitlab.com/blog/gitlab-dot-com-database-incident) · [GoLinuxCloud: rsync](https://www.golinuxcloud.com/rsync-command-in-linux/)
