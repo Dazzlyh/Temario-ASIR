@@ -2,7 +2,7 @@
 asignatura: Ciberseguridad
 fecha: 2026-11-17
 tema: "Repaso del primer trimestre (Temas 1-4) y simulacro: formato del examen, qué estudiar por apartado y tipo de preguntas"
-fuente: transcripción de la clase (55 min) + lista de apuntes de Dani. No recibidos: las 20 diapositivas de repaso («temas repaso») ni el documento del simulacro (se publica el viernes 20/11). Contrastado con el temario `Ciberseguridad/cs_tema01…04` y con mis notas anteriores de Ciber.
+fuente: transcripción de la clase (55 min) + lista de apuntes de Dani + **PDFs del profesor recibidos el 25/11**: `CIBER_Clase10_diapositivas.pdf` (20 diapositivas), `CIBER_Repaso_T1-4.pdf` (3 págs.), `CIBER_Guia_estudio_T1.pdf` (3) y `CIBER_Repaso_expres_simulacro.pdf` (1). Donde difieren del audio, manda el PDF. No recibido: el documento del simulacro del 24/11. Contrastado con el temario `Ciberseguridad/cs_tema01…04` y con mis notas anteriores de Ciber.
 ---
 # Ciber · 17/11 · Repaso para el simulacro: qué entra y cómo se pregunta
 
@@ -19,13 +19,19 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 > - **No se pide hacer forense**, solo conceptos: cadena de custodia, `dd`, hash y bloqueo en solo lectura.
 > - **Jamás «encriptar»:** lo repitió en serio (−0,25 por aparición, y solo lo perdonaría con una sonrisa al lado, en broma). Usa **cifrar/descifrar**.
 
+> [!warning] Actualización 25/11: los PDFs corrigen el audio en tres puntos
+> 1. **«Dimensionar el SAI no entra» (audio) → SÍ entra (PDFs).** El repaso, la guía y la hoja exprés lo ponen en el test y en «interpretar»: **vatios ÷ 0,6 ≈ VA**; ejemplo: **170 W → ~283 VA → SAI de 500–650 VA**; en Linux se vigila con **NUT**. **Estúdialo**: si el audio tenía razón, solo has perdido un minuto.
+> 2. **Tema 2: 2.2 y 2.3 «enteros»** (PDF), no «por encima» ni «solo los tipos de SAI» (audio). Son «pocas páginas».
+> 3. **Autenticidad y no repudio «son complemento, no están en el material del Tema 1»** (PDF). Tus cuatro pilares (fiable, confidencial, íntegro, disponible) son los que entran.
+> Además: el PDF añade **qué dejar** (MITRE ATT&CK, bug bounty, precios de Zerodium/Pwn2Own, CPD por el mundo, escítala/César/Vigenère/Enigma, detalle de Torres de Hanói, estándares forenses de memoria) y **«los cuatro que hay que saber leer»** (ver abajo).
+
 ## Qué estudiar por apartado del temario (según el profesor)
 
 | Tema | Apartados | Cómo los trató |
 |---|---|---|
-| 1 | **1.2** (confidencialidad, integridad, disponibilidad), **1.3** (elementos vulnerables), **1.5** (amenazas) | La 1.2 y la 1.5 son lo "gordo, gordo"; de la 1.3 "tampoco pregunto mucho" |
-| 2 | **2.2** (protección física: incidentes, acceso físico, factores ambientales) y **2.3** (SAI: tipos) | La 2.2 tiene mucha información: léela por encima. De la 2.3 solo los **tipos de SAI**. **Dimensionar no entra** ("olvidaros dimensionar"). Los apartados "A fondo": ignóralos |
-| 3 | **3.2** (criptografía y hash), **3.3** (contraseñas y almacenamiento), **3.4** (copias) | La 3.4 es **lectura ligera**: "4 puntitos básicos, el resto me da igual" |
+| 1 | **1.2** (confidencialidad, integridad, disponibilidad), **1.3** (elementos vulnerables), **1.5** (amenazas) | La 1.2 y la 1.5 son lo "gordo, gordo"; de la 1.3 "tampoco pregunto mucho". **PDF:** el **1.4 es contenido forense**: repásalo con el Tema 4; «A fondo» y Entrenamientos, fuera |
+| 2 | **2.2** (protección física: incidentes, acceso físico, factores ambientales) y **2.3** (SAI: tipos) | La 2.2 tiene mucha información: léela por encima. De la 2.3 solo los **tipos de SAI**. ~~**Dimensionar no entra**~~ (audio: "olvidaros dimensionar"): **el PDF lo incluye, estúdialo**. **PDF:** 2.2 y 2.3 **enteros**. Los apartados "A fondo": ignóralos (el PDF dice que el de este tema es una errata del material) |
+| 3 | **3.2** (criptografía y hash), **3.3** (contraseñas y almacenamiento), **3.4** (copias) | La 3.4 es **lectura ligera**: "4 puntitos básicos, el resto me da igual". **PDF:** estudia 3.2, 3.3 y 3.4; **la lectura ligera es la 3.5** (medios de almacenamiento). Es «el tema que más entra» (test e interpretar) |
 | 4 | **4.2** (metodología forense), **4.3** (estándares), **4.4** (documentación e informe) | La 4.3 (ISO 27037, RFC 3227, UNE 71505/71506) es "muchísimo": solo **resumen básico**. La 4.4 (ficha técnica, informe): por encima |
 
 - Mencionó un "1.8", que **no existe** en el temario (el Tema 1 acaba en la 1.6): audio confuso, **sin confirmar** a qué se refería (es probable que fuera la 1.2).
@@ -35,11 +41,11 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 
 | Tu nota | Veredicto |
 |---|---|
-| "Los 4 pilares: fiabilidad, confidencialidad, integridad y disponibilidad. Apoyar con no repudio" | **Casi.** El temario sí lista esos cuatro. Pero el profesor trabaja con la **tríada CIA** (confidencialidad, integridad, disponibilidad) y la **agrupa con autenticidad y no repudio**; a ti te falta la **autenticidad**. Además define "fiable" como "el sistema hace lo que debe, funciona correctamente", y recuerda la trampa de la [clase 2](2026-09-22_clase2-pilares.md): **fiabilidad ≠ disponibilidad** |
+| "Los 4 pilares: fiabilidad, confidencialidad, integridad y disponibilidad. Apoyar con no repudio" | **Correcto (corregido con el PDF).** El temario sí lista esos cuatro. Pero el profesor trabaja con la **tríada CIA** (confidencialidad, integridad, disponibilidad) y la **agrupa con autenticidad y no repudio**; **el PDF aclara que autenticidad y no repudio son complemento y no están en el material del Tema 1**: no te falta nada; tu «apoyar con no repudio» vale como extra. Además define "fiable" como "el sistema hace lo que debe, funciona correctamente", y recuerda la trampa de la [clase 2](2026-09-22_clase2-pilares.md): **fiabilidad ≠ disponibilidad** |
 | "Vulnerabilidad, amenaza, riesgo, CVE y CVSS" | **Correcto.** Pregunta explícita: "diferencia entre vulnerabilidad, amenaza y riesgo", y "qué es un CVE y un CVSS y dónde se consultan" (ver abajo). Matiz: él pide **contrastarlos con tus palabras y un ejemplo** |
 | "CPD: refrigeración, incendios, acceso físico" | Correcto. Añade: el CPD **tradicional frente al modular**, y que lo importante es la **seguridad física** |
 | "Niveles tier: los nueves, la disponibilidad" | Correcto, y falta lo que añadió: **no solo los nueves**, también **redundancia** (nodos, doble acometida eléctrica). Es como una **certificación** del CPD. Pregunta: "qué niveles de Tier hay y qué mide cada uno" |
-| "SAI: tipos" | Correcto (offline y online que citó; ver la [clase 4](2026-10-06_clase4-seguridad-fisica-sai.md) para los tres tipos). Pregunta: **para qué sirve un SAI y qué pasa cuando se va la luz** |
+| "SAI: tipos" | Correcto (offline y online que citó; ver la [clase 4](2026-10-06_clase4-seguridad-fisica-sai.md) para los tres tipos). Pregunta: **para qué sirve un SAI y qué pasa cuando se va la luz**. **PDF:** tres tipos (**offline, línea interactiva, online**) y **dimensionado** (vatios ÷ 0,6 ≈ VA) |
 | "Instrucciones de John the Ripper. Interpretarlas" | Correcto. Él dice que no hay que saber `-w` ni `-format`, sino **intuir**: "está rompiendo un hash MD5 con esta wordlist" |
 | "Tipos de cifrados: simétrico, asimétrico, hash" | **Incorrecto en el tercero:** el **hash no es cifrado** ("no hay vuelta atrás"). Tampoco lo es **Base64** (es una codificación para transportar datos). Las familias son: simétrico, asimétrico y **hash (que no cifra)** |
 | "Algoritmos de cada cifrado" | Te falta la lista (ver tabla abajo) |
@@ -73,7 +79,7 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 
 | Familia | Idea | Algoritmos que citó |
 |---|---|---|
-| **Simétrico** | **Una misma clave** cifra y descifra. Rapidísimo; el mejor con muchos datos | **AES** (el actual), **DES** (vulnerable), **3DES** (menos vulnerable), **RC4** (sin confirmar; dijo "creo que RC4"). Hay unos vulnerables y otros no |
+| **Simétrico** | **Una misma clave** cifra y descifra. Rapidísimo; el mejor con muchos datos | **AES** (el actual), **DES** (vulnerable), **3DES** (menos vulnerable), **RC4** (dijo "creo que RC4"; **el PDF lo confirma como roto**, igual que DES, MD5 y SHA-1; bien: AES, RSA, SHA-256). Hay unos vulnerables y otros no |
 | **Asimétrico** | **Clave pública y privada**; además de cifrar, **firma y autentica** | **RSA**, **curva elíptica** (lo ampliará en el 2.º trimestre con la PKI) |
 | **Hash** | **No cifra**, no tiene vuelta atrás; huella de un contenido. Sirve para **integridad** y para **guardar contraseñas** | **SHA-256** (el que se ha usado; en el audio sale roto como "SHA 200…") |
 
@@ -84,7 +90,7 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 - **Dónde están las contraseñas en Linux:** `/etc/shadow` (el audio dice "arrasado" y una segunda ubicación que no se entiende; sin confirmar). Guardan **hash + sal**.
 - **Contraseña larga > corta y complicada** (por el espectro de combinaciones; se vio con `crunch` y Hive).
 - **Copia 3-2-1:** **3 copias** (la original + 2), en **2 soportes distintos**, y **1 fuera del sitio** (p. ej. la nube).
-- **Qué NO es copia de seguridad:** **RAID** (el profesor insiste: el INCIBE lo pone como copia y él no lo comparte). Confírmalo con la [clase 6](2026-10-20_clase6-contrasenas-copias.md): RAID protege de que falle un disco, no de borrar un fichero.
+- **Qué NO es copia de seguridad:** **RAID** (el profesor insiste: el INCIBE lo pone como copia y él no lo comparte). Confírmalo con la [clase 6](2026-10-20_clase6-contrasenas-copias.md): RAID protege de que falle un disco, no de borrar un fichero. **PDF:** hay tres cosas que **no** son copia: un **RAID**, **sincronizar con la nube** (replica también el borrado o el cifrado del ataque) y **una copia que nunca has restaurado**.
 
 ### Tema 4 · Forense
 - **Cadena de custodia:** quién tocó la prueba, **cuándo y dónde**. Si se rompe, la prueba no vale.
@@ -111,6 +117,14 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 - **Hash** (`sha256sum`, y el audio dice "los 5 o 6…" sin aclarar; **sin confirmar**).
 - Los **datos de un CVE** y qué significa su CVSS.
 
+> [!important] Los cuatro de «interpretar» que «salen seguro» (PDF, diapositiva 16 y hoja exprés)
+> El bloque 3 **«es el que más puntúa y el que delata quién hizo los laboratorios»**. Estructura del simulacro (PDF): **60 min, sobre 10, sin ordenador**; bloque 1 test de 15 (sin penalización), bloque 2 tres cortas (3-4 líneas) y **bloque 3: cuatro ejercicios de leer un comando o salida**.
+> 1. **`nmap -sV`** → leer puerto, servicio y versión; detectar una **versión con fallo conocido** (vsftpd 2.3.4) y buscarla en el NVD.
+> 2. **`unshadow /etc/passwd /etc/shadow` + `john --wordlist=rockyou.txt`** → por qué cae la contraseña **corta o de diccionario** y no la larga y aleatoria.
+> 3. **`dd if=/dev/sdb of=evidencia.img` + `sha256sum` antes y después** → por qué los dos hash tienen que coincidir.
+> 4. **Ficha CVSS:** **9.8 = crítico** (grave y fácil de explotar); qué herramienta usarías (**Metasploit**) y cómo te proteges (**parchear o mitigar**).
+> **La guía añade** (Tema 3, «interpretar»): **`gpg -c`** para cifrar, **`rsync` + `cron`** para una copia programada y **probar la restauración**. **(Mío)** El PDF no cita `losetup -r` ni `openssl enc`, que sí aparecen en mi práctica: valen como ejercicio, no los des por examinados.
+
 ## Examen de mayo (para situarte)
 
 - **Presencial.** Hay **ordinaria y extraordinaria**; la evaluación continua **se mete en la ordinaria**. La **extraordinaria** es solo examen (unos 15-20 días después), "vas a full con lo que saques".
@@ -121,8 +135,8 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 
 ## Dudas y cosas sin confirmar
 
-- **Diapositivas de repaso** (20) y **documento del simulacro**: no recibidos. Prometió subir las diapositivas "al acabar la clase".
-- **Fecha de la coordinación:** mencionó un "16" ligado a la coordinación y luego dijo "yo el viernes lo publico". **Audio confuso**: manda lo último, **viernes 20/11**.
+- ✅ **Diapositivas de repaso (20) y documentos de repaso:** recibidos el 25/11. **Documento del simulacro del 24/11:** sigue sin recibir (ni su corrección).
+- ✅ **Fecha de la coordinación:** el PDF dice «En Archivos unos días antes, enlazado desde el tablón. **Coordinación avisa el 16**»; el simulacro es el **martes 24/11 a las 19:00** («esta misma hora»). El «viernes 20/11» del audio queda como fecha aproximada de publicación.
 - **Clase del jueves 19/11:** preguntó si había clase y respondió con algo ininteligible: **sin confirmar** si hay clase de Ciber.
 - **"Hay dos repasos":** se lió con la numeración de las clases (la de hoy es "clase 10", el repaso completo) y dijo que **no había subido** la anterior; irrelevante para el examen.
 - **Sin confirmar:** el "1.8", el segundo ejemplo de comando de cifrado (CBC), la segunda ubicación de contraseñas y el comando de *hash* "de los 5 o 6".
@@ -133,7 +147,7 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 - [ ] **Viernes 20/11:** bajar el simulacro del foro/tablón y hacerlo en casa (50 min, a boli y papel).
 - [ ] **Martes 24/11:** llevarlo hecho a clase para la corrección.
 - [ ] Preparar respuestas de 3-4 líneas a las 7 preguntas de arriba y practicar **leer comandos** (bloque de abajo).
-- [ ] Leer **1.2, 1.3, 1.5, 2.2, 2.3, 3.2-3.4, 4.2-4.4** (la 3.4 y la 4.3 por encima).
+- [ ] Leer **1.2, 1.3, 1.5 (y el 1.4 con el Tema 4), 2.2 y 2.3 enteros, 3.2-3.4, 4.2-4.4** (3.5 y 4.3 por encima). **Estudia el dimensionado del SAI.**
 - [ ] Mirar si llega la nota de la actividad forense (la tiene corregida pero sin subir).
 
 ---
@@ -217,6 +231,13 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 34. **CVE:** ves esta ficha (inventada): `CVE-2026-0000 · servidor web X 1.2 · CVSS 9.8 · crítica · ejecución remota`. Explica a un directivo qué es cada dato y qué riesgo supone.
 35. **Redacta una respuesta de examen** de 4 líneas máximo a: «¿Qué pasa si un SAI se queda sin batería durante un corte largo, y qué más necesita un CPD de Tier alto?».
 
+
+## Nivel 5 · Añadidos tras recibir los PDFs (25/11)
+
+36. **Dimensionar:** un equipo consume 120 W. Con la regla del PDF, ¿cuántos VA necesitas como mínimo y qué SAI comprarías?
+37. Lee y explica: `gpg -c informe.txt` y, en el `crontab`, `0 2 * * * rsync -a /datos/ /mnt/copia/`. ¿Qué te falta para fiarte de esa copia?
+38. Ficha: «CVSS 9.8 · crítica». ¿Qué te dice la nota, qué herramienta usarías para comprobar si tu servidor es explotable y cómo te proteges?
+
 ---
 
 ## Pistas (antes de mirar las soluciones)
@@ -265,3 +286,9 @@ El profesor repasa los cuatro temas del trimestre con unas diapositivas, indica 
 33. 1) Documentar la **cadena de custodia** (quién lo recibe, cuándo y dónde). 2) **Bloquear** el disco en solo lectura. 3) Calcular el **hash** del original. 4) Hacer la **copia bit a bit** con `dd`. 5) Calcular el hash de la copia y comprobar que **coincide**. 6) Trabajar **solo sobre la copia** y guardar el original.
 34. **CVE:** identificador del fallo. **CVSS 9.8:** gravedad de 0 a 10; es **crítica**. **Ejecución remota:** un atacante podría ejecutar órdenes sin estar en la red local. **Riesgo:** alto si el servidor es accesible y no está parcheado; hay que **actualizar** o **mitigar** ya.
 35. Si la batería se agota, el equipo **cae** salvo que entre un **generador**. Un CPD de Tier alto tiene **redundancia** (varios SAI, **doble acometida eléctrica**, nodos duplicados), para mantener la disponibilidad ante un fallo.
+
+**Nivel 5 (modelos; mis soluciones, aplicando la regla del PDF)**
+
+36. 120 W ÷ 0,6 = **200 VA** como mínimo; comprarías un SAI con margen (el ejemplo del PDF pasa de 283 VA a un SAI de 500-650 VA; por analogía, uno de ~500 VA). (mío: la elección comercial concreta.)
+37. `gpg -c` cifra el fichero con **una contraseña (cifrado simétrico)** y crea `informe.txt.gpg`. La línea de cron copia con `rsync -a` **cada día a las 02:00** `/datos/` en `/mnt/copia/`. Para fiarte, **hay que probar la restauración**: una copia que nunca has restaurado no cuenta (PDF); y falta aplicar la 3-2-1 (un soporte y una copia fuera).
+38. **9.8 sobre 10 = crítico**: grave y fácil de explotar. Con **Metasploit** compruebas si tu servidor es explotable. Te proteges **parcheando** (actualizar) o **mitigando** (cerrar el servicio, cortafuegos…).
